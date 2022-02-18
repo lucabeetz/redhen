@@ -1,0 +1,21 @@
+{
+  "api": {
+    "amplifyDatasource": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [],
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 20,
+              "apiKeyExpirationDate": "2022-03-10T17:30:27.274Z",
+              "description": ""
+            }
+          }
+        }
+      }
+    }
+  }
+}

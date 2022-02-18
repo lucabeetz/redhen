@@ -7,18 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		177B802ADFA87DB214092B1D /* Restaurant+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CE38FDD78A3AFF36AC6972 /* Restaurant+Schema.swift */; };
 		19921EF727BFC36A007772F9 /* MenewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19921EF627BFC36A007772F9 /* MenewApp.swift */; };
 		19921EF927BFC36A007772F9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19921EF827BFC36A007772F9 /* ContentView.swift */; };
 		19921EFB27BFC36B007772F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19921EFA27BFC36B007772F9 /* Assets.xcassets */; };
 		19921EFE27BFC36B007772F9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19921EFD27BFC36B007772F9 /* Preview Assets.xcassets */; };
+		19921F0627BFC43E007772F9 /* AWSAPIPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 19921F0527BFC43E007772F9 /* AWSAPIPlugin */; };
+		19921F0827BFC43E007772F9 /* AWSDataStorePlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 19921F0727BFC43E007772F9 /* AWSDataStorePlugin */; };
+		19921F0A27BFC43E007772F9 /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = 19921F0927BFC43E007772F9 /* Amplify */; };
+		19921F0C27C056DE007772F9 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19921F0B27C056DE007772F9 /* WebView.swift */; };
+		A146816C11897351713BC073 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 2506E6EC7143E07477163912 /* awsconfiguration.json */; };
+		A567FC958E42FEBA9CD6EA27 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE1BD8C72D296354EEB92CA /* Restaurant.swift */; };
+		AE01A80D11441993949C7086 /* AmplifyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100229F52CDEF110D5930D93 /* AmplifyModels.swift */; };
+		BC40FB2DE1696369EBED26E8 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E60337A547823DF540D9776 /* amplifyconfiguration.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		07CE38FDD78A3AFF36AC6972 /* Restaurant+Schema.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "Restaurant+Schema.swift"; path = "amplify/generated/models/Restaurant+Schema.swift"; sourceTree = "<group>"; };
+		100229F52CDEF110D5930D93 /* AmplifyModels.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = AmplifyModels.swift; path = amplify/generated/models/AmplifyModels.swift; sourceTree = "<group>"; };
 		19921EF327BFC36A007772F9 /* Menew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Menew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19921EF627BFC36A007772F9 /* MenewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenewApp.swift; sourceTree = "<group>"; };
 		19921EF827BFC36A007772F9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		19921EFA27BFC36B007772F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19921EFD27BFC36B007772F9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		19921F0B27C056DE007772F9 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		2506E6EC7143E07477163912 /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
+		3AE1BD8C72D296354EEB92CA /* Restaurant.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Restaurant.swift; path = amplify/generated/models/Restaurant.swift; sourceTree = "<group>"; };
+		6E60337A547823DF540D9776 /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +41,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19921F0A27BFC43E007772F9 /* Amplify in Frameworks */,
+				19921F0627BFC43E007772F9 /* AWSAPIPlugin in Frameworks */,
+				19921F0827BFC43E007772F9 /* AWSDataStorePlugin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -37,6 +55,8 @@
 			children = (
 				19921EF527BFC36A007772F9 /* Menew */,
 				19921EF427BFC36A007772F9 /* Products */,
+				5A4DC56A3965919E66721A5A /* AmplifyConfig */,
+				2C36B905C028E0F06EB7D861 /* AmplifyModels */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,6 +75,7 @@
 				19921EF827BFC36A007772F9 /* ContentView.swift */,
 				19921EFA27BFC36B007772F9 /* Assets.xcassets */,
 				19921EFC27BFC36B007772F9 /* Preview Content */,
+				19921F0B27C056DE007772F9 /* WebView.swift */,
 			);
 			path = Menew;
 			sourceTree = "<group>";
@@ -65,6 +86,25 @@
 				19921EFD27BFC36B007772F9 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2C36B905C028E0F06EB7D861 /* AmplifyModels */ = {
+			isa = PBXGroup;
+			children = (
+				100229F52CDEF110D5930D93 /* AmplifyModels.swift */,
+				07CE38FDD78A3AFF36AC6972 /* Restaurant+Schema.swift */,
+				3AE1BD8C72D296354EEB92CA /* Restaurant.swift */,
+			);
+			name = AmplifyModels;
+			sourceTree = "<group>";
+		};
+		5A4DC56A3965919E66721A5A /* AmplifyConfig */ = {
+			isa = PBXGroup;
+			children = (
+				2506E6EC7143E07477163912 /* awsconfiguration.json */,
+				6E60337A547823DF540D9776 /* amplifyconfiguration.json */,
+			);
+			name = AmplifyConfig;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +123,11 @@
 			dependencies = (
 			);
 			name = Menew;
+			packageProductDependencies = (
+				19921F0527BFC43E007772F9 /* AWSAPIPlugin */,
+				19921F0727BFC43E007772F9 /* AWSDataStorePlugin */,
+				19921F0927BFC43E007772F9 /* Amplify */,
+			);
 			productName = Menew;
 			productReference = 19921EF327BFC36A007772F9 /* Menew.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +156,9 @@
 				Base,
 			);
 			mainGroup = 19921EEA27BFC36A007772F9;
+			packageReferences = (
+				19921F0427BFC43E007772F9 /* XCRemoteSwiftPackageReference "amplify-ios" */,
+			);
 			productRefGroup = 19921EF427BFC36A007772F9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,6 +175,8 @@
 			files = (
 				19921EFE27BFC36B007772F9 /* Preview Assets.xcassets in Resources */,
 				19921EFB27BFC36B007772F9 /* Assets.xcassets in Resources */,
+				A146816C11897351713BC073 /* awsconfiguration.json in Resources */,
+				BC40FB2DE1696369EBED26E8 /* amplifyconfiguration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +189,10 @@
 			files = (
 				19921EF927BFC36A007772F9 /* ContentView.swift in Sources */,
 				19921EF727BFC36A007772F9 /* MenewApp.swift in Sources */,
+				AE01A80D11441993949C7086 /* AmplifyModels.swift in Sources */,
+				19921F0C27C056DE007772F9 /* WebView.swift in Sources */,
+				177B802ADFA87DB214092B1D /* Restaurant+Schema.swift in Sources */,
+				A567FC958E42FEBA9CD6EA27 /* Restaurant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +395,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		19921F0427BFC43E007772F9 /* XCRemoteSwiftPackageReference "amplify-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/aws-amplify/amplify-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		19921F0527BFC43E007772F9 /* AWSAPIPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 19921F0427BFC43E007772F9 /* XCRemoteSwiftPackageReference "amplify-ios" */;
+			productName = AWSAPIPlugin;
+		};
+		19921F0727BFC43E007772F9 /* AWSDataStorePlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 19921F0427BFC43E007772F9 /* XCRemoteSwiftPackageReference "amplify-ios" */;
+			productName = AWSDataStorePlugin;
+		};
+		19921F0927BFC43E007772F9 /* Amplify */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 19921F0427BFC43E007772F9 /* XCRemoteSwiftPackageReference "amplify-ios" */;
+			productName = Amplify;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 19921EEB27BFC36A007772F9 /* Project object */;
 }

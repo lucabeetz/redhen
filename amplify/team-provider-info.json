@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-menew-dev-140940-authRole",
+      "UnauthRoleArn": "arn:aws:iam::624413284950:role/amplify-menew-dev-140940-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::624413284950:role/amplify-menew-dev-140940-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-menew-dev-140940-deployment",
+      "UnauthRoleName": "amplify-menew-dev-140940-unauthRole",
+      "StackName": "amplify-menew-dev-140940",
+      "StackId": "arn:aws:cloudformation:eu-central-1:624413284950:stack/amplify-menew-dev-140940/0da19f30-90bc-11ec-9835-064c1b7065e4",
+      "AmplifyAppId": "d3tl798fz0drav"
+    }
+  }
+}
