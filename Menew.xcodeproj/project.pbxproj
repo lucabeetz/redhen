@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		177B802ADFA87DB214092B1D /* Restaurant+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CE38FDD78A3AFF36AC6972 /* Restaurant+Schema.swift */; };
-		1956272F27C2E6CD001AED2A /* queries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1956272E27C2E6CD001AED2A /* queries.swift */; };
+		1956272F27C2E6CD001AED2A /* nearbyRestaurants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1956272E27C2E6CD001AED2A /* nearbyRestaurants.swift */; };
+		1956273227C2F87E001AED2A /* RestaurantProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1956273127C2F87E001AED2A /* RestaurantProvider.swift */; };
 		19921EF727BFC36A007772F9 /* MenewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19921EF627BFC36A007772F9 /* MenewApp.swift */; };
 		19921EF927BFC36A007772F9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19921EF827BFC36A007772F9 /* ContentView.swift */; };
 		19921EFB27BFC36B007772F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19921EFA27BFC36B007772F9 /* Assets.xcassets */; };
@@ -30,7 +31,8 @@
 /* Begin PBXFileReference section */
 		07CE38FDD78A3AFF36AC6972 /* Restaurant+Schema.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "Restaurant+Schema.swift"; path = "amplify/generated/models/Restaurant+Schema.swift"; sourceTree = "<group>"; };
 		100229F52CDEF110D5930D93 /* AmplifyModels.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = AmplifyModels.swift; path = amplify/generated/models/AmplifyModels.swift; sourceTree = "<group>"; };
-		1956272E27C2E6CD001AED2A /* queries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = queries.swift; sourceTree = "<group>"; };
+		1956272E27C2E6CD001AED2A /* nearbyRestaurants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nearbyRestaurants.swift; sourceTree = "<group>"; };
+		1956273127C2F87E001AED2A /* RestaurantProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantProvider.swift; sourceTree = "<group>"; };
 		19921EF327BFC36A007772F9 /* Menew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Menew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19921EF627BFC36A007772F9 /* MenewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenewApp.swift; sourceTree = "<group>"; };
 		19921EF827BFC36A007772F9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -60,6 +62,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1956273027C2F797001AED2A /* API */ = {
+			isa = PBXGroup;
+			children = (
+				1956272E27C2E6CD001AED2A /* nearbyRestaurants.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		19921EEA27BFC36A007772F9 = {
 			isa = PBXGroup;
 			children = (
@@ -81,12 +91,13 @@
 		19921EF527BFC36A007772F9 /* Menew */ = {
 			isa = PBXGroup;
 			children = (
+				1956273027C2F797001AED2A /* API */,
 				19921EF627BFC36A007772F9 /* MenewApp.swift */,
 				19921EF827BFC36A007772F9 /* ContentView.swift */,
 				19921EFA27BFC36B007772F9 /* Assets.xcassets */,
 				19921EFC27BFC36B007772F9 /* Preview Content */,
 				19921F0B27C056DE007772F9 /* WebView.swift */,
-				1956272E27C2E6CD001AED2A /* queries.swift */,
+				1956273127C2F87E001AED2A /* RestaurantProvider.swift */,
 			);
 			path = Menew;
 			sourceTree = "<group>";
@@ -212,7 +223,8 @@
 				1CAFF408ED328EA53FD37E49 /* Location.swift in Sources */,
 				BC046849CAA6CDF34E88FB5E /* ModelRestaurantConnection+Schema.swift in Sources */,
 				B8091F47CFB73E6BEFCB7A4A /* ModelRestaurantConnection.swift in Sources */,
-				1956272F27C2E6CD001AED2A /* queries.swift in Sources */,
+				1956272F27C2E6CD001AED2A /* nearbyRestaurants.swift in Sources */,
+				1956273227C2F87E001AED2A /* RestaurantProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,39 +9,15 @@ import SwiftUI
 import Amplify
 
 struct ContentView: View {
-    @State var menuUrl: String?
+    @StateObject var restaurantProvider = RestaurantProvider()
     
     var body: some View {
         VStack {
-            if menuUrl != nil {
-                WebView(url: menuUrl!)
-                    .edgesIgnoringSafeArea(.bottom)
-            } else {
+            if restaurantProvider.nearestRestaurants.isEmpty {
                 ProgressView()
-            }
-        }
-        .onAppear(perform: performOnAppear)
-    }
-    
-    func performOnAppear() {
-        Amplify.API.query(request: .getNearbyRestaurants(lat: 11, lon: 11, radius: 50)) { result in
-            switch(result) {
-            case .success(let restaurants):
-                switch(restaurants) {
-                case .success(let restaurants):
-                    for restaurant in restaurants {
-                        print("==== Restaurant ====")
-                        print("Name: \(restaurant.name)")
-                        if let menu = restaurant.menu {
-                            print("Menu: \(menu)")
-                            menuUrl = menu
-                        }
-                    }
-                case .failure(let error):
-                    print("Error: \(error)")
-                }
-            case .failure(let error):
-                print("Could not query DataStore: \(error)")
+            } else {
+                WebView(url: restaurantProvider.nearestRestaurants[0].menu!)
+                    .edgesIgnoringSafeArea(.bottom)
             }
         }
     }
