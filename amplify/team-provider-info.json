@@ -11,5 +11,44 @@
       "StackId": "arn:aws:cloudformation:eu-central-1:624413284950:stack/amplify-menew-dev-140940/0da19f30-90bc-11ec-9835-064c1b7065e4",
       "AmplifyAppId": "d3tl798fz0drav"
     }
+  },
+  "menewdev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-menew-menewdev-220323-authRole",
+      "UnauthRoleArn": "arn:aws:iam::624413284950:role/amplify-menew-menewdev-220323-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::624413284950:role/amplify-menew-menewdev-220323-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-menew-menewdev-220323-deployment",
+      "UnauthRoleName": "amplify-menew-menewdev-220323-unauthRole",
+      "StackName": "amplify-menew-menewdev-220323",
+      "StackId": "arn:aws:cloudformation:eu-central-1:624413284950:stack/amplify-menew-menewdev-220323/61517310-91c7-11ec-b302-06ae8806ebc4",
+      "AmplifyAppId": "dmje9gkbytep4"
+    }
+  },
+  "menew": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-menew-menew-231654-authRole",
+      "UnauthRoleArn": "arn:aws:iam::624413284950:role/amplify-menew-menew-231654-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::624413284950:role/amplify-menew-menew-231654-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-menew-menew-231654-deployment",
+      "UnauthRoleName": "amplify-menew-menew-231654-unauthRole",
+      "StackName": "amplify-menew-menew-231654",
+      "StackId": "arn:aws:cloudformation:eu-central-1:624413284950:stack/amplify-menew-menew-231654/a6df30c0-91d1-11ec-a21e-024336a2a8c0",
+      "AmplifyAppId": "d2yvw9y5zr1h25"
+    }
+  },
+  "menewnew": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-menew-menewnew-02446-authRole",
+      "UnauthRoleArn": "arn:aws:iam::624413284950:role/amplify-menew-menewnew-02446-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::624413284950:role/amplify-menew-menewnew-02446-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-menew-menewnew-02446-deployment",
+      "UnauthRoleName": "amplify-menew-menewnew-02446-unauthRole",
+      "StackName": "amplify-menew-menewnew-02446",
+      "StackId": "arn:aws:cloudformation:eu-central-1:624413284950:stack/amplify-menew-menewnew-02446/21d58730-91db-11ec-b69d-06f643ae564c",
+      "AmplifyAppId": "dvl609uywiqrw"
+    }
   }
 }

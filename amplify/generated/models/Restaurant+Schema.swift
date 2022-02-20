@@ -8,6 +8,7 @@ extension Restaurant {
     case id
     case name
     case menu
+    case location
     case createdAt
     case updatedAt
   }
@@ -24,6 +25,7 @@ extension Restaurant {
       .id(),
       .field(restaurant.name, is: .required, ofType: .string),
       .field(restaurant.menu, is: .optional, ofType: .string),
+      .field(restaurant.location, is: .required, ofType: .embedded(type: Location.self)),
       .field(restaurant.createdAt, is: .optional, isReadOnly: true, ofType: .dateTime),
       .field(restaurant.updatedAt, is: .optional, isReadOnly: true, ofType: .dateTime)
     )

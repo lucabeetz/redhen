@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		177B802ADFA87DB214092B1D /* Restaurant+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CE38FDD78A3AFF36AC6972 /* Restaurant+Schema.swift */; };
+		1956272F27C2E6CD001AED2A /* queries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1956272E27C2E6CD001AED2A /* queries.swift */; };
 		19921EF727BFC36A007772F9 /* MenewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19921EF627BFC36A007772F9 /* MenewApp.swift */; };
 		19921EF927BFC36A007772F9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19921EF827BFC36A007772F9 /* ContentView.swift */; };
 		19921EFB27BFC36B007772F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19921EFA27BFC36B007772F9 /* Assets.xcassets */; };
@@ -16,15 +17,20 @@
 		19921F0827BFC43E007772F9 /* AWSDataStorePlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 19921F0727BFC43E007772F9 /* AWSDataStorePlugin */; };
 		19921F0A27BFC43E007772F9 /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = 19921F0927BFC43E007772F9 /* Amplify */; };
 		19921F0C27C056DE007772F9 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19921F0B27C056DE007772F9 /* WebView.swift */; };
+		1CAFF408ED328EA53FD37E49 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB19D762A7287CE4C0A2BE0D /* Location.swift */; };
+		9ABDA08AA14A11BDB29BF518 /* Location+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C1F1E775D8C00D94E415E9 /* Location+Schema.swift */; };
 		A146816C11897351713BC073 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 2506E6EC7143E07477163912 /* awsconfiguration.json */; };
 		A567FC958E42FEBA9CD6EA27 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE1BD8C72D296354EEB92CA /* Restaurant.swift */; };
 		AE01A80D11441993949C7086 /* AmplifyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100229F52CDEF110D5930D93 /* AmplifyModels.swift */; };
+		B8091F47CFB73E6BEFCB7A4A /* ModelRestaurantConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F059480F6FADC657FD36799 /* ModelRestaurantConnection.swift */; };
+		BC046849CAA6CDF34E88FB5E /* ModelRestaurantConnection+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F5BB13A14405EA6909B577 /* ModelRestaurantConnection+Schema.swift */; };
 		BC40FB2DE1696369EBED26E8 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E60337A547823DF540D9776 /* amplifyconfiguration.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		07CE38FDD78A3AFF36AC6972 /* Restaurant+Schema.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "Restaurant+Schema.swift"; path = "amplify/generated/models/Restaurant+Schema.swift"; sourceTree = "<group>"; };
 		100229F52CDEF110D5930D93 /* AmplifyModels.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = AmplifyModels.swift; path = amplify/generated/models/AmplifyModels.swift; sourceTree = "<group>"; };
+		1956272E27C2E6CD001AED2A /* queries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = queries.swift; sourceTree = "<group>"; };
 		19921EF327BFC36A007772F9 /* Menew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Menew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19921EF627BFC36A007772F9 /* MenewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenewApp.swift; sourceTree = "<group>"; };
 		19921EF827BFC36A007772F9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -34,6 +40,10 @@
 		2506E6EC7143E07477163912 /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		3AE1BD8C72D296354EEB92CA /* Restaurant.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Restaurant.swift; path = amplify/generated/models/Restaurant.swift; sourceTree = "<group>"; };
 		6E60337A547823DF540D9776 /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
+		9F059480F6FADC657FD36799 /* ModelRestaurantConnection.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = ModelRestaurantConnection.swift; path = amplify/generated/models/ModelRestaurantConnection.swift; sourceTree = "<group>"; };
+		DB19D762A7287CE4C0A2BE0D /* Location.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Location.swift; path = amplify/generated/models/Location.swift; sourceTree = "<group>"; };
+		E0F5BB13A14405EA6909B577 /* ModelRestaurantConnection+Schema.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "ModelRestaurantConnection+Schema.swift"; path = "amplify/generated/models/ModelRestaurantConnection+Schema.swift"; sourceTree = "<group>"; };
+		F8C1F1E775D8C00D94E415E9 /* Location+Schema.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "Location+Schema.swift"; path = "amplify/generated/models/Location+Schema.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +86,7 @@
 				19921EFA27BFC36B007772F9 /* Assets.xcassets */,
 				19921EFC27BFC36B007772F9 /* Preview Content */,
 				19921F0B27C056DE007772F9 /* WebView.swift */,
+				1956272E27C2E6CD001AED2A /* queries.swift */,
 			);
 			path = Menew;
 			sourceTree = "<group>";
@@ -94,6 +105,10 @@
 				100229F52CDEF110D5930D93 /* AmplifyModels.swift */,
 				07CE38FDD78A3AFF36AC6972 /* Restaurant+Schema.swift */,
 				3AE1BD8C72D296354EEB92CA /* Restaurant.swift */,
+				F8C1F1E775D8C00D94E415E9 /* Location+Schema.swift */,
+				DB19D762A7287CE4C0A2BE0D /* Location.swift */,
+				E0F5BB13A14405EA6909B577 /* ModelRestaurantConnection+Schema.swift */,
+				9F059480F6FADC657FD36799 /* ModelRestaurantConnection.swift */,
 			);
 			name = AmplifyModels;
 			sourceTree = "<group>";
@@ -193,6 +208,11 @@
 				19921F0C27C056DE007772F9 /* WebView.swift in Sources */,
 				177B802ADFA87DB214092B1D /* Restaurant+Schema.swift in Sources */,
 				A567FC958E42FEBA9CD6EA27 /* Restaurant.swift in Sources */,
+				9ABDA08AA14A11BDB29BF518 /* Location+Schema.swift in Sources */,
+				1CAFF408ED328EA53FD37E49 /* Location.swift in Sources */,
+				BC046849CAA6CDF34E88FB5E /* ModelRestaurantConnection+Schema.swift in Sources */,
+				B8091F47CFB73E6BEFCB7A4A /* ModelRestaurantConnection.swift in Sources */,
+				1956272F27C2E6CD001AED2A /* queries.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

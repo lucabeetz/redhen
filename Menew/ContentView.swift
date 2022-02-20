@@ -24,16 +24,21 @@ struct ContentView: View {
     }
     
     func performOnAppear() {
-        Amplify.DataStore.query(Restaurant.self) { result in
+        Amplify.API.query(request: .getNearbyRestaurants(lat: 11, lon: 11, radius: 50)) { result in
             switch(result) {
             case .success(let restaurants):
-                for restaurant in restaurants {
-                    print("==== Restaurant ====")
-                    print("Name: \(restaurant.name)")
-                    if let menu = restaurant.menu {
-                        print("Menu: \(menu)")
-                        menuUrl = menu
+                switch(restaurants) {
+                case .success(let restaurants):
+                    for restaurant in restaurants {
+                        print("==== Restaurant ====")
+                        print("Name: \(restaurant.name)")
+                        if let menu = restaurant.menu {
+                            print("Menu: \(menu)")
+                            menuUrl = menu
+                        }
                     }
+                case .failure(let error):
+                    print("Error: \(error)")
                 }
             case .failure(let error):
                 print("Could not query DataStore: \(error)")
