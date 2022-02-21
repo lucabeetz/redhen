@@ -12,14 +12,15 @@ struct ContentView: View {
     @StateObject var restaurantProvider = RestaurantProvider()
     
     var body: some View {
-        VStack {
-            if restaurantProvider.nearestRestaurants.isEmpty {
-                ProgressView()
-            } else {
-                WebView(url: restaurantProvider.nearestRestaurants[0].menu!)
-                    .edgesIgnoringSafeArea(.bottom)
-            }
-        }
+        MapView()
+//        VStack {
+//            if restaurantProvider.nearestRestaurants.isEmpty {
+//                ProgressView()
+//            } else {
+//                WebView(url: restaurantProvider.nearestRestaurants[0].menu!)
+//                    .edgesIgnoringSafeArea(.bottom)
+//            }
+//        }
     }
 }
 
