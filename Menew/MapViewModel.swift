@@ -18,6 +18,7 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var region = MKCoordinateRegion(center: MapDetails.startingLocation, span: MapDetails.defaultSpan)
     
     @Published var restaurants: [Restaurant] = []
+    @Published var activeRestaurants: [Restaurant] = []
     
     var locationManager: CLLocationManager?
     
@@ -43,6 +44,7 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         case .authorizedAlways, .authorizedWhenInUse:
             region = MKCoordinateRegion(center: locationManager.location!.coordinate, span: MapDetails.defaultSpan)
             updateRestaurants()
+            updateActiveRestaurants()
         @unknown default:
             break
         }
@@ -62,6 +64,26 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
                 case .success(let restaurants):
                     DispatchQueue.main.async {
                         self.restaurants = restaurants
+                    }
+                case .failure(let error):
+                    print("GraphQL error when retrieving nearest restaurants: \(error)")
+                }
+            case .failure(let apiError):
+                print("API error when retrieving nearest restaurants: \(apiError)")
+            }
+        }
+    }
+    
+    func updateActiveRestaurants() {
+        guard let location = locationManager?.location else { return }
+        
+        Amplify.API.query(request: .getNearbyRestaurants(lat: Float(location.coordinate.latitude), lon: Float(location.coordinate.longitude), radius: 25)) { response in
+            switch(response) {
+            case .success(let result):
+                switch(result) {
+                case .success(let restaurants):
+                    DispatchQueue.main.async {
+                        self.activeRestaurants = restaurants
                     }
                 case .failure(let error):
                     print("GraphQL error when retrieving nearest restaurants: \(error)")
