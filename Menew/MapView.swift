@@ -12,12 +12,20 @@ struct MapView: View {
     @StateObject private var viewModel: MapViewModel = MapViewModel()
     
     var body: some View {
-        Map(coordinateRegion: $viewModel.region, showsUserLocation: true, userTrackingMode: .constant(.follow), annotationItems: viewModel.restaurants) {
-            MapMarker(coordinate: CLLocationCoordinate2D(latitude: $0.location.lat, longitude: $0.location.lon))
-        }
-        .ignoresSafeArea()
-        .onAppear {
-            viewModel.checkIfLocationServiceIsEnabled()
+        NavigationView {
+            Map(coordinateRegion: $viewModel.region, showsUserLocation: true, userTrackingMode: .constant(.none), annotationItems: viewModel.restaurants) { restaurant in
+                MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: restaurant.location.lat, longitude: restaurant.location.lon)) {
+                    NavigationLink(destination: MenuView(restaurant: restaurant)) {
+                        Circle()
+                            .fill(Color.green)
+                            .frame(width: 44, height: 44)
+                    }
+                }
+            }
+            .ignoresSafeArea()
+            .onAppear {
+                viewModel.checkIfLocationServiceIsEnabled()
+            }
         }
     }
 }
