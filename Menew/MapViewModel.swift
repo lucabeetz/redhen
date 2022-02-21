@@ -6,6 +6,7 @@
 //
 
 import MapKit
+import Amplify
 
 enum MapDetails {
     static let startingLocation = CLLocationCoordinate2D(latitude: 49.589349, longitude: 11.012710)
@@ -15,6 +16,8 @@ enum MapDetails {
 
 class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var region = MKCoordinateRegion(center: MapDetails.startingLocation, span: MapDetails.defaultSpan)
+    
+    @Published var restaurants: [Restaurant] = []
     
     var locationManager: CLLocationManager?
     
@@ -39,6 +42,7 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
             break
         case .authorizedAlways, .authorizedWhenInUse:
             region = MKCoordinateRegion(center: locationManager.location!.coordinate, span: MapDetails.defaultSpan)
+            updateRestaurants()
         @unknown default:
             break
         }
@@ -46,6 +50,26 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         checkLocationAuthorization()
+    }
+    
+    func updateRestaurants() {
+        guard let location = locationManager?.location else { return }
+        
+        Amplify.API.query(request: .getNearbyRestaurants(lat: Float(location.coordinate.latitude), lon: Float(location.coordinate.longitude), radius: 1000)) { response in
+            switch(response) {
+            case .success(let result):
+                switch(result) {
+                case .success(let restaurants):
+                    DispatchQueue.main.async {
+                        self.restaurants = restaurants
+                    }
+                case .failure(let error):
+                    print("GraphQL error when retrieving nearest restaurants: \(error)")
+                }
+            case .failure(let apiError):
+                print("API error when retrieving nearest restaurants: \(apiError)")
+            }
+        }
     }
 }
 

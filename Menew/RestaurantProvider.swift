@@ -12,10 +12,10 @@ class RestaurantProvider: ObservableObject {
     @Published var nearestRestaurants: [Restaurant] = []
     
     init() {
-        updateNearestRestaurant()
+        updateNearestRestaurants()
     }
     
-    func updateNearestRestaurant() {
+    func updateNearestRestaurants() {
         Amplify.API.query(request: .getNearbyRestaurants(lat: 11, lon: 11, radius: 50)) { response in
             switch(response) {
             case .success(let result):
