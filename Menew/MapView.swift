@@ -17,9 +17,7 @@ struct MapView: View {
                 Map(coordinateRegion: $viewModel.region, showsUserLocation: true, userTrackingMode: .constant(.none), annotationItems: viewModel.restaurants) { restaurant in
                     MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: restaurant.location.lat, longitude: restaurant.location.lon)) {
                         NavigationLink(destination: MenuView(restaurant: restaurant)) {
-                            Circle()
-                                .fill(Color.green)
-                                .frame(width: 16, height: 16)
+                            RestaurantAnnotationView()
                         }
                     }
                 }
@@ -33,9 +31,8 @@ struct MapView: View {
                         Image(systemName: "menucard.fill")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(height: 60)
-                            .foregroundColor(Color.green)
-                            .shadow(color: .gray, radius: 0.2, x: 1, y: 1)
+                            .frame(height: 64)
+                            .foregroundColor(Color.orange)
                             .padding(.horizontal, 16.0)
                             .padding(.vertical, 64.0)
                     }

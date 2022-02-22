@@ -12,6 +12,7 @@
 		1956273227C2F87E001AED2A /* RestaurantProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1956273127C2F87E001AED2A /* RestaurantProvider.swift */; };
 		1956273427C30236001AED2A /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1956273327C30236001AED2A /* MapView.swift */; };
 		1956273627C30C4F001AED2A /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1956273527C30C4F001AED2A /* MapViewModel.swift */; };
+		197CFBBC27C44F2D003C3916 /* RestaurantAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197CFBBB27C44F2D003C3916 /* RestaurantAnnotationView.swift */; };
 		19921EF727BFC36A007772F9 /* MenewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19921EF627BFC36A007772F9 /* MenewApp.swift */; };
 		19921EF927BFC36A007772F9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19921EF827BFC36A007772F9 /* ContentView.swift */; };
 		19921EFB27BFC36B007772F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19921EFA27BFC36B007772F9 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 		1956273127C2F87E001AED2A /* RestaurantProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantProvider.swift; sourceTree = "<group>"; };
 		1956273327C30236001AED2A /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		1956273527C30C4F001AED2A /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		197CFBBB27C44F2D003C3916 /* RestaurantAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantAnnotationView.swift; sourceTree = "<group>"; };
 		19921EF327BFC36A007772F9 /* Menew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Menew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19921EF627BFC36A007772F9 /* MenewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenewApp.swift; sourceTree = "<group>"; };
 		19921EF827BFC36A007772F9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				1956273327C30236001AED2A /* MapView.swift */,
 				1956273527C30C4F001AED2A /* MapViewModel.swift */,
 				19ADD87F27C3ABA70013140C /* MenuView.swift */,
+				197CFBBB27C44F2D003C3916 /* RestaurantAnnotationView.swift */,
 			);
 			path = Menew;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				177B802ADFA87DB214092B1D /* Restaurant+Schema.swift in Sources */,
 				A567FC958E42FEBA9CD6EA27 /* Restaurant.swift in Sources */,
 				9ABDA08AA14A11BDB29BF518 /* Location+Schema.swift in Sources */,
+				197CFBBC27C44F2D003C3916 /* RestaurantAnnotationView.swift in Sources */,
 				1CAFF408ED328EA53FD37E49 /* Location.swift in Sources */,
 				BC046849CAA6CDF34E88FB5E /* ModelRestaurantConnection+Schema.swift in Sources */,
 				19ADD88027C3ABA70013140C /* MenuView.swift in Sources */,
