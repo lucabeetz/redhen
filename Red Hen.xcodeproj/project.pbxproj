@@ -1,0 +1,485 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		177B802ADFA87DB214092B1D /* Restaurant+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CE38FDD78A3AFF36AC6972 /* Restaurant+Schema.swift */; };
+		1956272F27C2E6CD001AED2A /* nearbyRestaurants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1956272E27C2E6CD001AED2A /* nearbyRestaurants.swift */; };
+		1956273227C2F87E001AED2A /* RestaurantProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1956273127C2F87E001AED2A /* RestaurantProvider.swift */; };
+		1956273427C30236001AED2A /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1956273327C30236001AED2A /* MapView.swift */; };
+		1956273627C30C4F001AED2A /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1956273527C30C4F001AED2A /* MapViewModel.swift */; };
+		197CFBBC27C44F2D003C3916 /* RestaurantAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197CFBBB27C44F2D003C3916 /* RestaurantAnnotationView.swift */; };
+		19921EF727BFC36A007772F9 /* MenewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19921EF627BFC36A007772F9 /* MenewApp.swift */; };
+		19921EF927BFC36A007772F9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19921EF827BFC36A007772F9 /* ContentView.swift */; };
+		19921EFB27BFC36B007772F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19921EFA27BFC36B007772F9 /* Assets.xcassets */; };
+		19921EFE27BFC36B007772F9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19921EFD27BFC36B007772F9 /* Preview Assets.xcassets */; };
+		19921F0627BFC43E007772F9 /* AWSAPIPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 19921F0527BFC43E007772F9 /* AWSAPIPlugin */; };
+		19921F0827BFC43E007772F9 /* AWSDataStorePlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 19921F0727BFC43E007772F9 /* AWSDataStorePlugin */; };
+		19921F0A27BFC43E007772F9 /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = 19921F0927BFC43E007772F9 /* Amplify */; };
+		19921F0C27C056DE007772F9 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19921F0B27C056DE007772F9 /* WebView.swift */; };
+		19ADD88027C3ABA70013140C /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19ADD87F27C3ABA70013140C /* MenuView.swift */; };
+		1CAFF408ED328EA53FD37E49 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB19D762A7287CE4C0A2BE0D /* Location.swift */; };
+		9ABDA08AA14A11BDB29BF518 /* Location+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C1F1E775D8C00D94E415E9 /* Location+Schema.swift */; };
+		A146816C11897351713BC073 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 2506E6EC7143E07477163912 /* awsconfiguration.json */; };
+		A567FC958E42FEBA9CD6EA27 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE1BD8C72D296354EEB92CA /* Restaurant.swift */; };
+		AE01A80D11441993949C7086 /* AmplifyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100229F52CDEF110D5930D93 /* AmplifyModels.swift */; };
+		B8091F47CFB73E6BEFCB7A4A /* ModelRestaurantConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F059480F6FADC657FD36799 /* ModelRestaurantConnection.swift */; };
+		BC046849CAA6CDF34E88FB5E /* ModelRestaurantConnection+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F5BB13A14405EA6909B577 /* ModelRestaurantConnection+Schema.swift */; };
+		BC40FB2DE1696369EBED26E8 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E60337A547823DF540D9776 /* amplifyconfiguration.json */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		07CE38FDD78A3AFF36AC6972 /* Restaurant+Schema.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "Restaurant+Schema.swift"; path = "amplify/generated/models/Restaurant+Schema.swift"; sourceTree = "<group>"; };
+		100229F52CDEF110D5930D93 /* AmplifyModels.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = AmplifyModels.swift; path = amplify/generated/models/AmplifyModels.swift; sourceTree = "<group>"; };
+		1956272E27C2E6CD001AED2A /* nearbyRestaurants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nearbyRestaurants.swift; sourceTree = "<group>"; };
+		1956273127C2F87E001AED2A /* RestaurantProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestaurantProvider.swift; path = RedHen/RestaurantProvider.swift; sourceTree = "<group>"; };
+		1956273327C30236001AED2A /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapView.swift; path = RedHen/MapView.swift; sourceTree = "<group>"; };
+		1956273527C30C4F001AED2A /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapViewModel.swift; path = RedHen/MapViewModel.swift; sourceTree = "<group>"; };
+		197CFBBB27C44F2D003C3916 /* RestaurantAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestaurantAnnotationView.swift; path = RedHen/RestaurantAnnotationView.swift; sourceTree = "<group>"; };
+		19921EF327BFC36A007772F9 /* Red Hen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Red Hen.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		19921EF627BFC36A007772F9 /* MenewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenewApp.swift; path = RedHen/MenewApp.swift; sourceTree = "<group>"; };
+		19921EF827BFC36A007772F9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = RedHen/ContentView.swift; sourceTree = "<group>"; };
+		19921EFA27BFC36B007772F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = RedHen/Assets.xcassets; sourceTree = "<group>"; };
+		19921EFD27BFC36B007772F9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		19921F0B27C056DE007772F9 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WebView.swift; path = RedHen/WebView.swift; sourceTree = "<group>"; };
+		19ADD87F27C3ABA70013140C /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuView.swift; path = RedHen/MenuView.swift; sourceTree = "<group>"; };
+		2506E6EC7143E07477163912 /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
+		3AE1BD8C72D296354EEB92CA /* Restaurant.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Restaurant.swift; path = amplify/generated/models/Restaurant.swift; sourceTree = "<group>"; };
+		6E60337A547823DF540D9776 /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
+		9F059480F6FADC657FD36799 /* ModelRestaurantConnection.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = ModelRestaurantConnection.swift; path = amplify/generated/models/ModelRestaurantConnection.swift; sourceTree = "<group>"; };
+		DB19D762A7287CE4C0A2BE0D /* Location.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Location.swift; path = amplify/generated/models/Location.swift; sourceTree = "<group>"; };
+		E0F5BB13A14405EA6909B577 /* ModelRestaurantConnection+Schema.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "ModelRestaurantConnection+Schema.swift"; path = "amplify/generated/models/ModelRestaurantConnection+Schema.swift"; sourceTree = "<group>"; };
+		F8C1F1E775D8C00D94E415E9 /* Location+Schema.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "Location+Schema.swift"; path = "amplify/generated/models/Location+Schema.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		19921EF027BFC36A007772F9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				19921F0A27BFC43E007772F9 /* Amplify in Frameworks */,
+				19921F0627BFC43E007772F9 /* AWSAPIPlugin in Frameworks */,
+				19921F0827BFC43E007772F9 /* AWSDataStorePlugin in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1956273027C2F797001AED2A /* API */ = {
+			isa = PBXGroup;
+			children = (
+				1956272E27C2E6CD001AED2A /* nearbyRestaurants.swift */,
+			);
+			name = API;
+			path = RedHen/API;
+			sourceTree = "<group>";
+		};
+		19921EEA27BFC36A007772F9 = {
+			isa = PBXGroup;
+			children = (
+				19921EF527BFC36A007772F9 /* RedHen */,
+				19921EF427BFC36A007772F9 /* Products */,
+				5A4DC56A3965919E66721A5A /* AmplifyConfig */,
+				2C36B905C028E0F06EB7D861 /* AmplifyModels */,
+			);
+			sourceTree = "<group>";
+			usesTabs = 0;
+		};
+		19921EF427BFC36A007772F9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				19921EF327BFC36A007772F9 /* Red Hen.app */,
+			);
+			name = Products;
+			path = RedHen;
+			sourceTree = "<group>";
+		};
+		19921EF527BFC36A007772F9 /* RedHen */ = {
+			isa = PBXGroup;
+			children = (
+				1956273027C2F797001AED2A /* API */,
+				19921EF627BFC36A007772F9 /* MenewApp.swift */,
+				19921EF827BFC36A007772F9 /* ContentView.swift */,
+				19921EFA27BFC36B007772F9 /* Assets.xcassets */,
+				19921EFC27BFC36B007772F9 /* Preview Content */,
+				19921F0B27C056DE007772F9 /* WebView.swift */,
+				1956273127C2F87E001AED2A /* RestaurantProvider.swift */,
+				1956273327C30236001AED2A /* MapView.swift */,
+				1956273527C30C4F001AED2A /* MapViewModel.swift */,
+				19ADD87F27C3ABA70013140C /* MenuView.swift */,
+				197CFBBB27C44F2D003C3916 /* RestaurantAnnotationView.swift */,
+			);
+			name = RedHen;
+			sourceTree = "<group>";
+		};
+		19921EFC27BFC36B007772F9 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				19921EFD27BFC36B007772F9 /* Preview Assets.xcassets */,
+			);
+			name = "Preview Content";
+			path = "RedHen/Preview Content";
+			sourceTree = "<group>";
+		};
+		2C36B905C028E0F06EB7D861 /* AmplifyModels */ = {
+			isa = PBXGroup;
+			children = (
+				100229F52CDEF110D5930D93 /* AmplifyModels.swift */,
+				07CE38FDD78A3AFF36AC6972 /* Restaurant+Schema.swift */,
+				3AE1BD8C72D296354EEB92CA /* Restaurant.swift */,
+				F8C1F1E775D8C00D94E415E9 /* Location+Schema.swift */,
+				DB19D762A7287CE4C0A2BE0D /* Location.swift */,
+				E0F5BB13A14405EA6909B577 /* ModelRestaurantConnection+Schema.swift */,
+				9F059480F6FADC657FD36799 /* ModelRestaurantConnection.swift */,
+			);
+			name = AmplifyModels;
+			sourceTree = "<group>";
+		};
+		5A4DC56A3965919E66721A5A /* AmplifyConfig */ = {
+			isa = PBXGroup;
+			children = (
+				2506E6EC7143E07477163912 /* awsconfiguration.json */,
+				6E60337A547823DF540D9776 /* amplifyconfiguration.json */,
+			);
+			name = AmplifyConfig;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		19921EF227BFC36A007772F9 /* Red Hen */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 19921F0127BFC36B007772F9 /* Build configuration list for PBXNativeTarget "Red Hen" */;
+			buildPhases = (
+				19921EEF27BFC36A007772F9 /* Sources */,
+				19921EF027BFC36A007772F9 /* Frameworks */,
+				19921EF127BFC36A007772F9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Red Hen";
+			packageProductDependencies = (
+				19921F0527BFC43E007772F9 /* AWSAPIPlugin */,
+				19921F0727BFC43E007772F9 /* AWSDataStorePlugin */,
+				19921F0927BFC43E007772F9 /* Amplify */,
+			);
+			productName = Menew;
+			productReference = 19921EF327BFC36A007772F9 /* Red Hen.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		19921EEB27BFC36A007772F9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					19921EF227BFC36A007772F9 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 19921EEE27BFC36A007772F9 /* Build configuration list for PBXProject "Red Hen" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 19921EEA27BFC36A007772F9;
+			packageReferences = (
+				19921F0427BFC43E007772F9 /* XCRemoteSwiftPackageReference "amplify-ios" */,
+			);
+			productRefGroup = 19921EF427BFC36A007772F9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				19921EF227BFC36A007772F9 /* Red Hen */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		19921EF127BFC36A007772F9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				19921EFE27BFC36B007772F9 /* Preview Assets.xcassets in Resources */,
+				19921EFB27BFC36B007772F9 /* Assets.xcassets in Resources */,
+				A146816C11897351713BC073 /* awsconfiguration.json in Resources */,
+				BC40FB2DE1696369EBED26E8 /* amplifyconfiguration.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		19921EEF27BFC36A007772F9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				19921EF927BFC36A007772F9 /* ContentView.swift in Sources */,
+				19921EF727BFC36A007772F9 /* MenewApp.swift in Sources */,
+				AE01A80D11441993949C7086 /* AmplifyModels.swift in Sources */,
+				19921F0C27C056DE007772F9 /* WebView.swift in Sources */,
+				1956273427C30236001AED2A /* MapView.swift in Sources */,
+				177B802ADFA87DB214092B1D /* Restaurant+Schema.swift in Sources */,
+				A567FC958E42FEBA9CD6EA27 /* Restaurant.swift in Sources */,
+				9ABDA08AA14A11BDB29BF518 /* Location+Schema.swift in Sources */,
+				197CFBBC27C44F2D003C3916 /* RestaurantAnnotationView.swift in Sources */,
+				1CAFF408ED328EA53FD37E49 /* Location.swift in Sources */,
+				BC046849CAA6CDF34E88FB5E /* ModelRestaurantConnection+Schema.swift in Sources */,
+				19ADD88027C3ABA70013140C /* MenuView.swift in Sources */,
+				B8091F47CFB73E6BEFCB7A4A /* ModelRestaurantConnection.swift in Sources */,
+				1956273627C30C4F001AED2A /* MapViewModel.swift in Sources */,
+				1956272F27C2E6CD001AED2A /* nearbyRestaurants.swift in Sources */,
+				1956273227C2F87E001AED2A /* RestaurantProvider.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		19921EFF27BFC36B007772F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		19921F0027BFC36B007772F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		19921F0227BFC36B007772F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"RedHen/Preview Content\"";
+				DEVELOPMENT_TEAM = J8D2U9359M;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = Location;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = Location;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.motschel.redhen;
+				PRODUCT_NAME = "Red Hen";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		19921F0327BFC36B007772F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"RedHen/Preview Content\"";
+				DEVELOPMENT_TEAM = J8D2U9359M;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = Location;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = Location;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.motschel.redhen;
+				PRODUCT_NAME = "Red Hen";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		19921EEE27BFC36A007772F9 /* Build configuration list for PBXProject "Red Hen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				19921EFF27BFC36B007772F9 /* Debug */,
+				19921F0027BFC36B007772F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		19921F0127BFC36B007772F9 /* Build configuration list for PBXNativeTarget "Red Hen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				19921F0227BFC36B007772F9 /* Debug */,
+				19921F0327BFC36B007772F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		19921F0427BFC43E007772F9 /* XCRemoteSwiftPackageReference "amplify-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/aws-amplify/amplify-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		19921F0527BFC43E007772F9 /* AWSAPIPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 19921F0427BFC43E007772F9 /* XCRemoteSwiftPackageReference "amplify-ios" */;
+			productName = AWSAPIPlugin;
+		};
+		19921F0727BFC43E007772F9 /* AWSDataStorePlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 19921F0427BFC43E007772F9 /* XCRemoteSwiftPackageReference "amplify-ios" */;
+			productName = AWSDataStorePlugin;
+		};
+		19921F0927BFC43E007772F9 /* Amplify */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 19921F0427BFC43E007772F9 /* XCRemoteSwiftPackageReference "amplify-ios" */;
+			productName = Amplify;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 19921EEB27BFC36A007772F9 /* Project object */;
+}
