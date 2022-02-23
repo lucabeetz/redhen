@@ -18,4 +18,6 @@ amplifytools.xcconfig
 .secret-*
 **.sample
 #amplify-do-not-edit-end
+# ignore xcode metadata
 **xcuserdata
+.DS_Store
