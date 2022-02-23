@@ -18,5 +18,4 @@ amplifytools.xcconfig
 .secret-*
 **.sample
 #amplify-do-not-edit-end
-Red Hen.xcodeproj/xcuserdata/*
-Red Hen.xcodeproj/project.xcworkspace/xcuserdata
+**xcuserdata
