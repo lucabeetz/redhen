@@ -17,6 +17,6 @@ amplify-gradle-config.json
 amplifytools.xcconfig
 .secret-*
 **.sample
-Menew.xcodeproj/project.xcworkspace/xcuserdata
+Menew.xcodeproj/project.xcworkspace/xcuserdata/*
 project.pbxproj
 #amplify-do-not-edit-end
