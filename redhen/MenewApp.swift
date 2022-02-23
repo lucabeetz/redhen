@@ -14,7 +14,8 @@ import AWSAPIPlugin
 struct MenewApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+                ContentView()
+            
         }
     }
     
