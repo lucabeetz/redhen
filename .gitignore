@@ -20,5 +20,6 @@ amplifytools.xcconfig
 #amplify-do-not-edit-end
 
 # user data/settings
+.DS_STORE
 xcuserdata
 xcuserdatad
