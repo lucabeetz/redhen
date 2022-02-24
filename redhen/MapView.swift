@@ -10,9 +10,6 @@ import MapKit
  
 struct MapView: View {
     @StateObject private var viewModel: MapViewModel = MapViewModel()
-    @State private var navigationURL: String? = nil
-    
-    let restaurantAnnotationView: RestaurantAnnotationView = RestaurantAnnotationView()
     
     var body: some View {
         NavigationView {
