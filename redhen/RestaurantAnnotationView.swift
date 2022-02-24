@@ -10,25 +10,7 @@ import MapKit
 import CoreFoundation
 import CoreGraphics
 
-struct RestaurantAnnotationView: UIViewRepresentable {
-    @State var mkAnnotation: MKAnnotation? = nil
-    
-    typealias UIViewType = MKAnnotationView
-    
-    func makeUIView(context: Context) -> MKAnnotationView {
-        let view = MKAnnotationView(annotation: self.mkAnnotation, reuseIdentifier: nil)
-        view.image = UIImage(systemName: "mappin")
-        
-        
-        
-        return view
-    }
-    
-    func updateUIView(_ uiView: MKAnnotationView, context: Context) {
-        
-    }
-    
-    /*
+struct RestaurantAnnotationView: View {
     var body: some View {
         VStack {
             Image(systemName: "mappin.circle.fill")
@@ -40,13 +22,16 @@ struct RestaurantAnnotationView: UIViewRepresentable {
                 .foregroundColor(.orange)
                 .offset(x: 0, y: -5)
         }
-        .offset(x: 0, y: -15)
-    }*/
-    
-    
+    }
 }
 
-class RestaurantMKAnnotation: NSObject, MKAnnotation {
+struct RestaurantAnnotationView_Previews: PreviewProvider {
+    static var previews: some View {
+        RestaurantAnnotationView()
+    }
+}
+
+/*class MKRestaurantAnnotation: NSObject, MKAnnotation {
     let coordinate: CLLocationCoordinate2D
     let title: String?
     let subtitle: String?
@@ -61,20 +46,34 @@ class RestaurantMKAnnotation: NSObject, MKAnnotation {
         self.subtitle = nil
     }
     
-    func toMKAnnotationView() -> MKAnnotationView {
+    func view() -> MKAnnotationView {
         let annotationView = MKAnnotationView(annotation: self, reuseIdentifier: self.restaurant.id)
         annotationView.canShowCallout = true
         annotationView.image = UIImage(systemName: "location.circle")?.withTintColor(.systemGreen,renderingMode: .alwaysOriginal)
+        
         let size = CGSize(width: 40, height: 40)
         annotationView.image = UIGraphicsImageRenderer(size:size).image {
             _ in annotationView.image!.draw(in:CGRect(origin:.zero, size:size))
         }
         return annotationView
+    }
+    
+    class MKRestaurantAnnotationView: MKAnnotationView {
+        init(annotation: MKRestaurantAnnotation?, reuseIdentifier: String?) {
+            super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
+        }
+        
+        override func draw(_ rect: CGRect) {
+            guard let context = UIGraphicsGetCurrentContext() else { return }
+
+                    context.beginPath()
+                    context.move(to: CGPoint(x: rect.midX, y: rect.maxY))
+                    context.addLine(to: CGPoint(x: rect.maxX, y: rect.minY))
+                    context.addLine(to: CGPoint(x: rect.minX, y: rect.minY))
+                    context.closePath()
+
+                    UIColor.blue.set()
+                    context.fillPath()
         }
     }
-
-struct RestaurantAnnotationView_Previews: PreviewProvider {
-    static var previews: some View {
-        RestaurantAnnotationView()
-    }
-}
+}*/

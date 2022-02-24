@@ -19,5 +19,7 @@ amplifytools.xcconfig
 **.sample
 #amplify-do-not-edit-end
 # ignore xcode metadata
-**xcuserdata
-.DS_Store
+.DS_STORE
+xcuserdata
+xcuserdatad
+xcdebugger
