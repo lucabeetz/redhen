@@ -17,5 +17,9 @@ amplify-gradle-config.json
 amplifytools.xcconfig
 .secret-*
 **.sample
-Menew.xcodeproj/project.xcworkspace/xcuserdata/*
 #amplify-do-not-edit-end
+# ignore xcode metadata
+.DS_STORE
+xcuserdata
+xcuserdatad
+xcdebugger

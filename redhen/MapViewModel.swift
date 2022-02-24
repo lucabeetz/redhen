@@ -33,6 +33,7 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     private func checkLocationAuthorization() {
         guard let locationManager = locationManager else { return }
+
         
         switch locationManager.authorizationStatus {
         case .notDetermined:
@@ -57,7 +58,7 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     func updateRestaurants() {
         guard let location = locationManager?.location else { return }
         
-        Amplify.API.query(request: .getNearbyRestaurants(lat: Float(location.coordinate.latitude), lon: Float(location.coordinate.longitude), radius: 1000)) { response in
+        Amplify.API.query(request: .getNearbyRestaurants(lat: Float(location.coordinate.latitude), lon: Float(location.coordinate.longitude), radius: 3000)) { response in
             switch(response) {
             case .success(let result):
                 switch(result) {
