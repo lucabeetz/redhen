@@ -18,7 +18,7 @@ struct MapView: View {
         NavigationView {
             ZStack(alignment: .bottomTrailing) {
                 Map(coordinateRegion: $viewModel.region, showsUserLocation: false, userTrackingMode: .constant(.none), annotationItems: viewModel.restaurants) { restaurant in
-                    MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: restaurant.location.lat, longitude: restaurant.location.lon), anchorPoint: CGPoint(x: 0.5, y: 0.85)) {
+                    MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: restaurant.location.lat, longitude: restaurant.location.lon), anchorPoint: CGPoint(x: 0.5, y: 0.95)) {
                         NavigationLink(destination: MenuView(restaurant: restaurant)) {
                             RestaurantAnnotationView()
                         }
@@ -31,13 +31,19 @@ struct MapView: View {
                 
                 if !viewModel.activeRestaurants.isEmpty {
                     NavigationLink(destination: MenuView(restaurant: viewModel.activeRestaurants[0])) {
-                        Image(systemName: "menucard.fill")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(height: 64)
-                            .foregroundColor(Color.orange)
-                            .padding(.horizontal, 16.0)
-                            .padding(.vertical, 64.0)
+                        ZStack {
+                            Circle()
+                                .fill(Color(red: 255 / 255, green: 159 / 255, blue: 10 / 255))
+                                .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
+                                .frame(width: 48, height: 48)
+                            
+                            Image(systemName: "fork.knife")
+                                .font(.system(size: 22))
+                                .foregroundColor(.white)
+                                
+                        }
+                        .padding(.horizontal, 16.0)
+                        .padding(.vertical, 64.0)
                     }
                 }
             }
