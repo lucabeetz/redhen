@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MapKit
+import BetterSafariView
 
 struct MapView: View {
     @StateObject private var viewModel: MapViewModel = MapViewModel()
@@ -16,9 +17,7 @@ struct MapView: View {
             ZStack(alignment: .bottomTrailing) {
                 Map(coordinateRegion: $viewModel.region, showsUserLocation: false, userTrackingMode: .constant(.none), annotationItems: viewModel.restaurants) { restaurant in
                     MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: restaurant.location.lat, longitude: restaurant.location.lon), anchorPoint: CGPoint(x: 0.5, y: 0.95)) {
-                        NavigationLink(destination: MenuView(restaurant: restaurant)) {
-                            RestaurantAnnotationView()
-                        }
+                        OpenMenuViewButton(restaurantToShow: restaurant, content: RestaurantAnnotationView())
                     }
                 }
                 .overlay(alignment: .bottomTrailing) {
