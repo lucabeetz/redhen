@@ -22,8 +22,10 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     var locationManager: CLLocationManager?
     
+    
+    
     func checkIfLocationServiceIsEnabled() {
-        if CLLocationManager.locationServicesEnabled() {
+        if locationManager == nil && CLLocationManager.locationServicesEnabled() {
             locationManager = CLLocationManager()
             locationManager!.delegate = self
         } else {
