@@ -47,6 +47,7 @@
 		19921EFD27BFC36B007772F9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		19921F0B27C056DE007772F9 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WebView.swift; path = RedHen/WebView.swift; sourceTree = "<group>"; };
 		19ADD87F27C3ABA70013140C /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuView.swift; path = RedHen/MenuView.swift; sourceTree = "<group>"; };
+		19E3205C27C919AC002F906F /* Red-Hen-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Red-Hen-Info.plist"; sourceTree = "<group>"; };
 		2506E6EC7143E07477163912 /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		3AE1BD8C72D296354EEB92CA /* Restaurant.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Restaurant.swift; path = amplify/generated/models/Restaurant.swift; sourceTree = "<group>"; };
 		6E60337A547823DF540D9776 /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
@@ -82,6 +83,7 @@
 		19921EEA27BFC36A007772F9 = {
 			isa = PBXGroup;
 			children = (
+				19E3205C27C919AC002F906F /* Red-Hen-Info.plist */,
 				19921EF527BFC36A007772F9 /* RedHen */,
 				19921EF427BFC36A007772F9 /* Products */,
 				5A4DC56A3965919E66721A5A /* AmplifyConfig */,
@@ -372,12 +374,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RedHen/Preview Content\"";
-				DEVELOPMENT_TEAM = J8D2U9359M;
+				DEVELOPMENT_TEAM = 47UAHQ7G98;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Red-Hen-Info.plist";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = Location;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = Location;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -390,7 +394,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.motschel.redhen;
+				PRODUCT_BUNDLE_IDENTIFIER = com.luca.redhen;
 				PRODUCT_NAME = "Red Hen";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -403,12 +407,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RedHen/Preview Content\"";
-				DEVELOPMENT_TEAM = J8D2U9359M;
+				DEVELOPMENT_TEAM = 47UAHQ7G98;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Red-Hen-Info.plist";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = Location;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = Location;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -421,7 +427,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.motschel.redhen;
+				PRODUCT_BUNDLE_IDENTIFIER = com.luca.redhen;
 				PRODUCT_NAME = "Red Hen";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
