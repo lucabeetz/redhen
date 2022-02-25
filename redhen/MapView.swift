@@ -22,28 +22,27 @@ struct MapView: View {
                     }
                 }
                 .overlay(alignment: .bottomTrailing) {
-                    Button(action: {
-                        viewModel.region.center = viewModel.locationManager?.location?.coordinate ?? viewModel.region.center
-                    }) {
-                        VStack {
-                            if !viewModel.activeRestaurants.isEmpty {
-                                NavigationLink(destination: MenuView(restaurant: viewModel.activeRestaurants[0])) {
-                                    ZStack {
-                                        Circle()
-                                            .fill(Color(red: 255 / 255, green: 159 / 255, blue: 10 / 255))
-                                            .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
-                                            .frame(width: 48, height: 48)
-                                        
-                                        Image(systemName: "fork.knife")
-                                            .font(.system(size: 22))
-                                            .foregroundColor(.white)
-                                            
-                                    }
-                                    .padding(.horizontal, 16.0)
-                                    .padding(.vertical, 64.0)
+                    VStack {
+                        if !viewModel.activeRestaurants.isEmpty {
+                            NavigationLink(destination: MenuView(restaurant: viewModel.activeRestaurants[0])) {
+                                ZStack {
+                                    Circle()
+                                        .fill(Color(red: 255 / 255, green: 159 / 255, blue: 10 / 255))
+                                        .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
+                                        .frame(width: 48, height: 48)
+                                    
+                                    Image(systemName: "fork.knife")
+                                        .font(.system(size: 22))
+                                        .foregroundColor(.white)
+                                    
                                 }
+                                .padding(.horizontal, 16.0)
+                                .padding(.vertical, 64.0)
                             }
-                            
+                        }
+                        Button(action: {
+                            viewModel.region.center = viewModel.locationManager?.location?.coordinate ?? viewModel.region.center
+                        }) {
                             ZStack{
                                 Circle()
                                     .fill(Color(red: 255 / 255, green: 159 / 255, blue: 10 / 255))
