@@ -12,7 +12,8 @@ struct ContentView: View {
     @StateObject var restaurantProvider = RestaurantProvider()
     
     var body: some View {
-        MapView()
+        RealityKitView()
+//        MapView()
 //        VStack {
 //            if restaurantProvider.nearestRestaurants.isEmpty {
 //                ProgressView()

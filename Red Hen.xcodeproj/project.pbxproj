@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		177B802ADFA87DB214092B1D /* Restaurant+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CE38FDD78A3AFF36AC6972 /* Restaurant+Schema.swift */; };
+		1946004027C94B210054822E /* RealityKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1946003F27C94B210054822E /* RealityKitView.swift */; };
 		1956272F27C2E6CD001AED2A /* nearbyRestaurants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1956272E27C2E6CD001AED2A /* nearbyRestaurants.swift */; };
 		1956273227C2F87E001AED2A /* RestaurantProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1956273127C2F87E001AED2A /* RestaurantProvider.swift */; };
 		1956273427C30236001AED2A /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1956273327C30236001AED2A /* MapView.swift */; };
@@ -35,6 +36,7 @@
 /* Begin PBXFileReference section */
 		07CE38FDD78A3AFF36AC6972 /* Restaurant+Schema.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "Restaurant+Schema.swift"; path = "amplify/generated/models/Restaurant+Schema.swift"; sourceTree = "<group>"; };
 		100229F52CDEF110D5930D93 /* AmplifyModels.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = AmplifyModels.swift; path = amplify/generated/models/AmplifyModels.swift; sourceTree = "<group>"; };
+		1946003F27C94B210054822E /* RealityKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealityKitView.swift; sourceTree = "<group>"; };
 		1956272E27C2E6CD001AED2A /* nearbyRestaurants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nearbyRestaurants.swift; sourceTree = "<group>"; };
 		1956273127C2F87E001AED2A /* RestaurantProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestaurantProvider.swift; path = RedHen/RestaurantProvider.swift; sourceTree = "<group>"; };
 		1956273327C30236001AED2A /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapView.swift; path = RedHen/MapView.swift; sourceTree = "<group>"; };
@@ -47,7 +49,6 @@
 		19921EFD27BFC36B007772F9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		19921F0B27C056DE007772F9 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WebView.swift; path = RedHen/WebView.swift; sourceTree = "<group>"; };
 		19ADD87F27C3ABA70013140C /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuView.swift; path = RedHen/MenuView.swift; sourceTree = "<group>"; };
-		19E3205C27C919AC002F906F /* Red-Hen-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Red-Hen-Info.plist"; sourceTree = "<group>"; };
 		2506E6EC7143E07477163912 /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		3AE1BD8C72D296354EEB92CA /* Restaurant.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Restaurant.swift; path = amplify/generated/models/Restaurant.swift; sourceTree = "<group>"; };
 		6E60337A547823DF540D9776 /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
@@ -83,7 +84,6 @@
 		19921EEA27BFC36A007772F9 = {
 			isa = PBXGroup;
 			children = (
-				19E3205C27C919AC002F906F /* Red-Hen-Info.plist */,
 				19921EF527BFC36A007772F9 /* RedHen */,
 				19921EF427BFC36A007772F9 /* Products */,
 				5A4DC56A3965919E66721A5A /* AmplifyConfig */,
@@ -115,6 +115,7 @@
 				1956273527C30C4F001AED2A /* MapViewModel.swift */,
 				19ADD87F27C3ABA70013140C /* MenuView.swift */,
 				197CFBBB27C44F2D003C3916 /* RestaurantAnnotationView.swift */,
+				1946003F27C94B210054822E /* RealityKitView.swift */,
 			);
 			name = RedHen;
 			sourceTree = "<group>";
@@ -233,6 +234,7 @@
 			files = (
 				19921EF927BFC36A007772F9 /* ContentView.swift in Sources */,
 				19921EF727BFC36A007772F9 /* MenewApp.swift in Sources */,
+				1946004027C94B210054822E /* RealityKitView.swift in Sources */,
 				AE01A80D11441993949C7086 /* AmplifyModels.swift in Sources */,
 				19921F0C27C056DE007772F9 /* WebView.swift in Sources */,
 				1956273427C30236001AED2A /* MapView.swift in Sources */,
@@ -382,6 +384,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Red-Hen-Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Augmented Reality";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = Location;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = Location;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -415,6 +418,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Red-Hen-Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Augmented Reality";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = Location;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = Location;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
