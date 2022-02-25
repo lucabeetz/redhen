@@ -21,6 +21,23 @@ struct MapView: View {
                         }
                     }
                 }
+                .overlay(alignment: .bottomTrailing) {
+                    Button(action: {
+                        viewModel.region.center = viewModel.locationManager?.location?.coordinate ?? viewModel.region.center
+                    }) {
+                        ZStack{
+                            Circle()
+                                .fill(Color(red: 255 / 255, green: 159 / 255, blue: 10 / 255))
+                                .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
+                                .frame(width: 48, height: 48)
+                            
+                            Image(systemName: "location")
+                                .font(.system(size: 22))
+                                .foregroundColor(.white)
+                        }
+                    }
+                    .offset(x: -10, y: -100)
+                }
                 .ignoresSafeArea()
                 .onAppear {
                     viewModel.checkIfLocationServiceIsEnabled()
