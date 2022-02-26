@@ -15,7 +15,7 @@ struct MapView: View {
     var body: some View {
         NavigationView {
             ZStack(alignment: .bottomTrailing) {
-                Map(coordinateRegion: $viewModel.region, showsUserLocation: false, userTrackingMode: .constant(.none), annotationItems: viewModel.restaurants) { restaurant in
+                Map(coordinateRegion: $viewModel.region, showsUserLocation: true, userTrackingMode: .constant(.none), annotationItems: viewModel.restaurants) { restaurant in
                     MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: restaurant.location.lat, longitude: restaurant.location.lon), anchorPoint: CGPoint(x: 0.5, y: 0.95)) {
                         OpenMenuViewButton(restaurantToShow: restaurant, content: RestaurantAnnotationView())
                     }
@@ -40,7 +40,7 @@ struct MapView: View {
                             }
                         }
                         Button(action: {
-                            viewModel.region.center = viewModel.locationManager?.location?.coordinate ?? viewModel.region.center
+                            viewModel.region.center = viewModel.locationManager.location?.coordinate ?? viewModel.region.center
                         }) {
                             ZStack{
                                 Circle()
@@ -57,6 +57,7 @@ struct MapView: View {
                     .offset(x: -10, y: -100)
                 }
                 .ignoresSafeArea()
+                .animation(Animation.easeIn(duration: 1), value: viewModel.region)
                 .onAppear {
                     viewModel.checkIfLocationServiceIsEnabled()
                 }

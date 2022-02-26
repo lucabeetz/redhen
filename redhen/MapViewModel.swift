@@ -7,36 +7,66 @@
 
 import MapKit
 import Amplify
+import SwiftUI
 
-enum MapDetails {
-    static let startingLocation = CLLocationCoordinate2D(latitude: 49.589349, longitude: 11.012710)
-    static let defaultSpan = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+extension MKCoordinateSpan: Equatable {
+   public static func == (lhs: MKCoordinateSpan, rhs: MKCoordinateSpan) -> Bool {
+       return lhs.latitudeDelta == rhs.latitudeDelta &&
+               lhs.longitudeDelta == rhs.longitudeDelta
+   }
 }
 
+extension CLLocationCoordinate2D: Equatable {
+   public static func == (lhs: CLLocationCoordinate2D, rhs: CLLocationCoordinate2D) -> Bool {
+       return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
+   }
+}
+
+extension MKCoordinateRegion: Equatable {
+   public static func == (lhs: MKCoordinateRegion, rhs: MKCoordinateRegion) -> Bool {
+       return lhs.span == rhs.span &&
+       lhs.center == rhs.center
+   }
+}
+
+enum MapDetails {
+    static let startingLocation = CLLocationCoordinate2D(latitude: 50.996254, longitude: 10.334109)
+    static let defaultOverviewSpan = MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10)
+    static let defaultUserSpan = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+}
 
 class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
-    @Published var region = MKCoordinateRegion(center: MapDetails.startingLocation, span: MapDetails.defaultSpan)
+    @Published var region = MKCoordinateRegion(center: MapDetails.startingLocation, span: MapDetails.defaultOverviewSpan)
     
     @Published var restaurants: [Restaurant] = []
     @Published var activeRestaurants: [Restaurant] = []
     
-    var locationManager: CLLocationManager?
+    var locationManager: CLLocationManager = CLLocationManager()
+    private var didFocusOnUser: Bool = false
     
     
+    override init() {
+        super.init()
+        locationManager.delegate = self
+    }
+    
+    func focusOnUserOnce() {
+        if(!didFocusOnUser) {
+            region = MKCoordinateRegion(center: locationManager.location!.coordinate, span: MapDetails.defaultUserSpan)
+            didFocusOnUser = true
+        }
+    }
     
     func checkIfLocationServiceIsEnabled() {
-        if locationManager == nil && CLLocationManager.locationServicesEnabled() {
+        if CLLocationManager.locationServicesEnabled() {
             locationManager = CLLocationManager()
-            locationManager!.delegate = self
+            locationManager.delegate = self
         } else {
             print("Location services disabled")
         }
     }
     
     private func checkLocationAuthorization() {
-        guard let locationManager = locationManager else { return }
-
-        
         switch locationManager.authorizationStatus {
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
@@ -45,7 +75,7 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         case .denied:
             break
         case .authorizedAlways, .authorizedWhenInUse:
-            region = MKCoordinateRegion(center: locationManager.location!.coordinate, span: MapDetails.defaultSpan)
+            region = MKCoordinateRegion(center: locationManager.location!.coordinate, span: MapDetails.defaultUserSpan)
             updateRestaurants()
             updateActiveRestaurants()
         @unknown default:
@@ -58,7 +88,7 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     
     func updateRestaurants() {
-        guard let location = locationManager?.location else { return }
+        guard let location = locationManager.location else { return }
         
         Amplify.API.query(request: .getNearbyRestaurants(lat: Float(location.coordinate.latitude), lon: Float(location.coordinate.longitude), radius: 3000)) { response in
             switch(response) {
@@ -78,7 +108,7 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     
     func updateActiveRestaurants() {
-        guard let location = locationManager?.location else { return }
+        guard let location = locationManager.location else { return }
         
         Amplify.API.query(request: .getNearbyRestaurants(lat: Float(location.coordinate.latitude), lon: Float(location.coordinate.longitude), radius: 25)) { response in
             switch(response) {
@@ -97,4 +127,3 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
 }
-
