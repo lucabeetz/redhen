@@ -6,9 +6,45 @@
 //
 
 import SwiftUI
+import BetterSafariView
+
+struct OpenMenuViewButton<Content>: View where Content : View {
+    let restaurantToShow: Restaurant
+    let content: Content
+    
+    @State private var shownRestaurant: Restaurant?
+    
+    public var body: some View {
+        return Button(action: {
+            shownRestaurant = restaurantToShow
+        }) {
+            content
+        }
+        .safariView(
+            item: $shownRestaurant,
+            onDismiss: {
+                shownRestaurant = nil
+            },
+            content: {item in MenuView.SafariView(restaurant: item)}
+        )
+    }
+}
 
 struct MenuView: View {
     let restaurant: Restaurant
+    
+    static func SafariView(restaurant: Restaurant) -> SafariView {
+        return BetterSafariView.SafariView(
+            url: URL(string: restaurant.menu!)!,
+            configuration: BetterSafariView.SafariView.Configuration(
+                entersReaderIfAvailable: false,
+                barCollapsingEnabled: true
+            )
+        )
+        .preferredBarAccentColor(.clear)
+        .preferredControlAccentColor(.accentColor)
+        .dismissButtonStyle(.done)
+    }
     
     var body: some View {
         WebView(url: restaurant.menu!)
