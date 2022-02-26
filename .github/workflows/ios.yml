@@ -25,8 +25,12 @@ jobs:
       - name: Build
         env:
           scheme: ${{ 'default' }}
-        run: xcodebuild build-for-testing -scheme "$scheme" -destination ${{ matrix.destination }}
+        run: |
+          if [ $scheme = default ]; then scheme=$(cat default); fi
+          xcodebuild build-for-testing -scheme "$scheme" -destination ${{ matrix.destination }}
       - name: Test
         env:
           scheme: ${{ 'default' }}
-        run: xcodebuild test-without-building -scheme "$scheme" -destination ${{ matrix.destination }}
+        run: | 
+          if [ $scheme = default ]; then scheme=$(cat default); fi
+          xcodebuild test-without-building -scheme "$scheme" -destination ${{ matrix.destination }}
