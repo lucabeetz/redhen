@@ -41,50 +41,40 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var restaurants: [Restaurant] = []
     @Published var activeRestaurants: [Restaurant] = []
     
-    var locationManager: CLLocationManager = CLLocationManager()
-    private var didFocusOnUser: Bool = false
+    @Published var authorizationDenied: Bool = false
     
+    let locationManager: CLLocationManager = CLLocationManager()
     
     override init() {
         super.init()
         locationManager.delegate = self
     }
     
-    func focusOnUserOnce() {
-        if(!didFocusOnUser) {
-            region = MKCoordinateRegion(center: locationManager.location!.coordinate, span: MapDetails.defaultUserSpan)
-            didFocusOnUser = true
-        }
-    }
-    
-    func checkIfLocationServiceIsEnabled() {
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager = CLLocationManager()
-            locationManager.delegate = self
-        } else {
-            print("Location services disabled")
-        }
-    }
-    
-    private func checkLocationAuthorization() {
-        switch locationManager.authorizationStatus {
-        case .notDetermined:
-            locationManager.requestWhenInUseAuthorization()
-        case .restricted:
-            break
-        case .denied:
-            break
-        case .authorizedAlways, .authorizedWhenInUse:
-            region = MKCoordinateRegion(center: locationManager.location!.coordinate, span: MapDetails.defaultUserSpan)
-            updateRestaurants()
-            updateActiveRestaurants()
-        @unknown default:
-            break
-        }
+    func focusOnUser() {
+        guard let userCoords = locationManager.location?.coordinate else { return }
+        region = MKCoordinateRegion(center: userCoords, span: MapDetails.defaultUserSpan)
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        checkLocationAuthorization()
+        switch manager.authorizationStatus {
+        case .notDetermined:
+            authorizationDenied = false
+            manager.requestWhenInUseAuthorization()
+        case .restricted:
+            authorizationDenied = true
+            break
+        case .denied:
+            authorizationDenied = true
+            break
+        case .authorizedAlways, .authorizedWhenInUse:
+            authorizationDenied = false
+            focusOnUser()
+            updateRestaurants()
+            updateActiveRestaurants()
+        @unknown default:
+            authorizationDenied = true
+            break
+        }
     }
     
     func updateRestaurants() {

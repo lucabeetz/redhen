@@ -8,58 +8,70 @@
 import SwiftUI
 import MapKit
 import BetterSafariView
+import UIKit
 
 struct MapView: View {
     @StateObject private var viewModel: MapViewModel = MapViewModel()
     
     var body: some View {
         NavigationView {
-            ZStack(alignment: .bottomTrailing) {
-                Map(coordinateRegion: $viewModel.region, showsUserLocation: true, userTrackingMode: .constant(.none), annotationItems: viewModel.restaurants) { restaurant in
-                    MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: restaurant.location.lat, longitude: restaurant.location.lon), anchorPoint: CGPoint(x: 0.5, y: 0.95)) {
-                        OpenMenuViewButton(restaurantToShow: restaurant, content: RestaurantAnnotationView())
-                    }
+            Map(coordinateRegion: $viewModel.region, showsUserLocation: true, userTrackingMode: .constant(.none), annotationItems: viewModel.restaurants) { restaurant in
+                MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: restaurant.location.lat, longitude: restaurant.location.lon), anchorPoint: CGPoint(x: 0.5, y: 0.95)) {
+                    OpenMenuViewButton(restaurantToShow: restaurant, content: RestaurantAnnotationView())
                 }
-                .overlay(alignment: .bottomTrailing) {
-                    VStack {
-                        if !viewModel.activeRestaurants.isEmpty {
-                            NavigationLink(destination: MenuView(restaurant: viewModel.activeRestaurants[0])) {
-                                ZStack {
-                                    Circle()
-                                        .fill(Color(red: 255 / 255, green: 159 / 255, blue: 10 / 255))
-                                        .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
-                                        .frame(width: 48, height: 48)
-                                    
-                                    Image(systemName: "fork.knife")
-                                        .font(.system(size: 22))
-                                        .foregroundColor(.white)
-                                    
-                                }
-                                .padding(.horizontal, 16.0)
-                                .padding(.vertical, 64.0)
-                            }
-                        }
-                        Button(action: {
-                            viewModel.region.center = viewModel.locationManager.location?.coordinate ?? viewModel.region.center
-                        }) {
-                            ZStack{
+            }
+            .overlay(alignment: .bottomTrailing) {
+                VStack {
+                    if !viewModel.activeRestaurants.isEmpty {
+                        NavigationLink(destination: MenuView(restaurant: viewModel.activeRestaurants[0])) {
+                            ZStack {
                                 Circle()
                                     .fill(Color(red: 255 / 255, green: 159 / 255, blue: 10 / 255))
                                     .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
                                     .frame(width: 48, height: 48)
                                 
-                                Image(systemName: "location")
+                                Image(systemName: "fork.knife")
                                     .font(.system(size: 22))
                                     .foregroundColor(.white)
+                                
                             }
+                            .padding(.horizontal, 16.0)
+                            .padding(.vertical, 64.0)
                         }
                     }
-                    .offset(x: -10, y: -100)
+                    LocateUserButton(action: viewModel.focusOnUser)
                 }
-                .ignoresSafeArea()
-                .animation(Animation.easeIn(duration: 1), value: viewModel.region)
-                .onAppear {
-                    viewModel.checkIfLocationServiceIsEnabled()
+                .offset(x: -10, y: -100)
+            }
+            .ignoresSafeArea()
+            .animation(Animation.easeIn(duration: 1), value: viewModel.region)
+            .popover(isPresented: $viewModel.authorizationDenied) {
+                
+                Text("Enable location service")
+                
+            }
+        }
+    }
+    
+    
+    struct LocateUserButton: View {
+        private let action: () -> Void
+        
+        init(action: @escaping () -> Void) {
+            self.action = action
+        }
+        
+        var body: some View {
+            Button(action: action) {
+                ZStack{
+                    Circle()
+                        .fill(Color(red: 255 / 255, green: 159 / 255, blue: 10 / 255))
+                        .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
+                        .frame(width: 48, height: 48)
+                    
+                    Image(systemName: "location")
+                        .font(.system(size: 22))
+                        .foregroundColor(.white)
                 }
             }
         }
@@ -71,7 +83,6 @@ struct MapView_Previews: PreviewProvider {
         MapView()
     }
 }
-
 
 /*struct MapView: UIViewRepresentable {
  @StateObject private var viewModel: MapViewModel = MapViewModel()
