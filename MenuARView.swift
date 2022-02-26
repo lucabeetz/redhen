@@ -2,73 +2,61 @@
 //  MenuARView.swift
 //  Red Hen
 //
-//  Created by Luca Beetz on 25.02.22.
+//  Created by Luca Beetz on 26.02.22.
 //
 
-import RealityKit
-import ARKit
-import FocusEntity
 import SwiftUI
 
-struct MenuARView: UIViewRepresentable {
+struct MenuARView: View {
     @EnvironmentObject var placementSettings: PlacementSettings
     
-    func makeUIView(context: Context) -> CustomARView {
-        let arView = CustomARView(frame: .zero)
-        
-        placementSettings.sceneObserver = arView.scene.subscribe(to: SceneEvents.Update.self, { (event) in
-            self.updateScene(for: arView)
-        })
-        
-        return arView
-    }
-    
-    func updateUIView(_ uiView: CustomARView, context: Context) {}
-    
-    private func updateScene(for arView: CustomARView) {
-        arView.focusEntity?.isEnabled = true
-        
-        let mesh = MeshResource.generateBox(size: 0.1)
-        let material = SimpleMaterial(color: .orange, roughness: 0.5, isMetallic: true)
-        let modelEntity = ModelEntity(mesh: mesh, materials: [material])
-        
-        if placementSettings.placeObject {
-            self.place(modelEntity, in: arView)
+    var body: some View {
+        ZStack(alignment: .bottomTrailing) {
+            ARDisplayView()
+            
+            VStack(spacing: 16) {
+                Button() {
+                    print("Add Entity")
+                    placementSettings.placeObject = true
+                } label: {
+                    ZStack{
+                        Circle()
+                            .fill(Color(red: 255 / 255, green: 159 / 255, blue: 10 / 255))
+                            .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
+                            .frame(width: 48, height: 48)
+                        
+                        Image(systemName: "plus")
+                            .font(.system(size: 22))
+                            .foregroundColor(.white)
+                    }
+                }
+                
+                Button() {
+                    print("Switch Entity")
+                    placementSettings.changeActiveEntity()
+                } label: {
+                    ZStack{
+                        Circle()
+                            .fill(Color(red: 255 / 255, green: 159 / 255, blue: 10 / 255))
+                            .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
+                            .frame(width: 48, height: 48)
+                        
+                        Image(systemName: "arrow.right")
+                            .font(.system(size: 22))
+                            .foregroundColor(.white)
+                    }
+                }
+                
+            }
+            .padding(.bottom, 64)
+            .padding(.trailing, 16)
         }
-    }
-    
-    private func place(_ modelEntity: ModelEntity, in arView: ARView) {
-        let clonedEntity = modelEntity.clone(recursive: true)
-        clonedEntity.generateCollisionShapes(recursive: true)
-        arView.installGestures([.translation, .rotation], for: clonedEntity)
-        
-        let anchorEntity = AnchorEntity(plane: .any)
-        anchorEntity.addChild(clonedEntity)
-        
-        arView.scene.addAnchor(anchorEntity)
-        
-        placementSettings.placeObject = true
+        .ignoresSafeArea()
     }
 }
 
-class CustomARView: ARView {
-    var focusEntity: FocusEntity?
-    
-    required init(frame frameRect: CGRect) {
-        super.init(frame: frameRect)
-        
-        focusEntity = FocusEntity(on: self, focus: .classic)
-        
-        configure()
-    }
-    
-    @MainActor required dynamic init?(coder decoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func configure() {
-        let config = ARWorldTrackingConfiguration()
-        config.planeDetection = [.horizontal]
-        session.run(config)
+struct MenuARView_Previews: PreviewProvider {
+    static var previews: some View {
+        MenuARView()
     }
 }
