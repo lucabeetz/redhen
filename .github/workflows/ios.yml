@@ -11,7 +11,7 @@ jobs:
     
     strategy:
       matrix: 
-        destination: ["platform=iOS Simulator,name=iPhone 13 Pro Max,OS=15.2"]
+        destination: ["'platform=iOS Simulator,name=iPhone 13 Pro Max,OS=15.2'"]
 
     steps:
       - name: Checkout
