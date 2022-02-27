@@ -28,12 +28,21 @@
       }
     },
     {
+<<<<<<< Updated upstream
       "identity" : "focusentity",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/maxxfrazer/FocusEntity",
       "state" : {
         "branch" : "main",
         "revision" : "615af712434dcf0e4800909f6291d6a6a088b754"
+=======
+      "identity" : "bettersafariview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/stleamist/BetterSafariView.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "9c051d20dbb50fa61d014d87b4ab6c5504408a73"
+>>>>>>> Stashed changes
       }
     },
     {
