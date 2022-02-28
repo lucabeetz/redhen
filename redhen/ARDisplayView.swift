@@ -14,9 +14,10 @@ import Combine
 struct ARDisplayView: UIViewRepresentable {
     @EnvironmentObject var placementSettings: PlacementSettings
     @EnvironmentObject var sessionSettings: SessionSettings
+    @EnvironmentObject var modelDeletionManager: ModelDeletionManager
     
     func makeUIView(context: Context) -> CustomARView {
-        let arView = CustomARView(frame: .zero, sessionSettings: sessionSettings)
+        let arView = CustomARView(frame: .zero, sessionSettings: sessionSettings, modelDeletionManager: modelDeletionManager)
         
         placementSettings.sceneObserver = arView.scene.subscribe(to: SceneEvents.Update.self, { (event) in
             self.updateScene(for: arView)
@@ -52,6 +53,7 @@ struct ARDisplayView: UIViewRepresentable {
         }
         
         arView.scene.addAnchor(anchorEntity)
+        placementSettings.anchorEntities.append(anchorEntity)
         
         placementSettings.placeObject = false
     }
@@ -60,21 +62,25 @@ struct ARDisplayView: UIViewRepresentable {
 class CustomARView: ARView {
     var focusEntity: FocusEntity?
     var sessionSettings: SessionSettings
+    var modelDeletionManager: ModelDeletionManager
     
     private var peopleOcclusionCancellable: AnyCancellable?
     private var objectOcclusionCancellable: AnyCancellable?
     private var lidarDebugCancellable: AnyCancellable?
     
-    required init(frame frameRect: CGRect, sessionSettings: SessionSettings) {
+    required init(frame frameRect: CGRect, sessionSettings: SessionSettings, modelDeletionManager: ModelDeletionManager) {
         self.sessionSettings = sessionSettings
+        self.modelDeletionManager = modelDeletionManager
         
         super.init(frame: frameRect)
         
         focusEntity = FocusEntity(on: self, focus: .classic)
         
         configure()
+        
         self.initializeSettings()
         self.setupSubscribers()
+        self.enableObjectDeletion()
     }
     
     required init(frame frameRect: CGRect) {
@@ -145,4 +151,21 @@ class CustomARView: ARView {
             self.debugOptions.insert(.showSceneUnderstanding)
         }
     }
+}
+
+extension CustomARView {
+    func enableObjectDeletion() {
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(recognizer:)))
+        self.addGestureRecognizer(longPressGesture)
+    }
+    
+    @objc
+    func handleLongPress(recognizer: UILongPressGestureRecognizer) {
+        let location = recognizer.location(in: self)
+        
+        if let entity = self.entity(at: location) as? ModelEntity {
+            modelDeletionManager.entitySelectedForDeletion = entity
+        }
+    }
+    
 }

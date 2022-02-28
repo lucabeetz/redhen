@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MenuARView: View {
     @EnvironmentObject var placementSettings: PlacementSettings
+    @EnvironmentObject var modelDeletionManager: ModelDeletionManager
     
     @State var showSettings = false
     
@@ -33,21 +34,21 @@ struct MenuARView: View {
                     }
                 }
                 
-                Button() {
-                    print("Switch Entity")
-                    placementSettings.changeActiveEntity()
-                } label: {
-                    ZStack{
-                        Circle()
-                            .fill(Color(red: 255 / 255, green: 159 / 255, blue: 10 / 255))
-                            .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
-                            .frame(width: 48, height: 48)
-                        
-                        Image(systemName: "arrow.right")
-                            .font(.system(size: 22))
-                            .foregroundColor(.white)
-                    }
-                }
+//                Button() {
+//                    print("Switch Entity")
+//                    placementSettings.changeActiveEntity()
+//                } label: {
+//                    ZStack{
+//                        Circle()
+//                            .fill(Color(red: 255 / 255, green: 159 / 255, blue: 10 / 255))
+//                            .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
+//                            .frame(width: 48, height: 48)
+//
+//                        Image(systemName: "arrow.right")
+//                            .font(.system(size: 22))
+//                            .foregroundColor(.white)
+//                    }
+//                }
                 
                 Button() {
                     print("Show settings")
@@ -67,6 +68,30 @@ struct MenuARView: View {
                 .sheet(isPresented: $showSettings) {
                     SettingsView(showSettings: $showSettings)
                 }
+                
+                Button() {
+                    print("Delete entity")
+                    modelDeletionManager.delete(placementSettings: self.placementSettings)
+                } label: {
+                    ZStack{
+                        if modelDeletionManager.entitySelectedForDeletion == nil {
+                            Circle()
+                                .fill(Color(red: 103 / 255, green: 103 / 255, blue: 103 / 255))
+                                .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
+                                .frame(width: 48, height: 48)
+                        } else {
+                            Circle()
+                                .fill(Color(red: 255 / 255, green: 159 / 255, blue: 10 / 255))
+                                .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
+                                .frame(width: 48, height: 48)
+                        }
+                        
+                        Image(systemName: "trash")
+                            .font(.system(size: 22))
+                            .foregroundColor(.white)
+                    }
+                }
+                .disabled(modelDeletionManager.entitySelectedForDeletion == nil)
                 
             }
             .padding(.bottom, 64)

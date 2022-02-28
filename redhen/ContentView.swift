@@ -13,21 +13,13 @@ struct ContentView: View {
     
     @StateObject var placementSettings = PlacementSettings()
     @StateObject var sessionSettings = SessionSettings()
+    @StateObject var modelDeletionManager = ModelDeletionManager()
     
     var body: some View {
-//        RealityKitView()
-//        MenuARView()
         MapView()
             .environmentObject(placementSettings)
             .environmentObject(sessionSettings)
-//        VStack {
-//            if restaurantProvider.nearestRestaurants.isEmpty {
-//                ProgressView()
-//            } else {
-//                WebView(url: restaurantProvider.nearestRestaurants[0].menu!)
-//                    .edgesIgnoringSafeArea(.bottom)
-//            }
-//        }
+            .environmentObject(modelDeletionManager)
     }
 }
 

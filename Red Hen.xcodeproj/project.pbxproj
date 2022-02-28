@@ -10,6 +10,7 @@
 		177B802ADFA87DB214092B1D /* Restaurant+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CE38FDD78A3AFF36AC6972 /* Restaurant+Schema.swift */; };
 		190101BB27CCEA6300E7DE65 /* SessionSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190101BA27CCEA6300E7DE65 /* SessionSettings.swift */; };
 		190101BD27CCEB0900E7DE65 /* SessionSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190101BC27CCEB0900E7DE65 /* SessionSettingsView.swift */; };
+		190101BF27CCFB8400E7DE65 /* ModelDeletionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190101BE27CCFB8400E7DE65 /* ModelDeletionManager.swift */; };
 		1946004327C952940054822E /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = 1946004227C952940054822E /* FocusEntity */; };
 		1956272F27C2E6CD001AED2A /* nearbyRestaurants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1956272E27C2E6CD001AED2A /* nearbyRestaurants.swift */; };
 		1956273227C2F87E001AED2A /* RestaurantProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1956273127C2F87E001AED2A /* RestaurantProvider.swift */; };
@@ -47,6 +48,7 @@
 		12C703B4540698BFCD959813 /* RestaurantType.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = RestaurantType.swift; path = amplify/generated/models/RestaurantType.swift; sourceTree = "<group>"; };
 		190101BA27CCEA6300E7DE65 /* SessionSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSettings.swift; sourceTree = "<group>"; };
 		190101BC27CCEB0900E7DE65 /* SessionSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSettingsView.swift; sourceTree = "<group>"; };
+		190101BE27CCFB8400E7DE65 /* ModelDeletionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDeletionManager.swift; sourceTree = "<group>"; };
 		1956272E27C2E6CD001AED2A /* nearbyRestaurants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nearbyRestaurants.swift; sourceTree = "<group>"; };
 		1956273127C2F87E001AED2A /* RestaurantProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestaurantProvider.swift; path = RedHen/RestaurantProvider.swift; sourceTree = "<group>"; };
 		1956273327C30236001AED2A /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapView.swift; path = RedHen/MapView.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				1956273527C30C4F001AED2A /* MapViewModel.swift */,
 				19ADD87F27C3ABA70013140C /* MenuView.swift */,
 				197CFBBB27C44F2D003C3916 /* RestaurantAnnotationView.swift */,
+				190101BE27CCFB8400E7DE65 /* ModelDeletionManager.swift */,
 			);
 			name = RedHen;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				9ABDA08AA14A11BDB29BF518 /* Location+Schema.swift in Sources */,
 				197CFBBC27C44F2D003C3916 /* RestaurantAnnotationView.swift in Sources */,
 				1CAFF408ED328EA53FD37E49 /* Location.swift in Sources */,
+				190101BF27CCFB8400E7DE65 /* ModelDeletionManager.swift in Sources */,
 				BC046849CAA6CDF34E88FB5E /* ModelRestaurantConnection+Schema.swift in Sources */,
 				190101BB27CCEA6300E7DE65 /* SessionSettings.swift in Sources */,
 				19D6BA6E27CBD2B0008B8391 /* MenuARView.swift in Sources */,

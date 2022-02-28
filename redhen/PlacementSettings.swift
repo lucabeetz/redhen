@@ -11,6 +11,8 @@ import Combine
 class PlacementSettings: ObservableObject {
     @Published var placeObject = false
     
+    var anchorEntities: [AnchorEntity] = []
+    
     @Published var activeAnchor: AnchorEntity? = nil
     var activeEntity: Entity? = nil
     var otherEntity: Entity? = nil
@@ -33,6 +35,10 @@ class PlacementSettings: ObservableObject {
         activeAnchor.addChild(otherEntity)
         
         (self.otherEntity, self.activeEntity) = (activeEntity, otherEntity)
+    }
+    
+    func reset() {
+        activeAnchor = nil
     }
     
     var sceneObserver: Cancellable?
