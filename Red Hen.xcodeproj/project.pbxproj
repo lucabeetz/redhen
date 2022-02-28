@@ -37,7 +37,7 @@
 /* Begin PBXFileReference section */
 		07CE38FDD78A3AFF36AC6972 /* Restaurant+Schema.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "Restaurant+Schema.swift"; path = "amplify/generated/models/Restaurant+Schema.swift"; sourceTree = "<group>"; };
 		100229F52CDEF110D5930D93 /* AmplifyModels.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = AmplifyModels.swift; path = amplify/generated/models/AmplifyModels.swift; sourceTree = "<group>"; };
-		12C703B4540698BFCD959813 /* RestaurantType.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; lastKnownFileType = sourcecode.swift; name = RestaurantType.swift; path = amplify/generated/models/RestaurantType.swift; sourceTree = "<group>"; };
+		12C703B4540698BFCD959813 /* RestaurantType.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = RestaurantType.swift; path = amplify/generated/models/RestaurantType.swift; sourceTree = "<group>"; };
 		1956272E27C2E6CD001AED2A /* nearbyRestaurants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nearbyRestaurants.swift; sourceTree = "<group>"; };
 		1956273127C2F87E001AED2A /* RestaurantProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestaurantProvider.swift; path = RedHen/RestaurantProvider.swift; sourceTree = "<group>"; };
 		1956273327C30236001AED2A /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapView.swift; path = RedHen/MapView.swift; sourceTree = "<group>"; };
@@ -386,7 +386,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RedHen/Preview Content\"";
-				DEVELOPMENT_TEAM = J8D2U9359M;
+				DEVELOPMENT_TEAM = 47UAHQ7G98;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Red-Hen-Info.plist";
@@ -402,7 +402,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.marcelschoeckel.redhen;
+				PRODUCT_BUNDLE_IDENTIFIER = com.luca.redhen;
 				PRODUCT_NAME = "Red Hen";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -419,7 +419,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RedHen/Preview Content\"";
-				DEVELOPMENT_TEAM = J8D2U9359M;
+				DEVELOPMENT_TEAM = 47UAHQ7G98;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Red-Hen-Info.plist";
@@ -435,7 +435,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.marcelschoeckel.redhen;
+				PRODUCT_BUNDLE_IDENTIFIER = com.luca.redhen;
 				PRODUCT_NAME = "Red Hen";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
