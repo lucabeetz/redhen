@@ -9,8 +9,6 @@ import SwiftUI
 import Amplify
 
 struct ContentView: View {
-    @StateObject var restaurantProvider = RestaurantProvider()
-    
     @StateObject var arSceneManager = ARSceneManager()
     
     var body: some View {
