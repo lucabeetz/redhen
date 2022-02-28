@@ -28,6 +28,8 @@ extension GraphQLRequest where R == [Restaurant] {
                         lat
                         lon
                     }
+                    ar
+                    type
                 }
             }
         }

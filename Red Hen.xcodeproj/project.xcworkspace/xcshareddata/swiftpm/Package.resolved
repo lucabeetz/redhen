@@ -29,6 +29,24 @@
         }
       },
       {
+        "package": "BetterSafariView",
+        "repositoryURL": "https://github.com/stleamist/BetterSafariView.git",
+        "state": {
+          "branch": "main",
+          "revision": "9c051d20dbb50fa61d014d87b4ab6c5504408a73",
+          "version": null
+        }
+      },
+      {
+        "package": "FocusEntity",
+        "repositoryURL": "https://github.com/maxxfrazer/FocusEntity",
+        "state": {
+          "branch": "main",
+          "revision": "d17dbbddd92d9b1661a42868fc51b86a3ad2fcb0",
+          "version": null
+        }
+      },
+      {
         "package": "SQLite.swift",
         "repositoryURL": "https://github.com/stephencelis/SQLite.swift.git",
         "state": {
