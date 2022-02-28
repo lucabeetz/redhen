@@ -11,7 +11,9 @@ jobs:
     
     strategy:
       matrix: 
-        destination: ["'platform=iOS Simulator,name=iPhone 13 Pro Max,OS=latest'"]
+        destination: [
+          "'platform=iOS Simulator,name=iPhone 13 Pro Max,OS=latest'",
+          "'platform=iOS Simulator,name=iPhone 11,OS=latest'"]
 
     steps:
       - name: Checkout
@@ -40,9 +42,9 @@ jobs:
         run: |
           if [ $scheme = default ]; then scheme=$(cat default); fi
           xcodebuild -scheme "$scheme" -destination ${{ matrix.destination }}
-      #- name: Test
-      #  env:
-      #    scheme: ${{ 'default' }}
-      #  run: | 
-      #    if [ $scheme = default ]; then scheme=$(cat default); fi
-      #    xcodebuild test-without-building -scheme "$scheme" -destination ${{ matrix.destination }}
+      - name: Test
+        env:
+          scheme: ${{ 'default' }}
+        run: | 
+          if [ $scheme = default ]; then scheme=$(cat default); fi
+          xcodebuild test-without-building -scheme "$scheme" -destination ${{ matrix.destination }}
