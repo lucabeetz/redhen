@@ -11,16 +11,11 @@ import Amplify
 struct ContentView: View {
     @StateObject var restaurantProvider = RestaurantProvider()
     
+    @StateObject var arSceneManager = ARSceneManager()
+    
     var body: some View {
         MapView()
-//        VStack {
-//            if restaurantProvider.nearestRestaurants.isEmpty {
-//                ProgressView()
-//            } else {
-//                WebView(url: restaurantProvider.nearestRestaurants[0].menu!)
-//                    .edgesIgnoringSafeArea(.bottom)
-//            }
-//        }
+            .environmentObject(arSceneManager)
     }
 }
 
