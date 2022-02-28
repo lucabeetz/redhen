@@ -2,16 +2,34 @@
 # all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/auth
 input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
 
+enum RestaurantType {
+  Restaurant
+  Cocktail
+  Cafe
+  ToGo
+}
+
 type Restaurant @model @searchable {
   id: ID!
   name: String!
-  menu: AWSURL
+  menu: [AWSURL!]
   location: Location!
+  telephone: AWSPhone
+  website: AWSURL
+  type: RestaurantType!
+  ar: Boolean!
+  review: Float
+  hours: [[AWSTime!]]
 }
 
 type Location {
   lat: Float!
   lon: Float!
+  street: String
+  number: Int
+  postalCode: Int
+  city: String
+  country: String
 }
 
 type Query {

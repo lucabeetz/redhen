@@ -35,7 +35,7 @@ struct MenuView: View {
     
     static func SafariView(restaurant: Restaurant) -> SafariView {
         return BetterSafariView.SafariView(
-            url: URL(string: restaurant.menu!)!,
+            url: URL(string: restaurant.menu![0])!,
             configuration: BetterSafariView.SafariView.Configuration(
                 entersReaderIfAvailable: false,
                 barCollapsingEnabled: true
@@ -47,7 +47,7 @@ struct MenuView: View {
     }
     
     var body: some View {
-        WebView(url: restaurant.menu!)
+        WebView(url: restaurant.menu![0])
             .edgesIgnoringSafeArea(.bottom)
             .navigationTitle(restaurant.name)
             .navigationBarTitleDisplayMode(.inline)
@@ -56,7 +56,7 @@ struct MenuView: View {
 
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
-        let restaurant = Restaurant(id: "1", name: "Galileo", menu: "https://www.galileo-erlangen.de/wp-content/uploads/SpeisekarteOnline.pdf", location: Location(lat: 10, lon: 10))
+        let restaurant = Restaurant(id: "1", name: "Galileo", menu: ["https://www.galileo-erlangen.de/wp-content/uploads/SpeisekarteOnline.pdf"], location: Location(lat: 10, lon: 10), type: RestaurantType.restaurant, ar: false)
         MenuView(restaurant: restaurant)
     }
 }
