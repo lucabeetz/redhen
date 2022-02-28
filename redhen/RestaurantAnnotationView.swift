@@ -14,6 +14,7 @@ struct RestaurantAnnotationView: View {
     var arEnabled = false
     var notification = false
     var open = true
+    var type = RestaurantType.restaurant
     
     var body: some View {
         VStack {
@@ -36,9 +37,18 @@ struct RestaurantAnnotationView: View {
                         .frame(width: 34, height: 34)
                 }
                 
-                Image(systemName: "fork.knife")
-                    .font(.system(size: 18))
-                    .foregroundColor(.white)
+                switch(type) {
+                case RestaurantType.restaurant:
+                    Image(systemName: "fork.knife")
+                        .font(.system(size: 18))
+                        .foregroundColor(.white)
+                case RestaurantType.cocktail:
+                    TintedSVGIcon(imageName: "cocktail", size: 22)
+                case RestaurantType.cafe:
+                    TintedSVGIcon(imageName: "cafe", size: 22)
+                case RestaurantType.toGo:
+                    TintedSVGIcon(imageName: "takeaway", size: 22)
+                }
                 
                 if arEnabled {
                     ZStack {
@@ -86,17 +96,35 @@ struct RestaurantAnnotationView_Previews: PreviewProvider {
         RestaurantAnnotationView(arEnabled: false, notification: false)
             .previewLayout(.sizeThatFits)
         
-        RestaurantAnnotationView(arEnabled: false, notification: true)
+        RestaurantAnnotationView(arEnabled: false, notification: true, type: .cocktail)
             .previewLayout(.sizeThatFits)
         
-        RestaurantAnnotationView(arEnabled: true, notification: true)
+        RestaurantAnnotationView(arEnabled: true, notification: true, type: .cafe)
             .previewLayout(.sizeThatFits)
         
-        RestaurantAnnotationView(arEnabled: false, notification: true, open: false)
+        RestaurantAnnotationView(arEnabled: false, notification: true, open: false, type: .toGo)
             .previewLayout(.sizeThatFits)
         
         RestaurantAnnotationView(arEnabled: true, notification: true, open: false)
             .previewLayout(.sizeThatFits)
+    }
+}
+
+struct TintedSVGIcon: View {
+    let imageName: String
+    let size: CGFloat
+    
+    var body: some View {
+        ZStack(alignment: .top) {
+            Image(imageName)
+                .resizable()
+                .scaledToFit()
+                .frame(width: size)
+            Color.white.blendMode(.sourceAtop)
+        }
+        .drawingGroup(opaque: false)
+        .frame(width: size, height: size)
+        
     }
 }
 
