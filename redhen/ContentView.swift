@@ -11,8 +11,13 @@ import Amplify
 struct ContentView: View {
     @StateObject var restaurantProvider = RestaurantProvider()
     
+    @StateObject var placementSettings = PlacementSettings()
+    
     var body: some View {
+//        RealityKitView()
+//        MenuARView()
         MapView()
+            .environmentObject(placementSettings)
 //        VStack {
 //            if restaurantProvider.nearestRestaurants.isEmpty {
 //                ProgressView()
