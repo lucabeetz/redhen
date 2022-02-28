@@ -16,8 +16,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
       - name: Xcode version
         run: /usr/bin/xcodebuild -version
+
+      - name: Parse secret
+        run: |
+          echo "$AMPLIFY_CONF" | base64 -d > ./amplifyconfiguration.json
+          echo "AWS_CONF" | base64 -d > ./awsconfiguration.json
+        env:
+          AMPLIFY_CONF: ${{ secrets.AMPLIFY_CONF }}
+          AWS_CONF: ${{ secrets.AWS_CONF }}
+
       - name: Set Default Scheme
         run: |
           scheme_list=$(xcodebuild -list -json | tr -d "\n")
@@ -30,9 +40,9 @@ jobs:
         run: |
           if [ $scheme = default ]; then scheme=$(cat default); fi
           xcodebuild -scheme "$scheme" -destination ${{ matrix.destination }}
-      - name: Test
-        env:
-          scheme: ${{ 'default' }}
-        run: | 
-          # if [ $scheme = default ]; then scheme=$(cat default); fi
-          # xcodebuild test-without-building -scheme "$scheme" -destination ${{ matrix.destination }}
+      #- name: Test
+      #  env:
+      #    scheme: ${{ 'default' }}
+      #  run: | 
+      #    if [ $scheme = default ]; then scheme=$(cat default); fi
+      #    xcodebuild test-without-building -scheme "$scheme" -destination ${{ matrix.destination }}
