@@ -15,9 +15,9 @@ struct ContentView: View {
     
     var body: some View {
 //        RealityKitView()
-        MenuARView()
+//        MenuARView()
+        MapView()
             .environmentObject(placementSettings)
-//        MapView()
 //        VStack {
 //            if restaurantProvider.nearestRestaurants.isEmpty {
 //                ProgressView()

@@ -18,7 +18,7 @@ struct MapView: View {
             Map(coordinateRegion: $viewModel.region, showsUserLocation: true, userTrackingMode: .constant(.none), annotationItems: viewModel.restaurants) { restaurant in
                 MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: restaurant.location.lat, longitude: restaurant.location.lon), anchorPoint: CGPoint(x: 0.5, y: 0.95)) {
                     if restaurant.ar {
-                        NavigationLink(destination: MapView()) { RestaurantAnnotationView() }
+                        NavigationLink(destination: MenuARView()) { RestaurantAnnotationView() }
                     } else {
                         OpenMenuViewButton(restaurantToShow: restaurant, content: RestaurantAnnotationView())
                     }
