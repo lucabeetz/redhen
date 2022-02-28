@@ -12,12 +12,14 @@ struct ContentView: View {
     @StateObject var restaurantProvider = RestaurantProvider()
     
     @StateObject var placementSettings = PlacementSettings()
+    @StateObject var sessionSettings = SessionSettings()
     
     var body: some View {
 //        RealityKitView()
 //        MenuARView()
         MapView()
             .environmentObject(placementSettings)
+            .environmentObject(sessionSettings)
 //        VStack {
 //            if restaurantProvider.nearestRestaurants.isEmpty {
 //                ProgressView()

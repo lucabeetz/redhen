@@ -10,6 +10,8 @@ import SwiftUI
 struct MenuARView: View {
     @EnvironmentObject var placementSettings: PlacementSettings
     
+    @State var showSettings = false
+    
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
             ARDisplayView()
@@ -45,6 +47,25 @@ struct MenuARView: View {
                             .font(.system(size: 22))
                             .foregroundColor(.white)
                     }
+                }
+                
+                Button() {
+                    print("Show settings")
+                    showSettings.toggle()
+                } label: {
+                    ZStack{
+                        Circle()
+                            .fill(Color(red: 255 / 255, green: 159 / 255, blue: 10 / 255))
+                            .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
+                            .frame(width: 48, height: 48)
+                        
+                        Image(systemName: "gearshape")
+                            .font(.system(size: 22))
+                            .foregroundColor(.white)
+                    }
+                }
+                .sheet(isPresented: $showSettings) {
+                    SettingsView(showSettings: $showSettings)
                 }
                 
             }
