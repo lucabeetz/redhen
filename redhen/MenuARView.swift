@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct MenuARView: View {
-    @EnvironmentObject var placementSettings: PlacementSettings
+    @EnvironmentObject var arSceneManager: ARSceneManager
+    
+    @State var showSettings = false
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
@@ -17,12 +19,12 @@ struct MenuARView: View {
             VStack(spacing: 16) {
                 Button() {
                     print("Add Entity")
-                    placementSettings.placeObject = true
+                    arSceneManager.placeObject = true
                 } label: {
                     ZStack{
                         Circle()
-                            .fill(Color(red: 255 / 255, green: 159 / 255, blue: 10 / 255))
-                            .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
+                            .fill(Color("orangeBright"))
+                            .shadow(color: Color("shadow"), radius: 4, x: 0, y: 4)
                             .frame(width: 48, height: 48)
                         
                         Image(systemName: "plus")
@@ -32,20 +34,47 @@ struct MenuARView: View {
                 }
                 
                 Button() {
-                    print("Switch Entity")
-                    placementSettings.changeActiveEntity()
+                    print("Show settings")
+                    showSettings.toggle()
                 } label: {
                     ZStack{
                         Circle()
-                            .fill(Color(red: 255 / 255, green: 159 / 255, blue: 10 / 255))
-                            .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
+                            .fill(Color("orangeBright"))
+                            .shadow(color: Color("shadow"), radius: 4, x: 0, y: 4)
                             .frame(width: 48, height: 48)
                         
-                        Image(systemName: "arrow.right")
+                        Image(systemName: "gearshape")
                             .font(.system(size: 22))
                             .foregroundColor(.white)
                     }
                 }
+                .sheet(isPresented: $showSettings) {
+                    SettingsView(showSettings: $showSettings)
+                }
+                
+                Button() {
+                    print("Delete entity")
+                    arSceneManager.delete()
+                } label: {
+                    ZStack{
+                        if arSceneManager.entitySelectedForDeletion == nil {
+                            Circle()
+                                .fill(Color("grayDark"))
+                                .shadow(color: Color("shadow"), radius: 4, x: 0, y: 4)
+                                .frame(width: 48, height: 48)
+                        } else {
+                            Circle()
+                                .fill(Color("orangeBright"))
+                                .shadow(color: Color("shadow"), radius: 4, x: 0, y: 4)
+                                .frame(width: 48, height: 48)
+                        }
+                        
+                        Image(systemName: "trash")
+                            .font(.system(size: 22))
+                            .foregroundColor(.white)
+                    }
+                }
+                .disabled(arSceneManager.entitySelectedForDeletion == nil)
                 
             }
             .padding(.bottom, 64)

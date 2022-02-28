@@ -18,7 +18,7 @@ struct MapView: View {
             Map(coordinateRegion: $viewModel.region, showsUserLocation: true, userTrackingMode: .constant(.none), annotationItems: viewModel.restaurants) { restaurant in
                 MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: restaurant.location.lat, longitude: restaurant.location.lon), anchorPoint: CGPoint(x: 0.5, y: 0.95)) {
                     if restaurant.ar {
-                        NavigationLink(destination: MenuARView()) { RestaurantAnnotationView() }
+                        NavigationLink(destination: MenuARView()) { RestaurantAnnotationView(arEnabled: true) }
                     } else {
                         OpenMenuViewButton(restaurantToShow: restaurant, content: RestaurantAnnotationView())
                     }
@@ -30,8 +30,8 @@ struct MapView: View {
                         NavigationLink(destination: MenuView(restaurant: viewModel.activeRestaurants[0])) {
                             ZStack {
                                 Circle()
-                                    .fill(Color(red: 255 / 255, green: 159 / 255, blue: 10 / 255))
-                                    .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
+                                    .fill(Color("orangeBright"))
+                                    .shadow(color: Color("shadow"), radius: 4, x: 0, y: 4)
                                     .frame(width: 48, height: 48)
                                 
                                 Image(systemName: "fork.knife")
@@ -69,8 +69,8 @@ struct MapView: View {
             Button(action: action) {
                 ZStack{
                     Circle()
-                        .fill(Color(red: 255 / 255, green: 159 / 255, blue: 10 / 255))
-                        .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
+                        .fill(Color("orangeBright"))
+                        .shadow(color: Color("shadow"), radius: 4, x: 0, y: 4)
                         .frame(width: 48, height: 48)
                     
                     Image(systemName: "location")
