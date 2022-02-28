@@ -11,11 +11,11 @@ import BetterSafariView
 import UIKit
 
 struct MapView: View {
-    @StateObject private var viewModel: MapViewModel = MapViewModel()
+    @EnvironmentObject var mapViewModel: MapViewModel
     
     var body: some View {
         NavigationView {
-            Map(coordinateRegion: $viewModel.region, showsUserLocation: true, userTrackingMode: .constant(.none), annotationItems: viewModel.restaurants) { restaurant in
+            Map(coordinateRegion: $mapViewModel.region, showsUserLocation: true, userTrackingMode: .constant(.none), annotationItems: mapViewModel.restaurants) { restaurant in
                 MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: restaurant.location.lat, longitude: restaurant.location.lon), anchorPoint: CGPoint(x: 0.5, y: 0.95)) {
                     if restaurant.ar {
                         NavigationLink(destination: MenuARView()) { RestaurantAnnotationView(arEnabled: true) }
@@ -26,8 +26,8 @@ struct MapView: View {
             }
             .overlay(alignment: .bottomTrailing) {
                 VStack {
-                    if !viewModel.activeRestaurants.isEmpty {
-                        NavigationLink(destination: MenuView(restaurant: viewModel.activeRestaurants[0])) {
+                    if !mapViewModel.activeRestaurants.isEmpty {
+                        NavigationLink(destination: MenuView(restaurant: mapViewModel.activeRestaurants[0])) {
                             ZStack {
                                 Circle()
                                     .fill(Color("orangeBright"))
@@ -43,16 +43,14 @@ struct MapView: View {
                             .padding(.vertical, 64.0)
                         }
                     }
-                    LocateUserButton(action: viewModel.focusOnUser)
+                    LocateUserButton(action: mapViewModel.focusOnUser)
                 }
                 .offset(x: -10, y: -100)
             }
             .ignoresSafeArea()
-            .animation(Animation.easeIn(duration: 1), value: viewModel.region)
-            .popover(isPresented: $viewModel.authorizationDenied) {
-                
+            .animation(Animation.easeIn(duration: 1), value: mapViewModel.region)
+            .popover(isPresented: $mapViewModel.authorizationDenied) {
                 Text("Enable location service")
-                
             }
         }
     }

@@ -49,16 +49,16 @@ struct SettingsView: View {
 }
 
 struct SettingsGrid: View {
-    @EnvironmentObject var arSceneManager: ARSceneManager
+    @EnvironmentObject var menuARViewModel: MenuARViewModel
     
     private var gridItemLayout = [GridItem(.adaptive(minimum: 100, maximum: 100), spacing: 24)]
     
     var body: some View {
         ScrollView {
             LazyVGrid(columns: gridItemLayout, spacing: 24) {
-                SettingToggleButton(setting: .peopleOcclusion, isOn: $arSceneManager.isPeopleOcclusionEnabled)
-                SettingToggleButton(setting: .objectOcclusion, isOn: $arSceneManager.isObjectOcclusionEnabled)
-                SettingToggleButton(setting: .lidarDebug, isOn: $arSceneManager.isLidarDebugEnabled)
+                SettingToggleButton(setting: .peopleOcclusion, isOn: $menuARViewModel.isPeopleOcclusionEnabled)
+                SettingToggleButton(setting: .objectOcclusion, isOn: $menuARViewModel.isObjectOcclusionEnabled)
+                SettingToggleButton(setting: .lidarDebug, isOn: $menuARViewModel.isLidarDebugEnabled)
             }
         }
         .padding(.top, 32)

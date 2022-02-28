@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MenuARView: View {
-    @EnvironmentObject var arSceneManager: ARSceneManager
+    @EnvironmentObject var menuARViewModel: MenuARViewModel
     
     @State var showSettings = false
     
@@ -19,7 +19,7 @@ struct MenuARView: View {
             VStack(spacing: 16) {
                 Button() {
                     print("Add Entity")
-                    arSceneManager.placeObject = true
+                    menuARViewModel.placeObject = true
                 } label: {
                     ZStack{
                         Circle()
@@ -54,10 +54,10 @@ struct MenuARView: View {
                 
                 Button() {
                     print("Delete entity")
-                    arSceneManager.delete()
+                    menuARViewModel.delete()
                 } label: {
                     ZStack{
-                        if arSceneManager.entitySelectedForDeletion == nil {
+                        if menuARViewModel.entitySelectedForDeletion == nil {
                             Circle()
                                 .fill(Color("grayDark"))
                                 .shadow(color: Color("shadow"), radius: 4, x: 0, y: 4)
@@ -74,7 +74,7 @@ struct MenuARView: View {
                             .foregroundColor(.white)
                     }
                 }
-                .disabled(arSceneManager.entitySelectedForDeletion == nil)
+                .disabled(menuARViewModel.entitySelectedForDeletion == nil)
                 
             }
             .padding(.bottom, 64)

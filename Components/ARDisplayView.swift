@@ -12,12 +12,12 @@ import SwiftUI
 import Combine
 
 struct ARDisplayView: UIViewRepresentable {
-    @EnvironmentObject var arSceneManager: ARSceneManager
+    @EnvironmentObject var menuARViewModel: MenuARViewModel
     
     func makeUIView(context: Context) -> CustomARView {
-        let arView = CustomARView(frame: .zero, arSceneManager: arSceneManager)
+        let arView = CustomARView(frame: .zero, menuARViewModel: menuARViewModel)
         
-        arSceneManager.sceneObserver = arView.scene.subscribe(to: SceneEvents.Update.self, { (event) in
+        menuARViewModel.sceneObserver = arView.scene.subscribe(to: SceneEvents.Update.self, { (event) in
             self.updateScene(for: arView)
         })
         
@@ -33,7 +33,7 @@ struct ARDisplayView: UIViewRepresentable {
         let material = SimpleMaterial(color: .orange, roughness: 0.5, isMetallic: true)
         let modelEntity = ModelEntity(mesh: mesh, materials: [material])
         
-        if arSceneManager.placeObject {
+        if menuARViewModel.placeObject {
             self.place(modelEntity, in: arView)
         }
     }
@@ -47,22 +47,22 @@ struct ARDisplayView: UIViewRepresentable {
         anchorEntity.addChild(clonedEntity)
         
         arView.scene.addAnchor(anchorEntity)
-        arSceneManager.anchorEntities.append(anchorEntity)
+        menuARViewModel.anchorEntities.append(anchorEntity)
         
-        arSceneManager.placeObject = false
+        menuARViewModel.placeObject = false
     }
 }
 
 class CustomARView: ARView {
     var focusEntity: FocusEntity?
-    var arSceneManager: ARSceneManager
+    var menuARViewModel: MenuARViewModel
     
     private var peopleOcclusionCancellable: AnyCancellable?
     private var objectOcclusionCancellable: AnyCancellable?
     private var lidarDebugCancellable: AnyCancellable?
     
-    required init(frame frameRect: CGRect, arSceneManager: ARSceneManager) {
-        self.arSceneManager = arSceneManager
+    required init(frame frameRect: CGRect, menuARViewModel: MenuARViewModel) {
+        self.menuARViewModel = menuARViewModel
         
         super.init(frame: frameRect)
         
@@ -95,21 +95,21 @@ class CustomARView: ARView {
     }
     
     private func initializeSettings() {
-        self.updatePeopleOcclusion(isEnabled: arSceneManager.isPeopleOcclusionEnabled)
-        self.updateObjectOcclusion(isEnabled: arSceneManager.isObjectOcclusionEnabled)
-        self.updateLidarDebug(isEnabled: arSceneManager.isLidarDebugEnabled)
+        self.updatePeopleOcclusion(isEnabled: menuARViewModel.isPeopleOcclusionEnabled)
+        self.updateObjectOcclusion(isEnabled: menuARViewModel.isObjectOcclusionEnabled)
+        self.updateLidarDebug(isEnabled: menuARViewModel.isLidarDebugEnabled)
     }
     
     private func setupSubscribers() {
-        self.peopleOcclusionCancellable = arSceneManager.$isPeopleOcclusionEnabled.sink { [weak self] isEnabled in
+        self.peopleOcclusionCancellable = menuARViewModel.$isPeopleOcclusionEnabled.sink { [weak self] isEnabled in
             self?.updatePeopleOcclusion(isEnabled: isEnabled)
         }
         
-        self.objectOcclusionCancellable = arSceneManager.$isObjectOcclusionEnabled.sink { [weak self] isEnabled in
+        self.objectOcclusionCancellable = menuARViewModel.$isObjectOcclusionEnabled.sink { [weak self] isEnabled in
             self?.updateObjectOcclusion(isEnabled: isEnabled)
         }
         
-        self.lidarDebugCancellable = arSceneManager.$isLidarDebugEnabled.sink { [weak self] isEnabled in
+        self.lidarDebugCancellable = menuARViewModel.$isLidarDebugEnabled.sink { [weak self] isEnabled in
             self?.updateLidarDebug(isEnabled: isEnabled)
         }
     }
@@ -156,7 +156,7 @@ extension CustomARView {
         let location = recognizer.location(in: self)
         
         if let entity = self.entity(at: location) as? ModelEntity {
-            arSceneManager.entitySelectedForDeletion = entity
+            menuARViewModel.entitySelectedForDeletion = entity
         }
     }
     
