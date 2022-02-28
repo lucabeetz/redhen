@@ -49,6 +49,11 @@
       "StackName": "amplify-menew-menewnew-02446",
       "StackId": "arn:aws:cloudformation:eu-central-1:624413284950:stack/amplify-menew-menewnew-02446/21d58730-91db-11ec-b69d-06f643ae564c",
       "AmplifyAppId": "dvl609uywiqrw"
+    },
+    "categories": {
+      "auth": {
+        "menew6b34f5be": {}
+      }
     }
   }
 }
