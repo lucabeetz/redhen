@@ -25,7 +25,6 @@
 		19ADD88027C3ABA70013140C /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19ADD87F27C3ABA70013140C /* MenuView.swift */; };
 		19C8C53927CD228E0004AA7C /* ARSceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C8C53827CD228E0004AA7C /* ARSceneManager.swift */; };
 		19C8C53B27CD28BC0004AA7C /* SessionSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C8C53A27CD28BC0004AA7C /* SessionSettingsView.swift */; };
-		19D6BA6C27CBD2B0008B8391 /* RealityKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D6BA6827CBD2B0008B8391 /* RealityKitView.swift */; };
 		19D6BA6E27CBD2B0008B8391 /* MenuARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D6BA6A27CBD2B0008B8391 /* MenuARView.swift */; };
 		19D6BA6F27CBD2B0008B8391 /* ARDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D6BA6B27CBD2B0008B8391 /* ARDisplayView.swift */; };
 		1CAFF408ED328EA53FD37E49 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB19D762A7287CE4C0A2BE0D /* Location.swift */; };
@@ -58,7 +57,6 @@
 		19ADD87F27C3ABA70013140C /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuView.swift; path = RedHen/MenuView.swift; sourceTree = "<group>"; };
 		19C8C53827CD228E0004AA7C /* ARSceneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSceneManager.swift; sourceTree = "<group>"; };
 		19C8C53A27CD28BC0004AA7C /* SessionSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionSettingsView.swift; sourceTree = "<group>"; };
-		19D6BA6827CBD2B0008B8391 /* RealityKitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RealityKitView.swift; path = redhen/RealityKitView.swift; sourceTree = "<group>"; };
 		19D6BA6A27CBD2B0008B8391 /* MenuARView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuARView.swift; path = redhen/MenuARView.swift; sourceTree = "<group>"; };
 		19D6BA6B27CBD2B0008B8391 /* ARDisplayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ARDisplayView.swift; path = redhen/ARDisplayView.swift; sourceTree = "<group>"; };
 		2506E6EC7143E07477163912 /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
@@ -120,7 +118,6 @@
 			children = (
 				19D6BA6B27CBD2B0008B8391 /* ARDisplayView.swift */,
 				19D6BA6A27CBD2B0008B8391 /* MenuARView.swift */,
-				19D6BA6827CBD2B0008B8391 /* RealityKitView.swift */,
 				1956273027C2F797001AED2A /* API */,
 				19921EF627BFC36A007772F9 /* MenewApp.swift */,
 				19921EF827BFC36A007772F9 /* ContentView.swift */,
@@ -259,7 +256,6 @@
 				19921EF727BFC36A007772F9 /* MenewApp.swift in Sources */,
 				19D6BA6F27CBD2B0008B8391 /* ARDisplayView.swift in Sources */,
 				19C8C53927CD228E0004AA7C /* ARSceneManager.swift in Sources */,
-				19D6BA6C27CBD2B0008B8391 /* RealityKitView.swift in Sources */,
 				AE01A80D11441993949C7086 /* AmplifyModels.swift in Sources */,
 				19921F0C27C056DE007772F9 /* WebView.swift in Sources */,
 				1956273427C30236001AED2A /* MapView.swift in Sources */,

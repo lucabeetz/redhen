@@ -23,7 +23,7 @@ struct MenuARView: View {
                 } label: {
                     ZStack{
                         Circle()
-                            .fill(Color(red: 255 / 255, green: 159 / 255, blue: 10 / 255))
+                            .fill(Color("orangeBright"))
                             .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
                             .frame(width: 48, height: 48)
                         
@@ -39,7 +39,7 @@ struct MenuARView: View {
                 } label: {
                     ZStack{
                         Circle()
-                            .fill(Color(red: 255 / 255, green: 159 / 255, blue: 10 / 255))
+                            .fill(Color("orangeBright"))
                             .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
                             .frame(width: 48, height: 48)
                         
@@ -59,12 +59,12 @@ struct MenuARView: View {
                     ZStack{
                         if arSceneManager.entitySelectedForDeletion == nil {
                             Circle()
-                                .fill(Color(red: 103 / 255, green: 103 / 255, blue: 103 / 255))
+                                .fill(Color("grayDark"))
                                 .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
                                 .frame(width: 48, height: 48)
                         } else {
                             Circle()
-                                .fill(Color(red: 255 / 255, green: 159 / 255, blue: 10 / 255))
+                                .fill(Color("orangeBright"))
                                 .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
                                 .frame(width: 48, height: 48)
                         }

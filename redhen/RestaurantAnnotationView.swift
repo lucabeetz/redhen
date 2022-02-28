@@ -21,19 +21,19 @@ struct RestaurantAnnotationView: View {
             ZStack {
                 if open {
                     Circle()
-                        .fill(Color(red: 229 / 255, green: 140 / 255, blue: 0 / 255))
+                        .fill(Color("orangeDark"))
                         .frame(width: 40, height: 40)
                     
                     Circle()
-                        .fill(Color(red: 255 / 255, green: 159 / 255, blue: 10 / 255))
+                        .fill(Color("orangeBright"))
                         .frame(width: 34, height: 34)
                 } else {
                     Circle()
-                        .fill(Color(red: 103 / 255, green: 103 / 255, blue: 103 / 255))
+                        .fill(Color("orangeDark"))
                         .frame(width: 40, height: 40)
                     
                     Circle()
-                        .fill(Color(red: 143 / 255, green: 143 / 255, blue: 143 / 255))
+                        .fill(Color("orangeBright"))
                         .frame(width: 34, height: 34)
                 }
                 
@@ -53,11 +53,11 @@ struct RestaurantAnnotationView: View {
                 if arEnabled {
                     ZStack {
                         RoundedRectangle(cornerRadius: 4.0, style: .circular)
-                            .fill(Color(red: 2 / 255, green: 99 / 255, blue: 0 / 255))
+                            .fill(Color("greenDark"))
                             .frame(width: 21, height: 13)
                         
                         RoundedRectangle(cornerRadius: 3.0, style: .circular)
-                            .fill(Color(red: 69 / 255, green: 181 / 255, blue: 0 / 255))
+                            .fill(Color("greenBright"))
                             .frame(width: 19, height: 11)
                         
                         Text("AR")
@@ -79,12 +79,12 @@ struct RestaurantAnnotationView: View {
             if open {
                 Image(systemName: "arrowtriangle.down.fill")
                     .font(.caption)
-                    .foregroundColor(Color(red: 229 / 255, green: 140 / 255, blue: 0 / 255))
+                    .foregroundColor(Color("orangeDark"))
                     .offset(x: 0, y: -3)
             } else {
                 Image(systemName: "arrowtriangle.down.fill")
                     .font(.caption)
-                    .foregroundColor(Color(red: 103 / 255, green: 103 / 255, blue: 103 / 255))
+                    .foregroundColor(Color("grayDark"))
                     .offset(x: 0, y: -3)
             }
         }

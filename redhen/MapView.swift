@@ -30,7 +30,7 @@ struct MapView: View {
                         NavigationLink(destination: MenuView(restaurant: viewModel.activeRestaurants[0])) {
                             ZStack {
                                 Circle()
-                                    .fill(Color(red: 255 / 255, green: 159 / 255, blue: 10 / 255))
+                                    .fill(Color("orangeBright"))
                                     .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
                                     .frame(width: 48, height: 48)
                                 
@@ -69,7 +69,7 @@ struct MapView: View {
             Button(action: action) {
                 ZStack{
                     Circle()
-                        .fill(Color(red: 255 / 255, green: 159 / 255, blue: 10 / 255))
+                        .fill(Color("orangeBright"))
                         .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
                         .frame(width: 48, height: 48)
                     
