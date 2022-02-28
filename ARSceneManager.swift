@@ -1,14 +1,23 @@
 //
-//  ModelDeletionManager.swift
+//  ARSceneManager.swift
 //  Red Hen
 //
 //  Created by Luca Beetz on 28.02.22.
 //
 
-import SwiftUI
+import Combine
 import RealityKit
 
-class ModelDeletionManager: ObservableObject {
+class ARSceneManager: ObservableObject {
+    @Published var placeObject = false
+    @Published var anchorEntities: [AnchorEntity] = []
+    
+    // AR object occlusion and debug settings
+    @Published var isPeopleOcclusionEnabled: Bool = false
+    @Published var isObjectOcclusionEnabled: Bool = false
+    @Published var isLidarDebugEnabled: Bool = false
+    
+    /// Currently selected entity for deletion
     @Published var entitySelectedForDeletion: ModelEntity? = nil {
         willSet(newValue) {
             if self.entitySelectedForDeletion == nil, let newlySelectedModelEntity = newValue {
@@ -25,16 +34,20 @@ class ModelDeletionManager: ObservableObject {
         }
     }
     
-    func delete(placementSettings: PlacementSettings) {
+    /// Delete entitySelectedForDeletion and remove from AR scene
+    func delete() {
         guard let anchor = self.entitySelectedForDeletion?.anchor else { return }
         
         let anchoringIdentifier = anchor.anchorIdentifier
-        if let index = placementSettings.anchorEntities.firstIndex(where: { $0.anchorIdentifier == anchoringIdentifier}) {
-            placementSettings.anchorEntities.remove(at: index)
+        if let index = anchorEntities.firstIndex(where: {
+            $0.anchorIdentifier == anchoringIdentifier
+        }) {
+            anchorEntities.remove(at: index)
         }
         
         anchor.removeFromParent()
         entitySelectedForDeletion = nil
-        placementSettings.reset()
     }
+    
+    var sceneObserver: Cancellable?
 }

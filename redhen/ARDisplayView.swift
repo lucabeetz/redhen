@@ -12,14 +12,12 @@ import SwiftUI
 import Combine
 
 struct ARDisplayView: UIViewRepresentable {
-    @EnvironmentObject var placementSettings: PlacementSettings
-    @EnvironmentObject var sessionSettings: SessionSettings
-    @EnvironmentObject var modelDeletionManager: ModelDeletionManager
+    @EnvironmentObject var arSceneManager: ARSceneManager
     
     func makeUIView(context: Context) -> CustomARView {
-        let arView = CustomARView(frame: .zero, sessionSettings: sessionSettings, modelDeletionManager: modelDeletionManager)
+        let arView = CustomARView(frame: .zero, arSceneManager: arSceneManager)
         
-        placementSettings.sceneObserver = arView.scene.subscribe(to: SceneEvents.Update.self, { (event) in
+        arSceneManager.sceneObserver = arView.scene.subscribe(to: SceneEvents.Update.self, { (event) in
             self.updateScene(for: arView)
         })
         
@@ -35,7 +33,7 @@ struct ARDisplayView: UIViewRepresentable {
         let material = SimpleMaterial(color: .orange, roughness: 0.5, isMetallic: true)
         let modelEntity = ModelEntity(mesh: mesh, materials: [material])
         
-        if placementSettings.placeObject {
+        if arSceneManager.placeObject {
             self.place(modelEntity, in: arView)
         }
     }
@@ -47,30 +45,24 @@ struct ARDisplayView: UIViewRepresentable {
         
         let anchorEntity = AnchorEntity(plane: .any)
         anchorEntity.addChild(clonedEntity)
-        if placementSettings.activeAnchor == nil {
-            placementSettings.activeAnchor = anchorEntity
-            placementSettings.activeEntity = clonedEntity
-        }
         
         arView.scene.addAnchor(anchorEntity)
-        placementSettings.anchorEntities.append(anchorEntity)
+        arSceneManager.anchorEntities.append(anchorEntity)
         
-        placementSettings.placeObject = false
+        arSceneManager.placeObject = false
     }
 }
 
 class CustomARView: ARView {
     var focusEntity: FocusEntity?
-    var sessionSettings: SessionSettings
-    var modelDeletionManager: ModelDeletionManager
+    var arSceneManager: ARSceneManager
     
     private var peopleOcclusionCancellable: AnyCancellable?
     private var objectOcclusionCancellable: AnyCancellable?
     private var lidarDebugCancellable: AnyCancellable?
     
-    required init(frame frameRect: CGRect, sessionSettings: SessionSettings, modelDeletionManager: ModelDeletionManager) {
-        self.sessionSettings = sessionSettings
-        self.modelDeletionManager = modelDeletionManager
+    required init(frame frameRect: CGRect, arSceneManager: ARSceneManager) {
+        self.arSceneManager = arSceneManager
         
         super.init(frame: frameRect)
         
@@ -103,21 +95,21 @@ class CustomARView: ARView {
     }
     
     private func initializeSettings() {
-        self.updatePeopleOcclusion(isEnabled: sessionSettings.isPeopleOcclusionEnabled)
-        self.updateObjectOcclusion(isEnabled: sessionSettings.isObjectOcclusionEnabled)
-        self.updateLidarDebug(isEnabled: sessionSettings.isLidarDebugEnabled)
+        self.updatePeopleOcclusion(isEnabled: arSceneManager.isPeopleOcclusionEnabled)
+        self.updateObjectOcclusion(isEnabled: arSceneManager.isObjectOcclusionEnabled)
+        self.updateLidarDebug(isEnabled: arSceneManager.isLidarDebugEnabled)
     }
     
     private func setupSubscribers() {
-        self.peopleOcclusionCancellable = sessionSettings.$isPeopleOcclusionEnabled.sink { [weak self] isEnabled in
+        self.peopleOcclusionCancellable = arSceneManager.$isPeopleOcclusionEnabled.sink { [weak self] isEnabled in
             self?.updatePeopleOcclusion(isEnabled: isEnabled)
         }
         
-        self.objectOcclusionCancellable = sessionSettings.$isObjectOcclusionEnabled.sink { [weak self] isEnabled in
+        self.objectOcclusionCancellable = arSceneManager.$isObjectOcclusionEnabled.sink { [weak self] isEnabled in
             self?.updateObjectOcclusion(isEnabled: isEnabled)
         }
         
-        self.lidarDebugCancellable = sessionSettings.$isLidarDebugEnabled.sink { [weak self] isEnabled in
+        self.lidarDebugCancellable = arSceneManager.$isLidarDebugEnabled.sink { [weak self] isEnabled in
             self?.updateLidarDebug(isEnabled: isEnabled)
         }
     }
@@ -164,7 +156,7 @@ extension CustomARView {
         let location = recognizer.location(in: self)
         
         if let entity = self.entity(at: location) as? ModelEntity {
-            modelDeletionManager.entitySelectedForDeletion = entity
+            arSceneManager.entitySelectedForDeletion = entity
         }
     }
     

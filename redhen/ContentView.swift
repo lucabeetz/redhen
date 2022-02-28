@@ -11,15 +11,11 @@ import Amplify
 struct ContentView: View {
     @StateObject var restaurantProvider = RestaurantProvider()
     
-    @StateObject var placementSettings = PlacementSettings()
-    @StateObject var sessionSettings = SessionSettings()
-    @StateObject var modelDeletionManager = ModelDeletionManager()
+    @StateObject var arSceneManager = ARSceneManager()
     
     var body: some View {
         MapView()
-            .environmentObject(placementSettings)
-            .environmentObject(sessionSettings)
-            .environmentObject(modelDeletionManager)
+            .environmentObject(arSceneManager)
     }
 }
 

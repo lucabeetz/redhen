@@ -44,27 +44,21 @@ struct SettingsView: View {
         NavigationView {
             SettingsGrid()
                 .navigationBarTitle(Text("Settings"), displayMode: .inline)
-                .navigationBarItems(trailing: Button(action: {
-                    
-                }) {
-                    
-                }
-                )
         }
     }
 }
 
 struct SettingsGrid: View {
-    @EnvironmentObject var sessionSettings: SessionSettings
+    @EnvironmentObject var arSceneManager: ARSceneManager
     
     private var gridItemLayout = [GridItem(.adaptive(minimum: 100, maximum: 100), spacing: 24)]
     
     var body: some View {
         ScrollView {
             LazyVGrid(columns: gridItemLayout, spacing: 24) {
-                SettingToggleButton(setting: .peopleOcclusion, isOn: $sessionSettings.isPeopleOcclusionEnabled)
-                SettingToggleButton(setting: .objectOcclusion, isOn: $sessionSettings.isObjectOcclusionEnabled)
-                SettingToggleButton(setting: .lidarDebug, isOn: $sessionSettings.isLidarDebugEnabled)
+                SettingToggleButton(setting: .peopleOcclusion, isOn: $arSceneManager.isPeopleOcclusionEnabled)
+                SettingToggleButton(setting: .objectOcclusion, isOn: $arSceneManager.isObjectOcclusionEnabled)
+                SettingToggleButton(setting: .lidarDebug, isOn: $arSceneManager.isLidarDebugEnabled)
             }
         }
         .padding(.top, 32)
