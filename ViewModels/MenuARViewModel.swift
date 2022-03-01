@@ -17,6 +17,14 @@ class MenuARViewModel: ObservableObject {
     @Published var isObjectOcclusionEnabled: Bool = false
     @Published var isLidarDebugEnabled: Bool = false
     
+    // Local 3D models
+    @Published var arModels: [ARModel] = []
+    
+    init() {
+        arModels = [ARModel(name: "burger")]
+        loadARModels()
+    }
+    
     /// Currently selected entity for deletion
     @Published var entitySelectedForDeletion: ModelEntity? = nil {
         willSet(newValue) {
@@ -47,6 +55,12 @@ class MenuARViewModel: ObservableObject {
         
         anchor.removeFromParent()
         entitySelectedForDeletion = nil
+    }
+    
+    func loadARModels() {
+        for arModel in arModels {
+            arModel.asyncLoadModelEntity()
+        }
     }
     
     var sceneObserver: Cancellable?

@@ -29,12 +29,10 @@ struct ARDisplayView: UIViewRepresentable {
     private func updateScene(for arView: CustomARView) {
         arView.focusEntity?.isEnabled = true
         
-        let mesh = MeshResource.generateBox(size: 0.1)
-        let material = SimpleMaterial(color: .orange, roughness: 0.5, isMetallic: true)
-        let modelEntity = ModelEntity(mesh: mesh, materials: [material])
+        let modelEntity = menuARViewModel.arModels[0].modelEntity?.clone(recursive: true)
         
         if menuARViewModel.placeObject {
-            self.place(modelEntity, in: arView)
+            self.place(modelEntity!, in: arView)
         }
     }
     
