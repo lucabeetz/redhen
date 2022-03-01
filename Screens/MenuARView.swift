@@ -21,14 +21,14 @@ struct MenuARView: View {
                     print("Add Entity")
                     menuARViewModel.placeObject = true
                 } label: {
-                    FloatingButtonView(iconName: "plus", color: Color("orangeBright"))
+                    FloatingButtonView(iconName: "plus", color: Color("henRed"))
                 }
                 
                 Button() {
                     print("Show settings")
                     showSettings.toggle()
                 } label: {
-                    FloatingButtonView(iconName: "gearshape", color: Color("orangeBright"))
+                    FloatingButtonView(iconName: "gearshape", color: Color("henRed"))
                 }
                 .sheet(isPresented: $showSettings) {
                     SettingsView(showSettings: $showSettings)
@@ -38,7 +38,7 @@ struct MenuARView: View {
                     print("Delete entity")
                     menuARViewModel.delete()
                 } label: {
-                    FloatingButtonView(iconName: "trash", color: menuARViewModel.entitySelectedForDeletion == nil ? Color("grayDark") : Color("orangeBright"))
+                    FloatingButtonView(iconName: "trash", color: menuARViewModel.entitySelectedForDeletion == nil ? Color("grayDark") : Color("henRed"))
                 }
                 .disabled(menuARViewModel.entitySelectedForDeletion == nil)
                 

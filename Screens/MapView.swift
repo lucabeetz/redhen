@@ -29,7 +29,7 @@ struct MapView: View {
                 VStack(spacing: 16.0) {
                     if !mapViewModel.activeRestaurants.isEmpty {
                         NavigationLink(destination: MenuView(restaurant: mapViewModel.activeRestaurants[0])) {
-                            FloatingButtonView(iconName: "fork.knife", color: Color("orangeBright"))
+                            FloatingButtonView(iconName: "fork.knife", color: Color("henRed"))
                         }
                     }
                     
@@ -56,7 +56,7 @@ struct MapView: View {
         
         var body: some View {
             Button(action: action) {
-                FloatingButtonView(iconName: "location", color: Color("orangeBright"))
+                FloatingButtonView(iconName: "location", color: Color("henRed"))
             }
         }
     }
