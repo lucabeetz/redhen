@@ -33,7 +33,9 @@ struct MapView: View {
                         }
                     }
                     
-                    LocateUserButton(action: mapViewModel.focusOnUser)
+                    Button(action: mapViewModel.focusOnUser) {
+                        FloatingButtonView(iconName: "location", color: Color("henRed"))
+                    }
                 }
                 .padding(.bottom, 64)
                 .padding(.trailing, 16)
@@ -42,21 +44,6 @@ struct MapView: View {
             .animation(Animation.easeIn(duration: 1), value: mapViewModel.region)
             .popover(isPresented: $mapViewModel.authorizationDenied) {
                 Text("Enable location service")
-            }
-        }
-    }
-    
-    
-    struct LocateUserButton: View {
-        private let action: () -> Void
-        
-        init(action: @escaping () -> Void) {
-            self.action = action
-        }
-        
-        var body: some View {
-            Button(action: action) {
-                FloatingButtonView(iconName: "location", color: Color("henRed"))
             }
         }
     }
