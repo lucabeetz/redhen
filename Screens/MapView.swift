@@ -15,37 +15,28 @@ struct MapView: View {
     
     var body: some View {
         NavigationView {
-            Map(coordinateRegion: $mapViewModel.region, showsUserLocation: true, userTrackingMode: .constant(.none), annotationItems: mapViewModel.restaurants) { restaurant in
-                MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: restaurant.location.lat, longitude: restaurant.location.lon), anchorPoint: CGPoint(x: 0.5, y: 0.95)) {
-                    if restaurant.ar {
-                        NavigationLink(destination: MenuARView()) { RestaurantAnnotationView(arEnabled: true) }
-                    } else {
-                        OpenMenuViewButton(restaurantToShow: restaurant, content: RestaurantAnnotationView())
-                    }
-                }
-            }
-            .overlay(alignment: .bottomTrailing) {
-                VStack {
-                    if !mapViewModel.activeRestaurants.isEmpty {
-                        NavigationLink(destination: MenuView(restaurant: mapViewModel.activeRestaurants[0])) {
-                            ZStack {
-                                Circle()
-                                    .fill(Color("orangeBright"))
-                                    .shadow(color: Color("shadow"), radius: 4, x: 0, y: 4)
-                                    .frame(width: 48, height: 48)
-                                
-                                Image(systemName: "fork.knife")
-                                    .font(.system(size: 22))
-                                    .foregroundColor(.white)
-                                
-                            }
-                            .padding(.horizontal, 16.0)
-                            .padding(.vertical, 64.0)
+            ZStack(alignment: .bottomTrailing) {
+                Map(coordinateRegion: $mapViewModel.region, showsUserLocation: true, userTrackingMode: .constant(.none), annotationItems: mapViewModel.restaurants) { restaurant in
+                    MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: restaurant.location.lat, longitude: restaurant.location.lon), anchorPoint: CGPoint(x: 0.5, y: 0.95)) {
+                        if restaurant.ar {
+                            NavigationLink(destination: MenuARView()) { RestaurantAnnotationView(arEnabled: true) }
+                        } else {
+                            OpenMenuViewButton(restaurantToShow: restaurant, content: RestaurantAnnotationView())
                         }
                     }
+                }
+                
+                VStack(spacing: 16.0) {
+                    if !mapViewModel.activeRestaurants.isEmpty {
+                        NavigationLink(destination: MenuView(restaurant: mapViewModel.activeRestaurants[0])) {
+                            FloatingButtonView(iconName: "fork.knife", color: Color("orangeBright"))
+                        }
+                    }
+                    
                     LocateUserButton(action: mapViewModel.focusOnUser)
                 }
-                .offset(x: -10, y: -100)
+                .padding(.bottom, 64)
+                .padding(.trailing, 16)
             }
             .ignoresSafeArea()
             .animation(Animation.easeIn(duration: 1), value: mapViewModel.region)
@@ -65,16 +56,7 @@ struct MapView: View {
         
         var body: some View {
             Button(action: action) {
-                ZStack{
-                    Circle()
-                        .fill(Color("orangeBright"))
-                        .shadow(color: Color("shadow"), radius: 4, x: 0, y: 4)
-                        .frame(width: 48, height: 48)
-                    
-                    Image(systemName: "location")
-                        .font(.system(size: 22))
-                        .foregroundColor(.white)
-                }
+                FloatingButtonView(iconName: "location", color: Color("orangeBright"))
             }
         }
     }

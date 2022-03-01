@@ -21,32 +21,14 @@ struct MenuARView: View {
                     print("Add Entity")
                     menuARViewModel.placeObject = true
                 } label: {
-                    ZStack{
-                        Circle()
-                            .fill(Color("orangeBright"))
-                            .shadow(color: Color("shadow"), radius: 4, x: 0, y: 4)
-                            .frame(width: 48, height: 48)
-                        
-                        Image(systemName: "plus")
-                            .font(.system(size: 22))
-                            .foregroundColor(.white)
-                    }
+                    FloatingButtonView(iconName: "plus", color: Color("orangeBright"))
                 }
                 
                 Button() {
                     print("Show settings")
                     showSettings.toggle()
                 } label: {
-                    ZStack{
-                        Circle()
-                            .fill(Color("orangeBright"))
-                            .shadow(color: Color("shadow"), radius: 4, x: 0, y: 4)
-                            .frame(width: 48, height: 48)
-                        
-                        Image(systemName: "gearshape")
-                            .font(.system(size: 22))
-                            .foregroundColor(.white)
-                    }
+                    FloatingButtonView(iconName: "gearshape", color: Color("orangeBright"))
                 }
                 .sheet(isPresented: $showSettings) {
                     SettingsView(showSettings: $showSettings)
@@ -56,23 +38,7 @@ struct MenuARView: View {
                     print("Delete entity")
                     menuARViewModel.delete()
                 } label: {
-                    ZStack{
-                        if menuARViewModel.entitySelectedForDeletion == nil {
-                            Circle()
-                                .fill(Color("grayDark"))
-                                .shadow(color: Color("shadow"), radius: 4, x: 0, y: 4)
-                                .frame(width: 48, height: 48)
-                        } else {
-                            Circle()
-                                .fill(Color("orangeBright"))
-                                .shadow(color: Color("shadow"), radius: 4, x: 0, y: 4)
-                                .frame(width: 48, height: 48)
-                        }
-                        
-                        Image(systemName: "trash")
-                            .font(.system(size: 22))
-                            .foregroundColor(.white)
-                    }
+                    FloatingButtonView(iconName: "trash", color: menuARViewModel.entitySelectedForDeletion == nil ? Color("grayDark") : Color("orangeBright"))
                 }
                 .disabled(menuARViewModel.entitySelectedForDeletion == nil)
                 
