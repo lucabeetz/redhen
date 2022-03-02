@@ -516,7 +516,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RedHen/Preview Content\"";
-				DEVELOPMENT_TEAM = 47UAHQ7G98;
+				DEVELOPMENT_TEAM = J8D2U9359M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Red-Hen-Info.plist";
@@ -533,7 +533,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.luca.redhen;
+				PRODUCT_BUNDLE_IDENTIFIER = com.marcelschoeckel.redhen;
 				PRODUCT_NAME = "Red Hen";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -550,7 +550,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RedHen/Preview Content\"";
-				DEVELOPMENT_TEAM = 47UAHQ7G98;
+				DEVELOPMENT_TEAM = J8D2U9359M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Red-Hen-Info.plist";
@@ -567,7 +567,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.luca.redhen;
+				PRODUCT_BUNDLE_IDENTIFIER = com.marcelschoeckel.redhen;
 				PRODUCT_NAME = "Red Hen";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
