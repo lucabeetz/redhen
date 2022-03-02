@@ -23,3 +23,4 @@ amplifytools.xcconfig
 xcuserdata
 xcuserdatad
 xcdebugger
+testflight_deploy_conf.plist

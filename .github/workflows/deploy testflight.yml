@@ -1,0 +1,56 @@
+name: Deploy to testflight
+
+on:
+  push:
+    branches: [ stable ]
+    
+jobs:
+  environment: 
+    scheme: ${{ 'default' }}
+    archive_path: ${{ 'archive' }}
+
+  build_and_test:
+    name: Build and Deploy
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Xcode version
+        run: /usr/bin/xcodebuild -version
+
+      - name: Parse secret
+        run: |
+          echo "$AMPLIFY_CONF" | base64 -d > ./amplifyconfiguration.json
+          echo "AWS_CONF" | base64 -d > ./awsconfiguration.json
+        env:
+          AMPLIFY_CONF: ${{ secrets.AMPLIFY_CONF }}
+          AWS_CONF: ${{ secrets.AWS_CONF }}
+
+      - name: Set Default Scheme
+        run: |
+          scheme_list=$(xcodebuild -list -json | tr -d "\n")
+          default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]")
+          echo $default | cat >default
+          echo Using default scheme: $default
+
+      - name: Build archive
+        run: |
+          if [ $scheme = default ]; then scheme=$(cat default); fi
+          xcodebuild -scheme "$scheme" archive -archivePath "$archive_path"/"$scheme".xcarchive
+
+      - name: Save archive in Artifact
+        run: if [ $scheme = default ]; then scheme=$(cat default); fi
+        uses: actions/upload-artifact@v2
+        with:
+          name: "archive/$GITHUB_SHA"
+          path: 
+            "$archive_path"/"$scheme".xcarchive
+
+      - name: Deploy
+        env:
+          scheme: ${{ 'default' }}
+        run: | 
+          if [ $scheme = default ]; then scheme=$(cat default); fi
+          xcodebuild -exportArchive -exportFormat IPA -exportPath "build/$scheme.ipa" -archivePath  "$archive_path/$scheme.xcarchive" -exportProvisioningProfile "iOS Team Provisioning Profile: *"

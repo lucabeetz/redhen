@@ -48,15 +48,3 @@ jobs:
         run: | 
           if [ $scheme = default ]; then scheme=$(cat default); fi
           xcodebuild test-without-building -scheme "$scheme" -destination ${{ matrix.destination }}
-
-  push_stable:
-    name: Push to Stable
-    runs-on: ubuntu-latest
-    needs: build_and_test
-
-    steps: 
-      - uses: actions/checkout@v2
-
-      - name: Push to Stable
-        run: |
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
