@@ -28,6 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "364F3B5727CFC143007B1BDA"
+               BuildableName = "Red Hen UI Tests.xctest"
+               BlueprintName = "Red Hen UI Tests"
+               ReferencedContainer = "container:Red Hen.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "364F3B6627CFC1A5007B1BDA"
+               BuildableName = "Red Hen Tests"
+               BlueprintName = "Red Hen Tests"
+               ReferencedContainer = "container:Red Hen.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
