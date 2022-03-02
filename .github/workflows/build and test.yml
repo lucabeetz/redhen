@@ -41,7 +41,7 @@ jobs:
           scheme: ${{ 'default' }}
         run: |
           if [ $scheme = default ]; then scheme=$(cat default); fi
-          xcodebuild -scheme "$scheme" -destination ${{ matrix.destination }}
+          xcodebuild build-for-testing -scheme "$scheme" -destination ${{ matrix.destination }}
       - name: Test
         env:
           scheme: ${{ 'default' }}
