@@ -1,70 +1,68 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "Amplify",
-        "repositoryURL": "https://github.com/aws-amplify/amplify-ios",
-        "state": {
-          "branch": null,
-          "revision": "98a1fcd3dd88f17a2e4dec2b28549e9d1a116602",
-          "version": "1.19.2"
-        }
-      },
-      {
-        "package": "AppSyncRealTimeClient",
-        "repositoryURL": "https://github.com/aws-amplify/aws-appsync-realtime-client-ios.git",
-        "state": {
-          "branch": null,
-          "revision": "1932e1d6289e9f0c9656cefe6218d5097720bf3f",
-          "version": "1.8.0"
-        }
-      },
-      {
-        "package": "AWSiOSSDKV2",
-        "repositoryURL": "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
-        "state": {
-          "branch": null,
-          "revision": "2fbb2199cee0124c584e58c5753c05e10e7d7348",
-          "version": "2.27.1"
-        }
-      },
-      {
-        "package": "BetterSafariView",
-        "repositoryURL": "https://github.com/stleamist/BetterSafariView.git",
-        "state": {
-          "branch": "main",
-          "revision": "9c051d20dbb50fa61d014d87b4ab6c5504408a73",
-          "version": null
-        }
-      },
-      {
-        "package": "FocusEntity",
-        "repositoryURL": "https://github.com/maxxfrazer/FocusEntity",
-        "state": {
-          "branch": "main",
-          "revision": "d17dbbddd92d9b1661a42868fc51b86a3ad2fcb0",
-          "version": null
-        }
-      },
-      {
-        "package": "SQLite.swift",
-        "repositoryURL": "https://github.com/stephencelis/SQLite.swift.git",
-        "state": {
-          "branch": null,
-          "revision": "0a9893ec030501a3956bee572d6b4fdd3ae158a1",
-          "version": "0.12.2"
-        }
-      },
-      {
-        "package": "Starscream",
-        "repositoryURL": "https://github.com/daltoniam/Starscream",
-        "state": {
-          "branch": null,
-          "revision": "df8d82047f6654d8e4b655d1b1525c64e1059d21",
-          "version": "4.0.4"
-        }
+  "pins" : [
+    {
+      "identity" : "amplify-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/aws-amplify/amplify-ios",
+      "state" : {
+        "revision" : "993864eeb1542b5794a4358c9aee9654b7c44bcc",
+        "version" : "1.21.0"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "aws-appsync-realtime-client-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/aws-amplify/aws-appsync-realtime-client-ios.git",
+      "state" : {
+        "revision" : "57d5df1590e9ead5a0c3677ffa8d83688bd48608",
+        "version" : "1.9.0"
+      }
+    },
+    {
+      "identity" : "aws-sdk-ios-spm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+      "state" : {
+        "revision" : "2fbb2199cee0124c584e58c5753c05e10e7d7348",
+        "version" : "2.27.1"
+      }
+    },
+    {
+      "identity" : "bettersafariview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/stleamist/BetterSafariView.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "9c051d20dbb50fa61d014d87b4ab6c5504408a73"
+      }
+    },
+    {
+      "identity" : "focusentity",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/maxxfrazer/FocusEntity",
+      "state" : {
+        "branch" : "main",
+        "revision" : "d17dbbddd92d9b1661a42868fc51b86a3ad2fcb0"
+      }
+    },
+    {
+      "identity" : "sqlite.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/stephencelis/SQLite.swift.git",
+      "state" : {
+        "revision" : "0a9893ec030501a3956bee572d6b4fdd3ae158a1",
+        "version" : "0.12.2"
+      }
+    },
+    {
+      "identity" : "starscream",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/daltoniam/Starscream",
+      "state" : {
+        "revision" : "df8d82047f6654d8e4b655d1b1525c64e1059d21",
+        "version" : "4.0.4"
+      }
+    }
+  ],
+  "version" : 2
 }

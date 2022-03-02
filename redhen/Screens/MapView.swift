@@ -12,17 +12,25 @@ import UIKit
 
 struct MapView: View {
     @EnvironmentObject var mapViewModel: MapViewModel
+    @State private var selectedRestaurant: Restaurant?
+    @State private var showSheet: Bool = false
     
     var body: some View {
         NavigationView {
             ZStack(alignment: .bottomTrailing) {
                 Map(coordinateRegion: $mapViewModel.region, showsUserLocation: true, userTrackingMode: .constant(.none), annotationItems: mapViewModel.restaurants) { restaurant in
                     MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: restaurant.location.lat, longitude: restaurant.location.lon), anchorPoint: CGPoint(x: 0.5, y: 0.95)) {
-                        if restaurant.ar {
-                            NavigationLink(destination: MenuARView()) { RestaurantAnnotationView(arEnabled: true) }
-                        } else {
-                            OpenMenuViewButton(restaurantToShow: restaurant, content: RestaurantAnnotationView())
+                        Button(action: {
+                            selectedRestaurant = restaurant
+                            showSheet = true
+                        }) {
+                            RestaurantAnnotationView(arEnabled: restaurant.ar)
                         }
+//                        if restaurant.ar {
+//                            NavigationLink(destination: MenuARView()) { RestaurantAnnotationView(arEnabled: true) }
+//                        } else {
+//                            OpenMenuViewButton(restaurantToShow: restaurant, content: RestaurantAnnotationView())
+//                        }
                     }
                 }
                 
@@ -45,6 +53,17 @@ struct MapView: View {
             .popover(isPresented: $mapViewModel.authorizationDenied) {
                 Text("Enable location service")
             }
+            .sheet(isPresented: $showSheet) {
+                ScrollView {
+                    RestaurantDetailView()
+                        .padding()
+                    
+                    Divider()
+                        .padding()
+                    
+                    MenuListView()
+                }
+            }
         }
     }
 }
@@ -52,6 +71,7 @@ struct MapView: View {
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
         MapView()
+            .environmentObject(MapViewModel())
     }
 }
 
