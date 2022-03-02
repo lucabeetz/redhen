@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ApplicationProperties</key>
+	<dict>
+		<key>ApplicationPath</key>
+		<string>Applications/Red Hen.app</string>
+		<key>Architectures</key>
+		<array>
+			<string>arm64</string>
+		</array>
+		<key>CFBundleIdentifier</key>
+		<string>com.marcelschoeckel.redhen</string>
+		<key>CFBundleShortVersionString</key>
+		<string>1.0</string>
+		<key>CFBundleVersion</key>
+		<string>1</string>
+		<key>SigningIdentity</key>
+		<string>Apple Development: marcel.schoeckel@gmail.com (CRS59R39W5)</string>
+		<key>Team</key>
+		<string>J8D2U9359M</string>
+	</dict>
+	<key>ArchiveVersion</key>
+	<integer>2</integer>
+	<key>CreationDate</key>
+	<date>2022-03-02T19:13:59Z</date>
+	<key>Name</key>
+	<string>Red Hen</string>
+	<key>SchemeName</key>
+	<string>Red Hen</string>
+</dict>
+</plist>

@@ -33,6 +33,18 @@
 		3647E1A227CFE1C800FBC311 /* FloatingButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647E19727CFE1C800FBC311 /* FloatingButtonView.swift */; };
 		3647E1A327CFE1C800FBC311 /* SessionSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647E19827CFE1C800FBC311 /* SessionSettingsView.swift */; };
 		3656F25827C96972003083B0 /* BetterSafariView in Frameworks */ = {isa = PBXBuildFile; productRef = 3656F25727C96972003083B0 /* BetterSafariView */; };
+		36CC52E427CFC3F50009028B /* MenuARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC52DC27CFC3F50009028B /* MenuARView.swift */; };
+		36CC52E527CFC3F50009028B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC52DD27CFC3F50009028B /* MapView.swift */; };
+		36CC52E627CFC3F50009028B /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC52DE27CFC3F50009028B /* MenuView.swift */; };
+		36CC52E727CFC3F50009028B /* MenuARViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC52E027CFC3F50009028B /* MenuARViewModel.swift */; };
+		36CC52E827CFC3F50009028B /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC52E127CFC3F50009028B /* MapViewModel.swift */; };
+		36CC52E927CFC3F50009028B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC52E327CFC3F50009028B /* Utils.swift */; };
+		36CC52F027CFC5B80009028B /* RestaurantAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC52EB27CFC5B80009028B /* RestaurantAnnotationView.swift */; };
+		36CC52F127CFC5B80009028B /* ARDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC52EC27CFC5B80009028B /* ARDisplayView.swift */; };
+		36CC52F227CFC5B80009028B /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC52ED27CFC5B80009028B /* WebView.swift */; };
+		36CC52F327CFC5B80009028B /* FloatingButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC52EE27CFC5B80009028B /* FloatingButtonView.swift */; };
+		36CC52F427CFC5B80009028B /* SessionSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC52EF27CFC5B80009028B /* SessionSettingsView.swift */; };
+		36CC52F727CFC5D60009028B /* nearbyRestaurants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC52F627CFC5D60009028B /* nearbyRestaurants.swift */; };
 		9ABDA08AA14A11BDB29BF518 /* Location+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C1F1E775D8C00D94E415E9 /* Location+Schema.swift */; };
 		A146816C11897351713BC073 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 2506E6EC7143E07477163912 /* awsconfiguration.json */; };
 		A567FC958E42FEBA9CD6EA27 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE1BD8C72D296354EEB92CA /* Restaurant.swift */; };
@@ -42,6 +54,16 @@
 		BC40FB2DE1696369EBED26E8 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E60337A547823DF540D9776 /* amplifyconfiguration.json */; };
 		EC2C0F4FEE6AA7A6803D3972 /* RestaurantType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C703B4540698BFCD959813 /* RestaurantType.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		364F3B6B27CFC1A5007B1BDA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 19921EEB27BFC36A007772F9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 19921EF227BFC36A007772F9;
+			remoteInfo = "Red Hen";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		07CE38FDD78A3AFF36AC6972 /* Restaurant+Schema.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "Restaurant+Schema.swift"; path = "amplify/generated/models/Restaurant+Schema.swift"; sourceTree = "<group>"; };
@@ -89,22 +111,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		364F3B6427CFC1A5007B1BDA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1956273027C2F797001AED2A /* API */ = {
-			isa = PBXGroup;
-			children = (
-				1956272E27C2E6CD001AED2A /* nearbyRestaurants.swift */,
-			);
-			name = API;
-			path = RedHen/API;
-			sourceTree = "<group>";
-		};
 		19921EEA27BFC36A007772F9 = {
 			isa = PBXGroup;
 			children = (
 				19921EF527BFC36A007772F9 /* RedHen */,
+				364F3B6827CFC1A5007B1BDA /* Red Hen Tests */,
 				19921EF427BFC36A007772F9 /* Products */,
 				5A4DC56A3965919E66721A5A /* AmplifyConfig */,
 				2C36B905C028E0F06EB7D861 /* AmplifyModels */,
@@ -116,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				19921EF327BFC36A007772F9 /* Red Hen.app */,
+				364F3B6727CFC1A5007B1BDA /* Red Hen Tests.xctest */,
 			);
 			name = Products;
 			path = RedHen;
@@ -161,6 +183,14 @@
 			name = AmplifyModels;
 			sourceTree = "<group>";
 		};
+		364F3B6827CFC1A5007B1BDA /* Red Hen Tests */ = {
+			isa = PBXGroup;
+			children = (
+				364F3B6927CFC1A5007B1BDA /* Red_Hen_Tests.swift */,
+			);
+			path = "Red Hen Tests";
+			sourceTree = "<group>";
+		};
 		3647E18A27CFE1C800FBC311 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,7 +221,16 @@
 			path = redhen/ViewModels;
 			sourceTree = "<group>";
 		};
-		3647E19327CFE1C800FBC311 /* Components */ = {
+		36CC52E227CFC3F50009028B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				36CC52E327CFC3F50009028B /* Utils.swift */,
+			);
+			name = Utils;
+			path = redhen/Utils;
+			sourceTree = "<group>";
+		};
+		36CC52EA27CFC5B80009028B /* Components */ = {
 			isa = PBXGroup;
 			children = (
 				3647E19427CFE1C800FBC311 /* RestaurantAnnotationView.swift */,
@@ -205,6 +244,15 @@
 			);
 			name = Components;
 			path = redhen/Components;
+			sourceTree = "<group>";
+		};
+		36CC52F527CFC5D60009028B /* API */ = {
+			isa = PBXGroup;
+			children = (
+				36CC52F627CFC5D60009028B /* nearbyRestaurants.swift */,
+			);
+			name = API;
+			path = redhen/API;
 			sourceTree = "<group>";
 		};
 		5A4DC56A3965919E66721A5A /* AmplifyConfig */ = {
@@ -243,6 +291,24 @@
 			productReference = 19921EF327BFC36A007772F9 /* Red Hen.app */;
 			productType = "com.apple.product-type.application";
 		};
+		364F3B6627CFC1A5007B1BDA /* Red Hen Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 364F3B6D27CFC1A5007B1BDA /* Build configuration list for PBXNativeTarget "Red Hen Tests" */;
+			buildPhases = (
+				364F3B6327CFC1A5007B1BDA /* Sources */,
+				364F3B6427CFC1A5007B1BDA /* Frameworks */,
+				364F3B6527CFC1A5007B1BDA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				364F3B6C27CFC1A5007B1BDA /* PBXTargetDependency */,
+			);
+			name = "Red Hen Tests";
+			productName = "Red Hen Tests";
+			productReference = 364F3B6727CFC1A5007B1BDA /* Red Hen Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -255,6 +321,10 @@
 				TargetAttributes = {
 					19921EF227BFC36A007772F9 = {
 						CreatedOnToolsVersion = 13.2.1;
+					};
+					364F3B6627CFC1A5007B1BDA = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 19921EF227BFC36A007772F9;
 					};
 				};
 			};
@@ -277,6 +347,7 @@
 			projectRoot = "";
 			targets = (
 				19921EF227BFC36A007772F9 /* Red Hen */,
+				364F3B6627CFC1A5007B1BDA /* Red Hen Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -290,6 +361,13 @@
 				19921EFB27BFC36B007772F9 /* Assets.xcassets in Resources */,
 				A146816C11897351713BC073 /* awsconfiguration.json in Resources */,
 				BC40FB2DE1696369EBED26E8 /* amplifyconfiguration.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		364F3B6527CFC1A5007B1BDA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,7 +406,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		364F3B6327CFC1A5007B1BDA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				364F3B6A27CFC1A5007B1BDA /* Red_Hen_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		364F3B6C27CFC1A5007B1BDA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 19921EF227BFC36A007772F9 /* Red Hen */;
+			targetProxy = 364F3B6B27CFC1A5007B1BDA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		19921EFF27BFC36B007772F9 /* Debug */ = {
@@ -456,7 +550,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RedHen/Preview Content\"";
-				DEVELOPMENT_TEAM = 47UAHQ7G98;
+				DEVELOPMENT_TEAM = J8D2U9359M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Red-Hen-Info.plist";
@@ -473,7 +567,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.luca.redhen;
+				PRODUCT_BUNDLE_IDENTIFIER = com.marcelschoeckel.redhen;
 				PRODUCT_NAME = "Red Hen";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -490,7 +584,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RedHen/Preview Content\"";
-				DEVELOPMENT_TEAM = 47UAHQ7G98;
+				DEVELOPMENT_TEAM = J8D2U9359M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Red-Hen-Info.plist";
@@ -507,11 +601,47 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.luca.redhen;
+				PRODUCT_BUNDLE_IDENTIFIER = com.marcelschoeckel.redhen;
 				PRODUCT_NAME = "Red Hen";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		364F3B6E27CFC1A5007B1BDA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J8D2U9359M;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.marcelschoeckel.Red-Hen-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Red Hen.app/Red Hen";
+			};
+			name = Debug;
+		};
+		364F3B6F27CFC1A5007B1BDA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J8D2U9359M;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.marcelschoeckel.Red-Hen-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Red Hen.app/Red Hen";
 			};
 			name = Release;
 		};
@@ -532,6 +662,15 @@
 			buildConfigurations = (
 				19921F0227BFC36B007772F9 /* Debug */,
 				19921F0327BFC36B007772F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		364F3B6D27CFC1A5007B1BDA /* Build configuration list for PBXNativeTarget "Red Hen Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				364F3B6E27CFC1A5007B1BDA /* Debug */,
+				364F3B6F27CFC1A5007B1BDA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
