@@ -8,7 +8,7 @@
 import Combine
 import RealityKit
 
-class ARSceneManager: ObservableObject {
+class MenuARViewModel: ObservableObject {
     @Published var placeObject = false
     @Published var anchorEntities: [AnchorEntity] = []
     

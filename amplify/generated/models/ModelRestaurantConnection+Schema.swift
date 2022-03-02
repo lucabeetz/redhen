@@ -16,7 +16,7 @@ extension ModelRestaurantConnection {
   public static let schema = defineSchema { model in
     let modelRestaurantConnection = ModelRestaurantConnection.keys
     
-    model.pluralName = "ModelRestaurantConnections"
+    model.syncPluralName = "ModelRestaurantConnections"
     
     model.fields(
       .field(modelRestaurantConnection.items, is: .optional, ofType: .collection(of: Restaurant.self)),

@@ -11,72 +11,39 @@ import BetterSafariView
 import UIKit
 
 struct MapView: View {
-    @StateObject private var viewModel: MapViewModel = MapViewModel()
+    @EnvironmentObject var mapViewModel: MapViewModel
     
     var body: some View {
         NavigationView {
-            Map(coordinateRegion: $viewModel.region, showsUserLocation: true, userTrackingMode: .constant(.none), annotationItems: viewModel.restaurants) { restaurant in
-                MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: restaurant.location.lat, longitude: restaurant.location.lon), anchorPoint: CGPoint(x: 0.5, y: 0.95)) {
-                    if restaurant.ar {
-                        NavigationLink(destination: MenuARView()) { RestaurantAnnotationView(arEnabled: true) }
-                    } else {
-                        OpenMenuViewButton(restaurantToShow: restaurant, content: RestaurantAnnotationView())
-                    }
-                }
-            }
-            .overlay(alignment: .bottomTrailing) {
-                VStack {
-                    if !viewModel.activeRestaurants.isEmpty {
-                        NavigationLink(destination: MenuView(restaurant: viewModel.activeRestaurants[0])) {
-                            ZStack {
-                                Circle()
-                                    .fill(Color("orangeBright"))
-                                    .shadow(color: Color("shadow"), radius: 4, x: 0, y: 4)
-                                    .frame(width: 48, height: 48)
-                                
-                                Image(systemName: "fork.knife")
-                                    .font(.system(size: 22))
-                                    .foregroundColor(.white)
-                                
-                            }
-                            .padding(.horizontal, 16.0)
-                            .padding(.vertical, 64.0)
+            ZStack(alignment: .bottomTrailing) {
+                Map(coordinateRegion: $mapViewModel.region, showsUserLocation: true, userTrackingMode: .constant(.none), annotationItems: mapViewModel.restaurants) { restaurant in
+                    MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: restaurant.location.lat, longitude: restaurant.location.lon), anchorPoint: CGPoint(x: 0.5, y: 0.95)) {
+                        if restaurant.ar {
+                            NavigationLink(destination: MenuARView()) { RestaurantAnnotationView(arEnabled: true) }
+                        } else {
+                            OpenMenuViewButton(restaurantToShow: restaurant, content: RestaurantAnnotationView())
                         }
                     }
-                    LocateUserButton(action: viewModel.focusOnUser)
                 }
-                .offset(x: -10, y: -100)
+                
+                VStack(spacing: 16.0) {
+                    if !mapViewModel.activeRestaurants.isEmpty {
+                        NavigationLink(destination: MenuView(restaurant: mapViewModel.activeRestaurants[0])) {
+                            FloatingButtonView(iconName: "fork.knife", color: Color("henRed"))
+                        }
+                    }
+                    
+                    Button(action: mapViewModel.focusOnUser) {
+                        FloatingButtonView(iconName: "location", color: Color("henRed"))
+                    }
+                }
+                .padding(.bottom, 64)
+                .padding(.trailing, 16)
             }
             .ignoresSafeArea()
-            .animation(Animation.easeIn(duration: 1), value: viewModel.region)
-            .popover(isPresented: $viewModel.authorizationDenied) {
-                
+            .animation(Animation.easeIn(duration: 1), value: mapViewModel.region)
+            .popover(isPresented: $mapViewModel.authorizationDenied) {
                 Text("Enable location service")
-                
-            }
-        }
-    }
-    
-    
-    struct LocateUserButton: View {
-        private let action: () -> Void
-        
-        init(action: @escaping () -> Void) {
-            self.action = action
-        }
-        
-        var body: some View {
-            Button(action: action) {
-                ZStack{
-                    Circle()
-                        .fill(Color("orangeBright"))
-                        .shadow(color: Color("shadow"), radius: 4, x: 0, y: 4)
-                        .frame(width: 48, height: 48)
-                    
-                    Image(systemName: "location")
-                        .font(.system(size: 22))
-                        .foregroundColor(.white)
-                }
             }
         }
     }

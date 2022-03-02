@@ -9,13 +9,13 @@ import SwiftUI
 import Amplify
 
 struct ContentView: View {
-    @StateObject var restaurantProvider = RestaurantProvider()
-    
-    @StateObject var arSceneManager = ARSceneManager()
+    @StateObject var mapViewModel = MapViewModel()
+    @StateObject var menuARViewModel = MenuARViewModel()
     
     var body: some View {
         MapView()
-            .environmentObject(arSceneManager)
+            .environmentObject(mapViewModel)
+            .environmentObject(menuARViewModel)
     }
 }
 
