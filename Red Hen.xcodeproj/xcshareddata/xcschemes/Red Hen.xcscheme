@@ -43,7 +43,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "364F3B6627CFC1A5007B1BDA"
-               BuildableName = "Red Hen Tests.xctest"
+               BuildableName = "Red Hen Tests"
                BlueprintName = "Red Hen Tests"
                ReferencedContainer = "container:Red Hen.xcodeproj">
             </BuildableReference>
