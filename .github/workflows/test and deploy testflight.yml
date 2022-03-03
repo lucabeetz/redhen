@@ -44,13 +44,13 @@ jobs:
           scheme: ${{ 'default' }}
         run: |
           if [ $scheme = default ]; then scheme=$(cat default); fi
-          xcodebuild build-for-testing -scheme "$scheme" -destination ${{ matrix.destination }}
+          xcodebuild build-for-testing -scheme "Red Hen" -destination ${{ matrix.destination }}
       - name: Test
         env:
           scheme: ${{ 'default' }}
         run: | 
           if [ $scheme = default ]; then scheme=$(cat default); fi
-          xcodebuild test-without-building -scheme "$scheme" -destination ${{ matrix.destination }}
+          xcodebuild test-without-building -scheme "Red Hen" -destination ${{ matrix.destination }}
           
   build_and_deploy:
     name: Build and Deploy
@@ -78,14 +78,14 @@ jobs:
       - name: Build archive
         run: |
           if [ $scheme = default ]; then scheme=$(cat default); fi
-          xcodebuild -scheme "$scheme" archive -archivePath "$archive_path"/"$scheme".xcarchive
+          xcodebuild -scheme "Red Hen" archive -archivePath "$archive_path/Red Hen.xcarchive"
       - name: Save archive in Artifact
         run: if [ $scheme = default ]; then scheme=$(cat default); fi
         uses: actions/upload-artifact@v2
         with:
           name: "archive/$GITHUB_SHA"
           path: 
-            "$archive_path"/"$scheme".xcarchive
+            "$archive_path/Red Hen.xcarchive"
       - name: Parse upload secrets
         run: |
           echo "$TESTFLIGHT_DEPLOY_CONF" | base64 -d > ./"$testflight_deploy_conf"
