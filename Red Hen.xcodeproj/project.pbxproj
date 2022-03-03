@@ -29,8 +29,8 @@
 		3647E19C27CFE1C800FBC311 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647E18F27CFE1C800FBC311 /* MenuView.swift */; };
 		3647E19D27CFE1C800FBC311 /* MenuARViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647E19127CFE1C800FBC311 /* MenuARViewModel.swift */; };
 		3647E19E27CFE1C800FBC311 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647E19227CFE1C800FBC311 /* MapViewModel.swift */; };
+		3656024D27D04939000615B2 /* Red_HenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3656024C27D04939000615B2 /* Red_HenTests.swift */; };
 		3656F25827C96972003083B0 /* BetterSafariView in Frameworks */ = {isa = PBXBuildFile; productRef = 3656F25727C96972003083B0 /* BetterSafariView */; };
-		36FCC92627D0343100BDB37D /* Red_Hen_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FCC92527D0343100BDB37D /* Red_Hen_Tests.swift */; };
 		9ABDA08AA14A11BDB29BF518 /* Location+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C1F1E775D8C00D94E415E9 /* Location+Schema.swift */; };
 		A146816C11897351713BC073 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 2506E6EC7143E07477163912 /* awsconfiguration.json */; };
 		A567FC958E42FEBA9CD6EA27 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE1BD8C72D296354EEB92CA /* Restaurant.swift */; };
@@ -42,7 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		364F3B6B27CFC1A5007B1BDA /* PBXContainerItemProxy */ = {
+		3656024E27D04939000615B2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 19921EEB27BFC36A007772F9 /* Project object */;
 			proxyType = 1;
@@ -73,6 +73,8 @@
 		3647E18F27CFE1C800FBC311 /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		3647E19127CFE1C800FBC311 /* MenuARViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuARViewModel.swift; sourceTree = "<group>"; };
 		3647E19227CFE1C800FBC311 /* MapViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		3656024A27D04939000615B2 /* Red HenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Red HenTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3656024C27D04939000615B2 /* Red_HenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Red_HenTests.swift; sourceTree = "<group>"; };
 		36FCC92527D0343100BDB37D /* Red_Hen_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Red_Hen_Tests.swift; sourceTree = "<group>"; };
 		3AE1BD8C72D296354EEB92CA /* Restaurant.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Restaurant.swift; path = amplify/generated/models/Restaurant.swift; sourceTree = "<group>"; };
 		6E60337A547823DF540D9776 /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
@@ -95,7 +97,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		364F3B6427CFC1A5007B1BDA /* Frameworks */ = {
+		3656024727D04939000615B2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -130,6 +132,7 @@
 			children = (
 				19921EF527BFC36A007772F9 /* RedHen */,
 				364F3B6827CFC1A5007B1BDA /* Red Hen Tests */,
+				3656024B27D04939000615B2 /* Red HenTests */,
 				19921EF427BFC36A007772F9 /* Products */,
 				5A4DC56A3965919E66721A5A /* AmplifyConfig */,
 				2C36B905C028E0F06EB7D861 /* AmplifyModels */,
@@ -141,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				19921EF327BFC36A007772F9 /* Red Hen.app */,
+				3656024A27D04939000615B2 /* Red HenTests.xctest */,
 			);
 			name = Products;
 			path = RedHen;
@@ -224,6 +228,14 @@
 			path = "Red Hen Tests";
 			sourceTree = "<group>";
 		};
+		3656024B27D04939000615B2 /* Red HenTests */ = {
+			isa = PBXGroup;
+			children = (
+				3656024C27D04939000615B2 /* Red_HenTests.swift */,
+			);
+			path = "Red HenTests";
+			sourceTree = "<group>";
+		};
 		5A4DC56A3965919E66721A5A /* AmplifyConfig */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,21 +272,22 @@
 			productReference = 19921EF327BFC36A007772F9 /* Red Hen.app */;
 			productType = "com.apple.product-type.application";
 		};
-		364F3B6627CFC1A5007B1BDA /* Red Hen Tests */ = {
+		3656024927D04939000615B2 /* Red HenTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 364F3B6D27CFC1A5007B1BDA /* Build configuration list for PBXNativeTarget "Red Hen Tests" */;
+			buildConfigurationList = 3656025027D04939000615B2 /* Build configuration list for PBXNativeTarget "Red HenTests" */;
 			buildPhases = (
-				364F3B6327CFC1A5007B1BDA /* Sources */,
-				364F3B6427CFC1A5007B1BDA /* Frameworks */,
-				364F3B6527CFC1A5007B1BDA /* Resources */,
+				3656024627D04939000615B2 /* Sources */,
+				3656024727D04939000615B2 /* Frameworks */,
+				3656024827D04939000615B2 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				364F3B6C27CFC1A5007B1BDA /* PBXTargetDependency */,
+				3656024F27D04939000615B2 /* PBXTargetDependency */,
 			);
-			name = "Red Hen Tests";
-			productName = "Red Hen Tests";
+			name = "Red HenTests";
+			productName = "Red HenTests";
+			productReference = 3656024A27D04939000615B2 /* Red HenTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -290,9 +303,8 @@
 					19921EF227BFC36A007772F9 = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
-					364F3B6627CFC1A5007B1BDA = {
+					3656024927D04939000615B2 = {
 						CreatedOnToolsVersion = 13.2.1;
-						LastSwiftMigration = 1320;
 						TestTargetID = 19921EF227BFC36A007772F9;
 					};
 				};
@@ -316,7 +328,7 @@
 			projectRoot = "";
 			targets = (
 				19921EF227BFC36A007772F9 /* Red Hen */,
-				364F3B6627CFC1A5007B1BDA /* Red Hen Tests */,
+				3656024927D04939000615B2 /* Red HenTests */,
 			);
 		};
 /* End PBXProject section */
@@ -333,7 +345,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		364F3B6527CFC1A5007B1BDA /* Resources */ = {
+		3656024827D04939000615B2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -372,21 +384,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		364F3B6327CFC1A5007B1BDA /* Sources */ = {
+		3656024627D04939000615B2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				36FCC92627D0343100BDB37D /* Red_Hen_Tests.swift in Sources */,
+				3656024D27D04939000615B2 /* Red_HenTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		364F3B6C27CFC1A5007B1BDA /* PBXTargetDependency */ = {
+		3656024F27D04939000615B2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 19921EF227BFC36A007772F9 /* Red Hen */;
-			targetProxy = 364F3B6B27CFC1A5007B1BDA /* PBXContainerItemProxy */;
+			targetProxy = 3656024E27D04939000615B2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -575,51 +587,36 @@
 			};
 			name = Release;
 		};
-		364F3B6E27CFC1A5007B1BDA /* Debug */ = {
+		3656025127D04939000615B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = J8D2U9359M;
 				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.marcelschoeckel.Red-Hen-Tests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.marcelschoeckel.Red-HenTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "Red Hen Tests/Red Hen Tests-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Red Hen.app/Red Hen";
 			};
 			name = Debug;
 		};
-		364F3B6F27CFC1A5007B1BDA /* Release */ = {
+		3656025227D04939000615B2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = J8D2U9359M;
 				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.marcelschoeckel.Red-Hen-Tests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.marcelschoeckel.Red-HenTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "Red Hen Tests/Red Hen Tests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Red Hen.app/Red Hen";
@@ -647,11 +644,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		364F3B6D27CFC1A5007B1BDA /* Build configuration list for PBXNativeTarget "Red Hen Tests" */ = {
+		3656025027D04939000615B2 /* Build configuration list for PBXNativeTarget "Red HenTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				364F3B6E27CFC1A5007B1BDA /* Debug */,
-				364F3B6F27CFC1A5007B1BDA /* Release */,
+				3656025127D04939000615B2 /* Debug */,
+				3656025227D04939000615B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -663,8 +660,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/maxxfrazer/FocusEntity";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
 			};
 		};
 		19921F0427BFC43E007772F9 /* XCRemoteSwiftPackageReference "amplify-ios" */ = {

@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/aws-amplify/amplify-ios",
         "state": {
           "branch": null,
-          "revision": "993864eeb1542b5794a4358c9aee9654b7c44bcc",
-          "version": "1.21.0"
+          "revision": "98a1fcd3dd88f17a2e4dec2b28549e9d1a116602",
+          "version": "1.19.2"
         }
       },
       {
@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/aws-amplify/aws-appsync-realtime-client-ios.git",
         "state": {
           "branch": null,
-          "revision": "57d5df1590e9ead5a0c3677ffa8d83688bd48608",
-          "version": "1.9.0"
+          "revision": "1932e1d6289e9f0c9656cefe6218d5097720bf3f",
+          "version": "1.8.0"
         }
       },
       {
@@ -41,9 +41,9 @@
         "package": "FocusEntity",
         "repositoryURL": "https://github.com/maxxfrazer/FocusEntity",
         "state": {
-          "branch": "main",
+          "branch": null,
           "revision": "d17dbbddd92d9b1661a42868fc51b86a3ad2fcb0",
-          "version": null
+          "version": "2.2.5"
         }
       },
       {

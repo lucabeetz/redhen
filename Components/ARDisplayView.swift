@@ -27,8 +27,9 @@ struct ARDisplayView: UIViewRepresentable {
     func updateUIView(_ uiView: CustomARView, context: Context) {}
     
     private func updateScene(for arView: CustomARView) {
+#if !targetEnvironment(simulator)
         arView.focusEntity?.isEnabled = true
-        
+#endif
         let mesh = MeshResource.generateBox(size: 0.1)
         let material = SimpleMaterial(color: .orange, roughness: 0.5, isMetallic: true)
         let modelEntity = ModelEntity(mesh: mesh, materials: [material])
@@ -42,8 +43,12 @@ struct ARDisplayView: UIViewRepresentable {
         let clonedEntity = modelEntity.clone(recursive: true)
         clonedEntity.generateCollisionShapes(recursive: true)
         arView.installGestures([.translation, .rotation], for: clonedEntity)
-        
+#if targetEnvironment(simulator)
+        let anchorEntity = AnchorEntity(.camera)
+#else
         let anchorEntity = AnchorEntity(plane: .any)
+#endif
+        
         anchorEntity.addChild(clonedEntity)
         
         arView.scene.addAnchor(anchorEntity)
