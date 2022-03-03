@@ -99,9 +99,9 @@ jobs:
           if [ $scheme = default ]; then scheme=$(cat default); fi
           xcodebuild -exportArchive -archivePath "$archive_path/Red Hen.xcarchive" -exportPath "$ipa_path" -exportOptionsPlist "$testflight_deploy_conf"
       - name: Upload app to TestFlight
-          uses: apple-actions/upload-testflight-build@v1
-          with: 
-            app-path: "$ipa_path"
-            issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
-            api-key-id: ${{ secrets.APPSTORE_API_KEY_ID }}
-            api-private-key: ${{ secrets.PRIV_API_KEY }}
+        uses: apple-actions/upload-testflight-build@v1
+        with: 
+          app-path: "$ipa_path"
+          issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
+          api-key-id: ${{ secrets.APPSTORE_API_KEY_ID }}
+          api-private-key: ${{ secrets.PRIV_API_KEY }}
