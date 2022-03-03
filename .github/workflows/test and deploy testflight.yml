@@ -5,7 +5,7 @@ on:
     branches: [ dev ]
     
 jobs:
-  get_scheme: 
+  get_scheme:
     outputs:
       scheme: ${{ steps.scheme.outputs.scheme }}
     steps:
@@ -46,14 +46,10 @@ jobs:
       - name: Test
         run: | 
           xcodebuild test-without-building -scheme "$scheme" -destination ${{ matrix.destination }}
-          
   build_and_deploy:
     name: Build and Deploy
-    needs: build_and_test
     runs-on: macos-latest
     needs: [get_scheme, build_and_test]
-      ipa_path: ${{ ipa_file.ipa }}
-      testflight_deploy_conf: ${{ 'testflight_deploy_conf.plist' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -66,7 +62,6 @@ jobs:
         env:
           AMPLIFY_CONF: ${{ secrets.AMPLIFY_CONF }}
           AWS_CONF: ${{ secrets.AWS_CONF }}
-        
       - name: Build archive
         run: |
           xcodebuild -scheme "$scheme" archive -archivePath "$archive_path/$scheme.xcarchive"
@@ -95,6 +90,8 @@ jobs:
         env: 
           scheme: ${{ needs.get_scheme.outputs.scheme }}
           archive_path: ${{ 'archive' }}
+          ipa_path: ${{ ipa_file.ipa }}
+          testflight_deploy_conf: ${{ 'testflight_deploy_conf.plist' }}
       - name: Upload app to TestFlight
         uses: apple-actions/upload-testflight-build@v1
         with: 
@@ -102,3 +99,6 @@ jobs:
           issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
           api-key-id: ${{ secrets.APPSTORE_API_KEY_ID }}
           api-private-key: ${{ secrets.PRIV_API_KEY }}
+        env:
+          ipa_path: ${{ ipa_file.ipa }}
+          
