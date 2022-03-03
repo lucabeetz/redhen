@@ -32,8 +32,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Xcode version
-        run: /usr/bin/xcodebuild -version
+      - name: Infos
+        run: |
+          /usr/bin/xcodebuild -version
+          echo "Using scheme: $scheme"
+        env:
+          scheme: ${{ needs.get_scheme.outputs.scheme }}
       - name: Parse secret
         run: |
           echo "$AMPLIFY_CONF" | base64 -d > ./amplifyconfiguration.json
