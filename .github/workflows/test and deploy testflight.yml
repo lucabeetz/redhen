@@ -97,7 +97,7 @@ jobs:
       - name: Export to ipa
         run: | 
           if [ $scheme = default ]; then scheme=$(cat default); fi
-          xcodebuild -exportArchive -archivePath "$archive_path/$scheme.xcarchive" -exportPath "$ipa_path" -exportOptionsPlist "$testflight_deploy_conf"
+          xcodebuild -exportArchive -archivePath "$archive_path/Red Hen.xcarchive" -exportPath "$ipa_path" -exportOptionsPlist "$testflight_deploy_conf"
       - name: 'Upload app to TestFlight'
           uses: apple-actions/upload-testflight-build@v1
           with: 
