@@ -6,10 +6,10 @@ on:
     
 jobs:
   environment: 
-    scheme: ${{ 'default' }}
-    archive_path: ${{ 'archive' }}
-    ipa_path: ${{ 'ipa_file.ipa' }}
-    testflight_deploy_conf: ${{ 'testflight_deploy_conf.plist' }}
+    scheme: 'default'
+    archive_path: 'archive'
+    ipa_path: 'ipa_file.ipa'
+    testflight_deploy_conf: 'testflight_deploy_conf.plist'
 
   build_and_test:
     name: Build and Test
