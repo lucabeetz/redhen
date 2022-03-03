@@ -19,9 +19,9 @@ jobs:
     name: Build and Test
     runs-on: macos-latest
     needs: get_scheme
-    environment: 
-      scheme: ${{ needs.get_scheme.outputs.scheme}}
-      archive_path: 'archive'
+    environment:
+      scheme: ${{ needs.get_scheme.outputs.scheme }}
+      archive_path: archive
     strategy:
       matrix: 
         destination: [
@@ -54,9 +54,9 @@ jobs:
     needs: [get_scheme, build_and_test]
     environment: 
       scheme: ${{ needs.get_scheme.outputs.scheme }}
-      archive_path: 'archive'
-      ipa_path: 'ipa_file.ipa'
-      testflight_deploy_conf: 'testflight_deploy_conf.plist'
+      archive_path: archive
+      ipa_path: ipa_file.ipa
+      testflight_deploy_conf: testflight_deploy_conf.plist
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -84,7 +84,7 @@ jobs:
         env:
           TESTFLIGHT_DEPLOY_CONF: ${{ secrets.TESTFLIGHT_DEPLOY_CONF }}
           APPSTORE_API_PRIVATE_KEY: ${{ secrets.APPSTORE_API_PRIVATE_KEY }} 
-          PRIV_API_KEY: "priv_api_key"
+          PRIV_API_KEY: priv_api_key
       - name: Export to ipa
         run: | 
           xcodebuild -exportArchive -archivePath "$archive_path/$scheme.xcarchive" -exportPath "$ipa_path" -exportOptionsPlist "$testflight_deploy_conf"
