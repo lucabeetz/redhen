@@ -6,6 +6,8 @@ on:
     
 jobs:
   get_scheme:
+    name: Get Scheme
+    runs-in: macos-latest
     outputs:
       scheme: ${{ steps.scheme.outputs.scheme }}
     steps:
@@ -18,7 +20,6 @@ jobs:
   build_and_test:
     name: Build and Test
     runs-on: macos-latest
-    needs: get_scheme
     strategy:
       matrix: 
         destination: [
