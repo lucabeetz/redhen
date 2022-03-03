@@ -1,4 +1,4 @@
-name: Test and Deploy
+name: Test_and_Deploy
 
 on:
   push:
