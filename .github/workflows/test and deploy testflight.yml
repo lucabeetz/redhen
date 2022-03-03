@@ -52,9 +52,6 @@ jobs:
     needs: build_and_test
     runs-on: macos-latest
     needs: [get_scheme, build_and_test]
-    environment: 
-      scheme: ${{ needs.get_scheme.outputs.scheme }}
-      archive_path: ${{ 'archive' }}
       ipa_path: ${{ ipa_file.ipa }}
       testflight_deploy_conf: ${{ 'testflight_deploy_conf.plist' }}
     steps:
@@ -69,14 +66,21 @@ jobs:
         env:
           AMPLIFY_CONF: ${{ secrets.AMPLIFY_CONF }}
           AWS_CONF: ${{ secrets.AWS_CONF }}
+        
       - name: Build archive
         run: |
           xcodebuild -scheme "$scheme" archive -archivePath "$archive_path/$scheme.xcarchive"
+        env:
+          scheme: ${{ needs.get_scheme.outputs.scheme }}
+          archive_path: ${{ 'archive' }}
       - name: Save archive in Artifact
         uses: actions/upload-artifact@v2
         with:
           name: "archive/$GITHUB_SHA"
           path: "$archive_path/$scheme.xcarchive"
+        env:
+          scheme: ${{ needs.get_scheme.outputs.scheme }}
+          archive_path: ${{ 'archive' }}
       - name: Parse upload secrets
         run: |
           echo "$TESTFLIGHT_DEPLOY_CONF" | base64 -d > ./"$testflight_deploy_conf"
@@ -88,6 +92,9 @@ jobs:
       - name: Export to ipa
         run: | 
           xcodebuild -exportArchive -archivePath "$archive_path/$scheme.xcarchive" -exportPath "$ipa_path" -exportOptionsPlist "$testflight_deploy_conf"
+        env: 
+          scheme: ${{ needs.get_scheme.outputs.scheme }}
+          archive_path: ${{ 'archive' }}
       - name: Upload app to TestFlight
         uses: apple-actions/upload-testflight-build@v1
         with: 
