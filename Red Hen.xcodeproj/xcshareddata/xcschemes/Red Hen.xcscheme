@@ -32,19 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "364F3B5727CFC143007B1BDA"
-               BuildableName = "Red Hen UI Tests.xctest"
-               BlueprintName = "Red Hen UI Tests"
-               ReferencedContainer = "container:Red Hen.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "364F3B6627CFC1A5007B1BDA"
-               BuildableName = "Red Hen Tests"
-               BlueprintName = "Red Hen Tests"
+               BlueprintIdentifier = "3656024927D04939000615B2"
+               BuildableName = "Red HenTests.xctest"
+               BlueprintName = "Red HenTests"
                ReferencedContainer = "container:Red Hen.xcodeproj">
             </BuildableReference>
          </TestableReference>
