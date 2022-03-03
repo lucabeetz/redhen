@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		177B802ADFA87DB214092B1D /* Restaurant+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CE38FDD78A3AFF36AC6972 /* Restaurant+Schema.swift */; };
-		1946004327C952940054822E /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = 1946004227C952940054822E /* FocusEntity */; };
+		19340EAB27D025CF0056F233 /* MenuListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19340EAA27D025CF0056F233 /* MenuListView.swift */; };
+		19340EBD27D044D90056F233 /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = 19340EBC27D044D90056F233 /* FocusEntity */; };
 		1956272F27C2E6CD001AED2A /* nearbyRestaurants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1956272E27C2E6CD001AED2A /* nearbyRestaurants.swift */; };
 		196D485B27CFE34200ADB4B6 /* RestaurantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D485A27CFE34200ADB4B6 /* RestaurantDetailView.swift */; };
 		196D485D27CFF39E00ADB4B6 /* IconButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D485C27CFF39E00ADB4B6 /* IconButtonView.swift */; };
-		196D485F27D0105400ADB4B6 /* MenuListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D485E27D0105400ADB4B6 /* MenuListView.swift */; };
 		19921EF727BFC36A007772F9 /* MenewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19921EF627BFC36A007772F9 /* MenewApp.swift */; };
 		19921EF927BFC36A007772F9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19921EF827BFC36A007772F9 /* ContentView.swift */; };
 		19921EFB27BFC36B007772F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19921EFA27BFC36B007772F9 /* Assets.xcassets */; };
@@ -47,10 +47,10 @@
 		07CE38FDD78A3AFF36AC6972 /* Restaurant+Schema.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "Restaurant+Schema.swift"; path = "amplify/generated/models/Restaurant+Schema.swift"; sourceTree = "<group>"; };
 		100229F52CDEF110D5930D93 /* AmplifyModels.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = AmplifyModels.swift; path = amplify/generated/models/AmplifyModels.swift; sourceTree = "<group>"; };
 		12C703B4540698BFCD959813 /* RestaurantType.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = RestaurantType.swift; path = amplify/generated/models/RestaurantType.swift; sourceTree = "<group>"; };
+		19340EAA27D025CF0056F233 /* MenuListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuListView.swift; sourceTree = "<group>"; };
 		1956272E27C2E6CD001AED2A /* nearbyRestaurants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nearbyRestaurants.swift; sourceTree = "<group>"; };
 		196D485A27CFE34200ADB4B6 /* RestaurantDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailView.swift; sourceTree = "<group>"; };
 		196D485C27CFF39E00ADB4B6 /* IconButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButtonView.swift; sourceTree = "<group>"; };
-		196D485E27D0105400ADB4B6 /* MenuListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuListView.swift; sourceTree = "<group>"; };
 		19921EF327BFC36A007772F9 /* Red Hen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Red Hen.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		19921EF627BFC36A007772F9 /* MenewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenewApp.swift; path = RedHen/MenewApp.swift; sourceTree = "<group>"; };
 		19921EF827BFC36A007772F9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = RedHen/ContentView.swift; sourceTree = "<group>"; };
@@ -81,7 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1946004327C952940054822E /* FocusEntity in Frameworks */,
+				19340EBD27D044D90056F233 /* FocusEntity in Frameworks */,
 				19921F0A27BFC43E007772F9 /* Amplify in Frameworks */,
 				19921F0627BFC43E007772F9 /* AWSAPIPlugin in Frameworks */,
 				19921F0827BFC43E007772F9 /* AWSDataStorePlugin in Frameworks */,
@@ -176,6 +176,7 @@
 				3647E18D27CFE1C800FBC311 /* MenuARView.swift */,
 				3647E18E27CFE1C800FBC311 /* MapView.swift */,
 				3647E18F27CFE1C800FBC311 /* MenuView.swift */,
+				19340EAA27D025CF0056F233 /* MenuListView.swift */,
 			);
 			name = Screens;
 			path = redhen/Screens;
@@ -201,7 +202,6 @@
 				3647E19827CFE1C800FBC311 /* SessionSettingsView.swift */,
 				196D485A27CFE34200ADB4B6 /* RestaurantDetailView.swift */,
 				196D485C27CFF39E00ADB4B6 /* IconButtonView.swift */,
-				196D485E27D0105400ADB4B6 /* MenuListView.swift */,
 			);
 			name = Components;
 			path = redhen/Components;
@@ -237,7 +237,7 @@
 				19921F0727BFC43E007772F9 /* AWSDataStorePlugin */,
 				19921F0927BFC43E007772F9 /* Amplify */,
 				3656F25727C96972003083B0 /* BetterSafariView */,
-				1946004227C952940054822E /* FocusEntity */,
+				19340EBC27D044D90056F233 /* FocusEntity */,
 			);
 			productName = Menew;
 			productReference = 19921EF327BFC36A007772F9 /* Red Hen.app */;
@@ -270,7 +270,7 @@
 			packageReferences = (
 				19921F0427BFC43E007772F9 /* XCRemoteSwiftPackageReference "amplify-ios" */,
 				3656F25627C96972003083B0 /* XCRemoteSwiftPackageReference "BetterSafariView" */,
-				1946004127C952940054822E /* XCRemoteSwiftPackageReference "FocusEntity" */,
+				19340EBB27D044D90056F233 /* XCRemoteSwiftPackageReference "FocusEntity" */,
 			);
 			productRefGroup = 19921EF427BFC36A007772F9 /* Products */;
 			projectDirPath = "";
@@ -309,6 +309,7 @@
 				3647E19A27CFE1C800FBC311 /* MenuARView.swift in Sources */,
 				3647E19D27CFE1C800FBC311 /* MenuARViewModel.swift in Sources */,
 				177B802ADFA87DB214092B1D /* Restaurant+Schema.swift in Sources */,
+				19340EAB27D025CF0056F233 /* MenuListView.swift in Sources */,
 				3647E1A327CFE1C800FBC311 /* SessionSettingsView.swift in Sources */,
 				A567FC958E42FEBA9CD6EA27 /* Restaurant.swift in Sources */,
 				3647E1A027CFE1C800FBC311 /* ARDisplayView.swift in Sources */,
@@ -316,7 +317,6 @@
 				3647E19B27CFE1C800FBC311 /* MapView.swift in Sources */,
 				1CAFF408ED328EA53FD37E49 /* Location.swift in Sources */,
 				BC046849CAA6CDF34E88FB5E /* ModelRestaurantConnection+Schema.swift in Sources */,
-				196D485F27D0105400ADB4B6 /* MenuListView.swift in Sources */,
 				3647E19C27CFE1C800FBC311 /* MenuView.swift in Sources */,
 				B8091F47CFB73E6BEFCB7A4A /* ModelRestaurantConnection.swift in Sources */,
 				3647E19E27CFE1C800FBC311 /* MapViewModel.swift in Sources */,
@@ -539,12 +539,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		1946004127C952940054822E /* XCRemoteSwiftPackageReference "FocusEntity" */ = {
+		19340EBB27D044D90056F233 /* XCRemoteSwiftPackageReference "FocusEntity" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/maxxfrazer/FocusEntity";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
 			};
 		};
 		19921F0427BFC43E007772F9 /* XCRemoteSwiftPackageReference "amplify-ios" */ = {
@@ -566,9 +566,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		1946004227C952940054822E /* FocusEntity */ = {
+		19340EBC27D044D90056F233 /* FocusEntity */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1946004127C952940054822E /* XCRemoteSwiftPackageReference "FocusEntity" */;
+			package = 19340EBB27D044D90056F233 /* XCRemoteSwiftPackageReference "FocusEntity" */;
 			productName = FocusEntity;
 		};
 		19921F0527BFC43E007772F9 /* AWSAPIPlugin */ = {

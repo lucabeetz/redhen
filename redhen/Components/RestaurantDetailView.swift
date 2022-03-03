@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RestaurantDetailView: View {
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 8) {
             HStack {
                 VStack(alignment: .leading) {
                     Text("Hans im Glück")
@@ -40,7 +40,6 @@ struct RestaurantDetailView: View {
                     Text("91054 Erlangen")
                 }
             }
-            .padding(.top, 4)
             
             HStack {
                 VStack(alignment: .leading) {
@@ -58,7 +57,7 @@ struct RestaurantDetailView: View {
                         Image(systemName: "safari")
                             .frame(width: 32, height: 32)
                             .padding(4)
-                            .background(Color(UIColor.secondarySystemBackground))
+                            .background(Color(UIColor.tertiarySystemBackground))
                             .foregroundColor(Color(UIColor.link))
                             .cornerRadius(8.0)
                     }
@@ -67,7 +66,7 @@ struct RestaurantDetailView: View {
                         Image(systemName: "square.and.arrow.up")
                             .frame(width: 32, height: 32)
                             .padding(4)
-                            .background(Color(UIColor.secondarySystemBackground))
+                            .background(Color(UIColor.tertiarySystemBackground))
                             .foregroundColor(Color(UIColor.link))
                             .cornerRadius(8.0)
                     }
@@ -84,9 +83,13 @@ struct RestaurantDetailView: View {
                     }
                 }
             }
-            .padding(.top, 4)
+            
         }
         .font(.body)
+        .padding(16)
+        .padding(.bottom, 32)
+        .background(Color(UIColor.secondarySystemBackground))
+        .cornerRadius(8)
         .foregroundColor(Color(UIColor.label))
     }
 }
