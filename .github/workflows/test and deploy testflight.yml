@@ -19,9 +19,6 @@ jobs:
     name: Build and Test
     runs-on: macos-latest
     needs: get_scheme
-    environment:
-      scheme: ${{ needs.get_scheme.outputs.scheme }}
-      archive_path: ${{ 'archive' }}
     strategy:
       matrix: 
         destination: [
@@ -43,9 +40,14 @@ jobs:
       - name: Build
         run: |
           xcodebuild build-for-testing -scheme "$scheme" -destination ${{ matrix.destination }}
+        env: 
+          scheme: ${{ needs.get_scheme.outputs.scheme }}
       - name: Test
         run: | 
           xcodebuild test-without-building -scheme "$scheme" -destination ${{ matrix.destination }}
+        env:
+          scheme: ${{ needs.get_scheme.outputs.scheme }}
+
   build_and_deploy:
     name: Build and Deploy
     runs-on: macos-latest
