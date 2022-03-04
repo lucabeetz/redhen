@@ -43,12 +43,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Infos
-        run: |
-          /usr/bin/xcodebuild -version
-          echo "Using scheme: $scheme"
-        env:
-          scheme: ${{needs.get_scheme.outputs.scheme }}
       - name: Parse secret
         run: |
           echo "$AMPLIFY_CONF" | base64 -d > ./amplifyconfiguration.json
@@ -148,7 +142,7 @@ jobs:
           api-private-key: ${{ secrets.PRIV_API_KEY }}
         env:
           ipa_path: ${{ 'ipa_file.ipa' }}
-          
+
       - name: Clean up keychain and provisioning profile
         if: ${{ always() }}
         run: |
