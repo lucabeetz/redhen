@@ -17,7 +17,19 @@ jobs:
           scheme_list=$(xcodebuild -list -json | tr -d "\n")
           default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]")
           echo "using default scheme: $default"
-          echo "::set-output name=scheme::$default" 
+          echo "::set-output name=scheme::$default"
+
+  scheme_info:
+    name: Scheme Info
+    runs-on: macos-latest
+    needs: get_scheme
+
+    steps:
+      - name: Print scheme
+        run: |
+          echo "Scheme: $scheme"
+        env:
+          scheme: ${{needs.get_scheme.outputs.scheme}}
 
   build_and_test:
     name: Build and Test
@@ -37,7 +49,7 @@ jobs:
           /usr/bin/xcodebuild -version
           echo "Using scheme: $scheme"
         env:
-          scheme: ${{ needs.get_scheme.outputs.scheme }}
+          scheme: ${{needs.get_scheme.outputs.scheme }}
       - name: Parse secret
         run: |
           echo "$AMPLIFY_CONF" | base64 -d > ./amplifyconfiguration.json
