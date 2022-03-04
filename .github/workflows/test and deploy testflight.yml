@@ -148,8 +148,9 @@ jobs:
           api-private-key: ${{ secrets.PRIV_API_KEY }}
         env:
           ipa_path: ${{ 'ipa_file.ipa' }}
+          
       - name: Clean up keychain and provisioning profile
-          if: ${{ always() }}
-          run: |
-            security delete-keychain $RUNNER_TEMP/app-signing.keychain-db
-            rm ~/Library/MobileDevice/Provisioning\ Profiles/build_pp.mobileprovision
+        if: ${{ always() }}
+        run: |
+          security delete-keychain $RUNNER_TEMP/app-signing.keychain-db
+          rm ~/Library/MobileDevice/Provisioning\ Profiles/build_pp.mobileprovision
