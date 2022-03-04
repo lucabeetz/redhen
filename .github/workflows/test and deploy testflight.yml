@@ -12,11 +12,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: scheme
+      - id: scheme
         run: |
           scheme_list=$(xcodebuild -list -json | tr -d "\n")
           default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]")
-          echo "using default scheme: $default"
           echo "::set-output name=scheme::$default"
 
   scheme_info:
