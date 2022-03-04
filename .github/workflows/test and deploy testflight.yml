@@ -118,6 +118,7 @@ jobs:
           scheme: ${{ needs.get_scheme.outputs.scheme }}
           archive_path: ${{ 'archive' }}
       - name: Parse upload secrets
+        if: {{ always() }}
         env:
           TESTFLIGHT_DEPLOY_CONF: ${{ secrets.TESTFLIGHT_DEPLOY_CONF }}
           APPSTORE_API_PRIVATE_KEY: ${{ secrets.APPSTORE_API_PRIVATE_KEY }} 
@@ -125,8 +126,6 @@ jobs:
         run: |
           echo "$TESTFLIGHT_DEPLOY_CONF" | base64 -d > ./"$testflight_deploy_conf"
           echo "$APPSTORE_API_PRIVATE_KEY" | base64 -d > ./'private_keys/AuthKey_$PRIV_API_KEY.p8'
-      - name: Info testing
-        run: |
           cat ./"$testflight_deploy_conf"
       - name: Export archive to .ipa
         run: | 
