@@ -85,7 +85,7 @@ jobs:
           AWS_CONF: ${{ secrets.AWS_CONF }}
       - name: Build archive
         run: |
-          xcodebuild -scheme "$scheme" archive -archivePath "$archive_path/$scheme.xcarchive"
+          xcodebuild -scheme "$scheme" archive -archivePath "$archive_path/$scheme.xcarchive" -allowProvisioningUpdates
         env:
           scheme: ${{ needs.get_scheme.outputs.scheme }}
           archive_path: ${{ 'archive' }}
