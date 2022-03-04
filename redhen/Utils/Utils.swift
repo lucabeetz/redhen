@@ -27,3 +27,9 @@ extension MKCoordinateRegion: Equatable {
        lhs.center == rhs.center
    }
 }
+
+extension Restaurant: Equatable {
+    public static func == (lhs: Restaurant, rhs: Restaurant) -> Bool {
+        return lhs.id == rhs.id
+    }
+}

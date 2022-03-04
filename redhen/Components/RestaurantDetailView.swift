@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RestaurantDetailView: View {
+    let restaurant: Restaurant
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack {
@@ -71,7 +73,7 @@ struct RestaurantDetailView: View {
                             .cornerRadius(8.0)
                     }
                     
-                    Button(action: {}) {
+                    NavigationLink(destination: MenuListView()) {
                         Text("Menu")
                             .font(.subheadline)
                             .fontWeight(.semibold)
@@ -86,18 +88,17 @@ struct RestaurantDetailView: View {
             
         }
         .font(.body)
-        .padding(16)
-        .padding(.bottom, 32)
+        .padding(8)
         .background(Color(UIColor.secondarySystemBackground))
         .cornerRadius(8)
         .foregroundColor(Color(UIColor.label))
     }
 }
 
-struct RestaurantDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        RestaurantDetailView()
-            .preferredColorScheme(.dark)
-            .previewLayout(.device)
-    }
-}
+//struct RestaurantDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RestaurantDetailView()
+//            .preferredColorScheme(.dark)
+//            .previewLayout(.device)
+//    }
+//}

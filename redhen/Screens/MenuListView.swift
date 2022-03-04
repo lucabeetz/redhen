@@ -21,6 +21,7 @@ struct MenuListView: View {
             }
         }
         .navigationTitle("Hans im Glück - Menu")
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     private func selectDeselectItem(_ index: Int) {
@@ -43,38 +44,40 @@ struct MenuListItem: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack(alignment: .top, spacing: 8) {
-                Image("burger")
-                    .resizable()
-                    .frame(width: isExpanded ? 84 : 64, height: isExpanded ? 84 : 64)
-                    .aspectRatio(contentMode: .fit)
-                    .cornerRadius(8.0)
-                    .padding(.vertical, 8)
-                
-                VStack(alignment: .leading) {
-                    HStack(alignment: .bottom) {
-                        Text("Zeitgeist")
-                            .font(.headline)
+                Button(action: {}) {
+                    Image("burger")
+                        .resizable()
+                        .frame(width: isExpanded ? 84 : 64, height: isExpanded ? 84 : 64)
+                        .aspectRatio(contentMode: .fit)
+                        .cornerRadius(8.0)
+                        .padding(.vertical, 8)
+                    
+                    VStack(alignment: .leading) {
+                        HStack(alignment: .bottom) {
+                            Text("Zeitgeist")
+                                .font(.headline)
+                            
+                            Text("9,50€")
+                                .font(.subheadline)
+                                .foregroundColor(Color(UIColor.secondaryLabel))
+                                .transition(.opacity)
+                                .opacity(isExpanded ? 1 : 0)
+                        }
                         
-                        Text("9,50€")
-                            .font(.subheadline)
+                        Spacer()
+                        
+                        Text("vegane Hähnchenalternative im Knuspermantel, vegane Goldscheibe & Trüffelsoße")
+                            .lineLimit(isExpanded ? nil : 2)
+                            .font(.callout)
                             .foregroundColor(Color(UIColor.secondaryLabel))
-                            .transition(.opacity)
-                            .opacity(isExpanded ? 1 : 0)
                     }
-                    
-                    Spacer()
-                    
-                    Text("vegane Hähnchenalternative im Knuspermantel, vegane Goldscheibe & Trüffelsoße")
-                        .lineLimit(isExpanded ? nil : 2)
-                        .font(.callout)
-                        .foregroundColor(Color(UIColor.secondaryLabel))
+                    .padding(.vertical, 8)
                 }
-                .padding(.vertical, 8)
+                .buttonStyle(.plain)
                 
                 Spacer()
                 
                 VStack {
-                    
                     Button(action: chevronCallback) {
                         Image(systemName: "chevron.down")
                             .foregroundColor(Color(red: 211 / 255, green: 198 / 255, blue: 82 / 255))
