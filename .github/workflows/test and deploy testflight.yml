@@ -126,7 +126,7 @@ jobs:
         run: |
           echo "$TESTFLIGHT_DEPLOY_CONF" | base64 -d > ./"$testflight_deploy_conf"
           echo "$APPSTORE_API_PRIVATE_KEY" | base64 -d > ./'private_keys/AuthKey_$PRIV_API_KEY.p8'
-          cat ./"$testflight_deploy_conf"
+          cat "./$testflight_deploy_conf"
       - name: Export archive to .ipa
         run: | 
           xcodebuild -exportArchive -archivePath "$archive_path/$scheme.xcarchive" -exportPath "$ipa_path" -exportOptionsPlist "$testflight_deploy_conf"
