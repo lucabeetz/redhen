@@ -1,8 +1,9 @@
 name: Test_and_Deploy
 
-on:
-  push:
-    branches: [ dev ]
+#on:
+#  pull_request:
+#    types: [ opened ]
+#    branches: [ stable ]
     
 jobs:
   get_scheme:
