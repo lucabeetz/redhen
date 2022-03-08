@@ -14,18 +14,18 @@ struct RestaurantDetailView: View {
         VStack(alignment: .leading, spacing: 8) {
             HStack(alignment: .top) {
                 VStack(alignment: .leading) {
-                    Text(restaurant.name)
+                    Text("Hans im Glück")
                         .font(.title2)
                         .fontWeight(.semibold)
                         .transition(.opacity)
                     
-                    Text("Burger and Cocktails")
+                    Text("Burgergrill & Bar")
                 }
                 
                 Spacer()
                 
                 VStack(alignment: .trailing) {
-                    Text("Open")
+                    Text("Geöffnet")
                         .font(.title3)
                         .fontWeight(.semibold)
                         .foregroundColor(.green)
@@ -36,7 +36,7 @@ struct RestaurantDetailView: View {
             
             HStack {
                 VStack(alignment: .leading) {
-                    Text("Address")
+                    Text("Adresse")
                         .foregroundColor(Color(UIColor.secondaryLabel))
                         .padding(.top, 4)
                     Text("Hauptstraße 20")
@@ -46,7 +46,7 @@ struct RestaurantDetailView: View {
             
             HStack {
                 VStack(alignment: .leading) {
-                    Text("Phone")
+                    Text("Telefon")
                         .foregroundColor(Color(UIColor.secondaryLabel))
                         .padding(.top, 4)
                     Text("+49 9131 6258780")
@@ -75,7 +75,7 @@ struct RestaurantDetailView: View {
                     }
                     
                     NavigationLink(destination: MenuView(restaurant: restaurant)) {
-                        Text("Menu")
+                        Text("Menü")
                             .font(.subheadline)
                             .fontWeight(.semibold)
                             .frame(width: 64, height: 32)

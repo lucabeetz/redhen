@@ -22,21 +22,21 @@ struct MenuARView: View {
                     print("Open menu")
                     showMenu = true
                 } label: {
-                    FloatingButtonView(iconName: "menucard", color: Color("henRed"))
+                    FloatingButtonView(iconName: "menucard", color: Color("greenHig"))
                 }
                 
                 Button() {
                     print("Add Entity")
                     menuARViewModel.placeObject = true
                 } label: {
-                    FloatingButtonView(iconName: "plus", color: Color("henRed"))
+                    FloatingButtonView(iconName: "plus", color: Color("greenHig"))
                 }
                 
                 Button() {
                     print("Show settings")
                     showSettings.toggle()
                 } label: {
-                    FloatingButtonView(iconName: "gearshape", color: Color("henRed"))
+                    FloatingButtonView(iconName: "gearshape", color: Color("greenHig"))
                 }
                 .sheet(isPresented: $showSettings) {
                     SettingsView(showSettings: $showSettings)

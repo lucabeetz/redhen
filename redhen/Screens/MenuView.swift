@@ -15,7 +15,7 @@ struct MenuView: View {
             MenuListView()
             
             NavigationLink(destination: MenuARView()) {
-                FloatingButtonView(iconName: "moon", color: Color(red: 211 / 255, green: 198 / 255, blue: 82 / 255))
+                FloatingButtonView(iconName: "moon", color: Color("greenHig"))
             }
             .padding(.trailing, 16)
             .padding(.bottom, 32)
