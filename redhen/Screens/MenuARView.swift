@@ -11,12 +11,20 @@ struct MenuARView: View {
     @EnvironmentObject var menuARViewModel: MenuARViewModel
     
     @State var showSettings = false
+    @State var showMenu = false
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
             ARDisplayView()
             
             VStack(spacing: 16) {
+                Button() {
+                    print("Open menu")
+                    showMenu = true
+                } label: {
+                    FloatingButtonView(iconName: "menucard", color: Color("henRed"))
+                }
+                
                 Button() {
                     print("Add Entity")
                     menuARViewModel.placeObject = true
@@ -47,6 +55,10 @@ struct MenuARView: View {
             .padding(.trailing, 16)
         }
         .ignoresSafeArea()
+        .sheet(isPresented: $showMenu) {
+            MenuListView()
+                .padding(.top, 8)
+        }
     }
 }
 

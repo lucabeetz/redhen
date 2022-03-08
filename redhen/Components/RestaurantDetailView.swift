@@ -12,11 +12,12 @@ struct RestaurantDetailView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            HStack {
+            HStack(alignment: .top) {
                 VStack(alignment: .leading) {
-                    Text("Hans im Glück")
+                    Text(restaurant.name)
                         .font(.title2)
                         .fontWeight(.semibold)
+                        .transition(.opacity)
                     
                     Text("Burger and Cocktails")
                 }
@@ -73,7 +74,7 @@ struct RestaurantDetailView: View {
                             .cornerRadius(8.0)
                     }
                     
-                    NavigationLink(destination: MenuListView()) {
+                    NavigationLink(destination: MenuView(restaurant: restaurant)) {
                         Text("Menu")
                             .font(.subheadline)
                             .fontWeight(.semibold)

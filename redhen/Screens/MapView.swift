@@ -23,11 +23,11 @@ struct MapView: View {
                 Map(coordinateRegion: $mapViewModel.region, showsUserLocation: true, userTrackingMode: .constant(.none), annotationItems: mapViewModel.restaurants) { restaurant in
                     MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: restaurant.location.lat, longitude: restaurant.location.lon), anchorPoint: CGPoint(x: 0.5, y: 0.95)) {
                         Button(action: {
-                            selectedRestaurant = restaurant
                             mapViewModel.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: restaurant.location.lat, longitude: restaurant.location.lon), span: mapViewModel.region.span)
                             
                             askToOpen = true
                             withAnimation(.easeInOut(duration: 0.2)) {
+                                selectedRestaurant = restaurant
                                 showRestaurantInfo = true
                             }
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.02) {
@@ -79,7 +79,7 @@ struct MapView: View {
                     }
                     .padding(.trailing, 16)
                 }
-                .padding(.bottom, 128)
+                .padding(.bottom, 64)
             }
             .ignoresSafeArea()
             .animation(Animation.easeIn(duration: 1), value: mapViewModel.region)

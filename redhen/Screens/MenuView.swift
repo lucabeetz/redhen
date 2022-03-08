@@ -1,62 +1,24 @@
 //
 //  MenuView.swift
-//  Menew
+//  Red Hen
 //
-//  Created by Luca Beetz on 21.02.22.
+//  Created by Luca Beetz on 06.03.22.
 //
 
 import SwiftUI
-import BetterSafariView
-
-struct OpenMenuViewButton<Content>: View where Content : View {
-    let restaurantToShow: Restaurant
-    let content: Content
-    
-    @State private var shownRestaurant: Restaurant?
-    
-    public var body: some View {
-        return Button(action: {
-            shownRestaurant = restaurantToShow
-        }) {
-            content
-        }
-        .safariView(
-            item: $shownRestaurant,
-            onDismiss: {
-                shownRestaurant = nil
-            },
-            content: {item in MenuView.SafariView(restaurant: item)}
-        )
-    }
-}
 
 struct MenuView: View {
     let restaurant: Restaurant
     
-    static func SafariView(restaurant: Restaurant) -> SafariView {
-        return BetterSafariView.SafariView(
-            url: URL(string: restaurant.menu![0])!,
-            configuration: BetterSafariView.SafariView.Configuration(
-                entersReaderIfAvailable: false,
-                barCollapsingEnabled: true
-            )
-        )
-        .preferredBarAccentColor(.clear)
-        .preferredControlAccentColor(.accentColor)
-        .dismissButtonStyle(.done)
-    }
-    
     var body: some View {
-        WebView(url: restaurant.menu![0])
-            .edgesIgnoringSafeArea(.bottom)
-            .navigationTitle(restaurant.name)
-            .navigationBarTitleDisplayMode(.inline)
-    }
-}
-
-struct MenuView_Previews: PreviewProvider {
-    static var previews: some View {
-        let restaurant = Restaurant(id: "1", name: "Galileo", menu: ["https://www.galileo-erlangen.de/wp-content/uploads/SpeisekarteOnline.pdf"], location: Location(lat: 10, lon: 10), type: RestaurantType.restaurant, ar: false)
-        MenuView(restaurant: restaurant)
+        ZStack(alignment: .bottomTrailing) {
+            MenuListView()
+            
+            NavigationLink(destination: MenuARView()) {
+                FloatingButtonView(iconName: "moon", color: Color(red: 211 / 255, green: 198 / 255, blue: 82 / 255))
+            }
+            .padding(.trailing, 16)
+            .padding(.bottom, 32)
+        }
     }
 }

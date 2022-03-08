@@ -27,7 +27,9 @@ struct ARDisplayView: UIViewRepresentable {
     func updateUIView(_ uiView: CustomARView, context: Context) {}
     
     private func updateScene(for arView: CustomARView) {
-        // arView.focusEntity!.isEnabled = true
+#if !targetEnvironment(simulator)
+        arView.focusEntity?.isEnabled = true
+#endif
         
         let mesh = MeshResource.generateBox(size: 0.1)
         let material = SimpleMaterial(color: .orange, roughness: 0.5, isMetallic: true)

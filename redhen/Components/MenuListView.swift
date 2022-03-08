@@ -12,20 +12,30 @@ struct MenuListView: View {
     
     var body: some View {
         ScrollView {
+            HStack {
+                Text("Burger - Vegan")
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                    .padding(.leading, 16)
+                
+                Spacer()
+            }
+            .padding(.top, 8)
+            
             ForEach(0..<2) { index in
                 MenuListItem(isExpanded: self.selectedIndex == index, chevronCallback: { selectDeselectItem(index) }, plusCallback: {})
                     .listRowInsets(EdgeInsets())
                     .onTapGesture {
                         print("Tapped on \(index)")
                     }
+                    .padding(.horizontal, 8)
             }
         }
-        .navigationTitle("Hans im Glück - Menu")
-        .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle("Hans im Glück")
     }
     
     private func selectDeselectItem(_ index: Int) {
-        withAnimation(.spring()) {
+        withAnimation(.easeInOut(duration: 0.2)) {
             if (selectedIndex == index) {
                 self.selectedIndex = nil
             } else {
@@ -41,10 +51,12 @@ struct MenuListItem: View {
     let chevronCallback: () -> Void
     let plusCallback: () -> Void
     
+    @State var isSelected = false
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack(alignment: .top, spacing: 8) {
-                Button(action: {}) {
+                NavigationLink(destination: MenuARView()) {
                     Image("burger")
                         .resizable()
                         .frame(width: isExpanded ? 84 : 64, height: isExpanded ? 84 : 64)
@@ -68,7 +80,7 @@ struct MenuListItem: View {
                         
                         Text("vegane Hähnchenalternative im Knuspermantel, vegane Goldscheibe & Trüffelsoße")
                             .lineLimit(isExpanded ? nil : 2)
-                            .font(.callout)
+                            .font(.footnote)
                             .foregroundColor(Color(UIColor.secondaryLabel))
                     }
                     .padding(.vertical, 8)
@@ -107,6 +119,5 @@ struct MenuListItem: View {
 struct MenuListView_Previews: PreviewProvider {
     static var previews: some View {
         MenuListView()
-        
     }
 }
